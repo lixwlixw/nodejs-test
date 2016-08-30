@@ -4,7 +4,26 @@
 
 <div class="m-navselect">
     <ul>
-        <!--<li v-for="name in obj" class="li{{$index}}"><img src="{{name.icon}}"/><span v-text="name.labelname"></span></li>-->
-        <li v-for="name in obj" class="li0{{$index}}"><span v-text="name.labelname"></span></li>
+        <li v-for="name in obj" class="li_{{$index}}" @click="selFun" >
+            <img name="{{name.labelname}}" mark="0" class="li_{{$index}}" :src="name.icon_web" />
+            <span v-text="name.labelname" class="li_{{$index}}"></span>
+        </li>
+
+
+
+        <!--<li v-for="name in obj" class="li{{$index}}">-->
+            <!--<div @mouseenter="li_enter" @click="li_click" class="li_{{$index}}" v-if="hoverStates[$index]='1'">-->
+                <!--&lt;!&ndash;<img :src='name.icon_web' />&ndash;&gt;-->
+                <!--<img :src='name.icon_web_hover'/>-->
+                <!--<span v-text="name.labelname"></span>-->
+            <!--</div>-->
+            <!--<div @mouseleave="li_leave" class="li_{{$index}}" v-else>-->
+                <!--<img :src='name.icon_web' />-->
+                <!--&lt;!&ndash;<img :src='name.icon_web_hover' />&ndash;&gt;-->
+                <!--<span v-text="name.labelname"></span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li v-for="name in obj" class="li0{{$index}}"><span v-text="name.labelname"></span></li>-->
+        <!--D:\localrepo\datahub_web_new\public\img\selects_new-->
     </ul>
 </div>

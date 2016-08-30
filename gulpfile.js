@@ -10,9 +10,9 @@ var gulp = require('gulp'),
     clean = require('gulp-clean');
 
 gulp.task('vue', function(done) {
-    return gulp.src('public/js/tt1.js')
+    return gulp.src('')
         .pipe(webpack( require('./webpack.config.js') ))
-        .pipe(gulp.dest('dist/public/js/'))
+        .pipe(gulp.dest('public/js/pagescript/'))
         .on('end', done);
 });
 

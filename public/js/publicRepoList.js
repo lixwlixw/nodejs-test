@@ -398,11 +398,16 @@ function repoListFun(thisJson) {
                     cache: false,
                     headers:headerToken,
                     url: "/api/selects?select_labels"+"&size="+thisJson.pageSize+"&page="+thisJson.thisPages,
+                    beforeSend: function () {
+                        console.log('before')
+                    },
                     success: function (msg) {
                         selectjson.allitemnums = msg.data.total;
                         selectjson.itemfornum = msg.data.select.length;
                         selectjson.itemarr = msg.data.select;
                         return selectjson;
+                    },
+                    complete:function(){
                     }
                 });
                 return selectjson;
@@ -461,8 +466,7 @@ function repoListFun(thisJson) {
                     allitemnums : 0
                 }
             	var searchOrSelect=thisJson.searchOrSelect;
-//            	if(searchOrSelect.match("\/")==null){
-                if(searchOrSelect.indexOf("\/")=="-1"){
+            	if(searchOrSelect.match("\/")==null){
                     $.ajax({
                         type: "get",
                         async: false,

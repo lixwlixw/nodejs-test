@@ -26,6 +26,7 @@ var vm0=new Vue({
     },
     methods:{
         msgReady:function(){
+
             if (this.msg==""){
                 $("#message").siblings().finish().hide();
                 $("#message").finish().show().fadeOut(3000);
@@ -35,8 +36,25 @@ var vm0=new Vue({
                 $("#message2").finish().show().fadeOut(3000);
                 //vm0.ready=false;
             }else{
-                $("#message2").hide();
-                //vm0.ready=true;
+                $.ajax({
+                    url:'/api/users/'+this.msg,
+                    type:'get',
+                    cache: false,
+                    async: false,
+                    dataType: 'json',
+                    success:function(d){
+                        if(d.code==0){
+                            $("#message2").hide();
+                            vm0.ready=true;
+                        }
+                    },
+                    error:function(){
+                        $("#message4").siblings().finish().hide();
+                        $("#message4").finish().show().fadeOut(3000);
+                        vm0.ready=false;
+                    }
+                });
+
             }
         },
         tt:function(){
@@ -49,8 +67,25 @@ var vm0=new Vue({
                 $("#message2").finish().show().fadeOut(3000);
                 vm0.ready=false;
             }else{
-                $("#message2").hide();
-                vm0.ready=true;
+                $.ajax({
+                    url:'/api/users/'+this.msg,
+                    type:'get',
+                    cache: false,
+                    async: false,
+                    dataType: 'json',
+                    success:function(d){
+                        if(d.code==0){
+                            $("#message2").hide();
+                            vm0.ready=true;
+                        }
+                    },
+                    error:function(){
+                        $("#message4").siblings().finish().hide();
+                        $("#message4").finish().show().fadeOut(3000);
+                        vm0.ready=false;
+                    }
+                });
+
             }
             if (vm0.ready==true) {
                 var loginname =this.msg;

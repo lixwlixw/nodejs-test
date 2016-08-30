@@ -30,6 +30,12 @@
 	    width: 15px;
 	    float: left;
 	}
+	.register{
+		color:#29abe2;
+	}
+	.register:hover{
+		color:#1998ce;
+	}
 	
 </style>
 <div style="min-height: 34px;">
@@ -55,12 +61,19 @@
 
 <button id='signs' class="btn m-btnlogin" @click="login">登录</button>
      
+<!--<div style="margin-top: 20px;">
+	<p class="text-center" style="margin-bottom: 0px;">
+	还没有账号？申请成为会员
+		<a href="mailto:datahub@asiainfo.com?subject=申请成为Datahub会员">
+	  		<img title="申请注册" class="shens" >
+	  	</a>
+	</p>
+</div>-->
+
+
 <div style="margin-top: 20px;">
 	<p class="text-center" style="margin-bottom: 0px;">
-	还没有账号？<a href="/reg" style="text-decoration: none">马上注册</a>
-		<!--<a href="mailto:datahub@asiainfo.com?subject=申请成为Datahub会员">-->
-	  		<!--<img title="申请注册" class="shens" >-->
-	  	<!--</a>-->
+		还没有账号？<a href="/reg" class="register">马上注册</a>
 	</p>
 </div>
 <script src="/js/util/formattime.js"></script>

@@ -1,10 +1,18 @@
 /**
  * Created by Max cheng on 2016/3/11.
  */
-    //立即订购弹窗居中
+
+//新增弹出daovioce
+
+$("#upcoming_release").click(function(){
+    daovoice('openNewMessage', '如何获取数据详情');
+    $(".daodream-powered-by").children().find("span").remove();
+});
+
+//立即订购弹窗居中
 //modalCen('p-modal');
 var dheight=$(window).height();
-console.log('dheight'+dheight);
+//console.log('dheight'+dheight);
 
 var subsubprocessheight=$(".subprocess").height();
 var newsubsubprocessheight=(dheight-subsubprocessheight)/2;
@@ -16,33 +24,33 @@ var successedheight=(dheight-successedheight)/2;
 $(".successed").css({top:successedheight+"px"});
 //申请订购弹窗居中
 var successedApplyheight=$(".successed_apply").height();
-console.log('successedApplyheight'+successedApplyheight);
+//console.log('successedApplyheight'+successedApplyheight);
 var newsuccessedApplyheight=(dheight-successedApplyheight)/2;
-console.log('newsuccessedApplyheight'+newsuccessedApplyheight);
+//console.log('newsuccessedApplyheight'+newsuccessedApplyheight);
 $(".successed_apply").css({top:newsuccessedApplyheight+"px"});
 
 
-    var i_flash;
-	var v_flash;
-	if (navigator.plugins) {
-		for (var i=0; i < navigator.plugins.length; i++) {
-			if (navigator.plugins[i].name.toLowerCase().indexOf("shockwave flash") >= 0) {
-				i_flash = true;
-				v_flash = navigator.plugins[i].description.substring(navigator.plugins[i].description.toLowerCase().lastIndexOf("flash ") + 6, navigator.plugins[i].description.length);
-			}
-		}
-	}
+var i_flash;
+var v_flash;
+if (navigator.plugins) {
+    for (var i=0; i < navigator.plugins.length; i++) {
+        if (navigator.plugins[i].name.toLowerCase().indexOf("shockwave flash") >= 0) {
+            i_flash = true;
+            v_flash = navigator.plugins[i].description.substring(navigator.plugins[i].description.toLowerCase().lastIndexOf("flash ") + 6, navigator.plugins[i].description.length);
+        }
+    }
+}
 
 
 
 //评论开始
 var replyJson={
-        headerToken:{Authorization:"Token "+$.cookie("token")},
-        loginitemname: $.cookie("tname"),  // 登录名
-        repoName:reponame,
-        itemName:itemname,
-        ismypublish:false, // 是否是我的发布
-        thispages:20//每页显示的条目数
+    headerToken:{Authorization:"Token "+$.cookie("token")},
+    loginitemname: $.cookie("tname"),  // 登录名
+    repoName:reponame,
+    itemName:itemname,
+    ismypublish:false, // 是否是我的发布
+    thispages:20//每页显示的条目数
 }
 var replyToAll = replyToAll(replyJson);
 replyToAll.thisInit();
@@ -134,24 +142,20 @@ $(document).ready(function(){
 
     switchover();//从我的订购评论按钮进来样式
 
-    buyLogic();//订购逻辑   
+    buyLogic();//订购逻辑
     $('[data-toggle="tooltip"]').tooltip();
-	$("button").focus(function(){this.blur()});
-
-
-    
-    
+    $("button").focus(function(){this.blur()});
 });
 
 //复制提示
 function copytip(text,event){
-	$("#tttcopys").remove();
-	event.after("" +
-			"<div style='float: right;margin-right: 22px;margin-top: -40px;' id='tttcopys' class='fadeInUp animated'>"+
-				"<div class='tooltip-inner' style='background-color:#333333;'>"+text+"</div>"+
-		    "</div>"
-	);
-	setTimeout("$('#tttcopys').addClass('fadeOut')", 1000);
+    $("#tttcopys").remove();
+    event.after("" +
+        "<div style='float: right;margin-right: 22px;margin-top: -40px;' id='tttcopys' class='fadeInUp animated'>"+
+        "<div class='tooltip-inner' style='background-color:#333333;'>"+text+"</div>"+
+        "</div>"
+    );
+    setTimeout("$('#tttcopys').addClass('fadeOut')", 1000);
 }
 
 var getData={
@@ -207,6 +211,8 @@ var getData={
                 $("#left_exam p:nth-child(1)").html(marked(Sample));
                 var Meta=json.data.Meta;//元数据
                 $("#left_unit p:nth-child(1)").html(marked(Meta));
+
+                //$(".left_content_con").html(marked(Meta));
                 var pricestate=json.data.pricestate;//获取付费状态
                 var price = json.data.price;//计费方式
                 if(price!=undefined||price!=null) {
@@ -281,118 +287,118 @@ var getData={
         })
     },
     star:function(){
-            var numstars = "";
-            //对star数据进行更新
-            $.ajax({
-                url: "/api" + "/star_stat/" + reponame + "/" + itemname,
-                type: "GET",
-                cache: false,
-                async: false,
-                dataType: 'json',
-                success: function (json) {
-                    numstars = json.data.numstars;
-                    $("#icon_heart_number").text(numstars);
+        var numstars = "";
+        //对star数据进行更新
+        $.ajax({
+            url: "/api" + "/star_stat/" + reponame + "/" + itemname,
+            type: "GET",
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (json) {
+                numstars = json.data.numstars;
+                $("#icon_heart_number").text(numstars);
 
-                }
-            });
-            $("#icon_heart").click(function () {
-                if(login=="true") {
-                 $.ajax({
-                        //获取star状态
-                        url: "/api" + "/star/" + reponame + "/" + itemname,
-                        type: "GET",
-                        cache: false,
-                        async: false,
-                        dataType: 'json',
-                        headers: {Authorization: "Token " + $.cookie("token")},
-                        success: function (json) {
-                            if (json.data.starred) {
-                                $("#icon_heart").css({
-                                    "background-image": "url('/img/icon_heart.png')",
-                                    "background-repeat": "no-repeat",
-                                    "background-position": "0px 1px",
-                                    "display": "inline-block",
-                                    "width": "25px",
-                                    "height": "25px"
-                                });
-                                //返回去star==0状态
-                                $.ajax({
-                                    url: "/api" + "/star/" + reponame + "/" + itemname + "?star=0",
-                                    type: "PUT",
-                                    cache: false,
-                                    async: false,
-                                    dataType: 'json',
-                                    headers: {Authorization: "Token " + $.cookie("token")},
-                                    success: function (json) {
-                                        if (json.code == 0) {
-                                            //对star数据进行更新
-                                            $.ajax({
-                                                url: "/api" + "/star_stat/" + reponame + "/" + itemname,
-                                                type: "GET",
-                                                cache: false,
-                                                async: false,
-                                                dataType: 'json',
-                                                //headers: {Authorization: "Token " + $.cookie("token")},
-                                                success: function (json) {
-                                                    numstars = json.data.numstars;
-                                                    $("#icon_heart_number").text(numstars);
-                                                }
-                                            });
-                                        }
+            }
+        });
+        $("#icon_heart").click(function () {
+            if(login=="true") {
+                $.ajax({
+                    //获取star状态
+                    url: "/api" + "/star/" + reponame + "/" + itemname,
+                    type: "GET",
+                    cache: false,
+                    async: false,
+                    dataType: 'json',
+                    headers: {Authorization: "Token " + $.cookie("token")},
+                    success: function (json) {
+                        if (json.data.starred) {
+                            $("#icon_heart").css({
+                                "background-image": "url('/img/icon_heart.png')",
+                                "background-repeat": "no-repeat",
+                                "background-position": "0px 1px",
+                                "display": "inline-block",
+                                "width": "25px",
+                                "height": "25px"
+                            });
+                            //返回去star==0状态
+                            $.ajax({
+                                url: "/api" + "/star/" + reponame + "/" + itemname + "?star=0",
+                                type: "PUT",
+                                cache: false,
+                                async: false,
+                                dataType: 'json',
+                                headers: {Authorization: "Token " + $.cookie("token")},
+                                success: function (json) {
+                                    if (json.code == 0) {
+                                        //对star数据进行更新
+                                        $.ajax({
+                                            url: "/api" + "/star_stat/" + reponame + "/" + itemname,
+                                            type: "GET",
+                                            cache: false,
+                                            async: false,
+                                            dataType: 'json',
+                                            //headers: {Authorization: "Token " + $.cookie("token")},
+                                            success: function (json) {
+                                                numstars = json.data.numstars;
+                                                $("#icon_heart_number").text(numstars);
+                                            }
+                                        });
+                                    }
 
-                                    }
-                                });
-                            }
-                            else {
-                                $("#icon_heart").css({
-                                    "background-image": "url('/img/icon_heart2.png')",
-                                    "background-repeat": "no-repeat",
-                                    "background-position": "0px 1px",
-                                    "display": "inline-block",
-                                    "width": "25px",
-                                    "height": "25px"
-                                });
-                                //返回去star==1状态
-                                $.ajax({
-                                    url: "/api" + "/star/" + reponame + "/" + itemname + "?star=1",
-                                    type: "PUT",
-                                    cache: false,
-                                    async: false,
-                                    dataType: 'json',
-                                    headers: {Authorization: "Token " + $.cookie("token")},
-                                    success: function (json) {
-                                        if (json.code == 0) {
-                                            //对star数据进行更新
-                                            $.ajax({
-                                                url: "/api" + "/star_stat/" + reponame + "/" + itemname,
-                                                type: "GET",
-                                                cache: false,
-                                                async: false,
-                                                dataType: 'json',
-                                                //headers: {Authorization: "Token " + $.cookie("token")},
-                                                success: function (json) {
-                                                    numstars = json.data.numstars;
-                                                    $("#icon_heart_number").text(numstars);
-                                                }
-                                            });
-                                        }
-                                    }
-                                });
-                            }
+                                }
+                            });
                         }
-                    });
-                }
-                else
-                {
-                    $(" .alert_login").css({"display":"block","left":"268px"}).show();
-                }
-            })
+                        else {
+                            $("#icon_heart").css({
+                                "background-image": "url('/img/icon_heart2.png')",
+                                "background-repeat": "no-repeat",
+                                "background-position": "0px 1px",
+                                "display": "inline-block",
+                                "width": "25px",
+                                "height": "25px"
+                            });
+                            //返回去star==1状态
+                            $.ajax({
+                                url: "/api" + "/star/" + reponame + "/" + itemname + "?star=1",
+                                type: "PUT",
+                                cache: false,
+                                async: false,
+                                dataType: 'json',
+                                headers: {Authorization: "Token " + $.cookie("token")},
+                                success: function (json) {
+                                    if (json.code == 0) {
+                                        //对star数据进行更新
+                                        $.ajax({
+                                            url: "/api" + "/star_stat/" + reponame + "/" + itemname,
+                                            type: "GET",
+                                            cache: false,
+                                            async: false,
+                                            dataType: 'json',
+                                            //headers: {Authorization: "Token " + $.cookie("token")},
+                                            success: function (json) {
+                                                numstars = json.data.numstars;
+                                                $("#icon_heart_number").text(numstars);
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+            else
+            {
+                $(" .alert_login").css({"display":"block","left":"268px"}).show();
+            }
+        })
     },
     chatShare:function(){
         //var str=[];
         var local_href=location.href;
-      /*  str=local_href.split(".html");
-        var local_href_new=str[0]+"Phone.html"+str[1];*/
+        /*  str=local_href.split(".html");
+         var local_href_new=str[0]+"Phone.html"+str[1];*/
         var qrcode= new AraleQRCode({
             render:"canvas ",
             text:local_href,
@@ -432,87 +438,408 @@ function tagInfo(nextpages){
         headers:headerToken,
         dataType: 'json',
         success: function (json) {
-            if (json.code == 0) {
-                tagNum = json.data.tags;
-                $("#nav1 > sup > span").text(tagNum);
-                var list_length = json.data.taglist.length;
-                var taglist = json.data.taglist;
-                for (var i = 0; i < list_length; i++) {
-                    var tag_tag = taglist[i].tag;
-                    var tag_comment = taglist[i].comment;
-                    var tag_time = taglist[i].optime;
-                    var arry=new Array();
-                    arry=tag_time.split("|");
+            //console.log('json:',json)
+            //console.log('json.data.label.sys.supply_style:',json.data.label.sys.supply_style)
+            if(json.data.label.sys.supply_style=='api'){
+                $('#nav1').replaceWith("<p id='nav1'>在线调用</p>")
+                var Meta=json.data.Meta;//元数据
+                var Sample=json.data.Sample;//样例数据
+                var $left_content = $("#left_content .left_content_con");
+                $left_content.append('<p></p>');
+                $(".left_content_con p").html(marked(Meta));
+                $('.left_content_con>p>h5:eq(0)').hide();
+                $('.left_content_con>p table+h5').hide();
+                $('.left_content_con>p h5+p').hide();
+                $('.left_content_con>p p+p').hide();
+                $(".left_content_con p table").after(marked(Sample));
+                $(".left_content_con p table").after("" +
+                    "<input class='showApiResult' type='button'style='width: 100px;height: 30px;border:none;background-color:#0099ff;color:white; margin-top: 10px; margin-bottom: 10px;' value='查看调用结果'>");
+                var tableContent=$('.left_content_con>p').find('table');
 
+                $('.left_content_con>p input+h5').hide();
+                $('.left_content_con>p input+h5+p').hide();
+                $('.left_content_con>p input+h5+p+h5').hide();
+                $('.left_content_con pre').css('display','none');
 
-                    var $left_content = $("#left_content .left_content_con");
-                    var $content = $("<div></div>").addClass("content").appendTo($left_content);
-                    var $content1_title = $("<div></div>").addClass("content1_title").appendTo($content);
-                    $content1_title.append($("<p></p>").text(tag_tag));
-                    $content1_title.append($("<p></p>").text(tag_comment));
+                //$('.left_content_con table tr>td:last-child').after('<td>ffff</td>');
+                var trLen=$('.left_content_con table tr');
 
-                    var $content1_time = $("<div></div>").addClass("content1_time").appendTo($content);
-                    $content1_time.append("<span></span>");
-                    $content1_time.append($("<span>2分钟以前</span>").text(arry[1]).attr({"data-toggle":"tooltip","datapalecement":"top","title":arry[0]}));
+                var tdfirst=$('.left_content_con table tr>td:first-child');
+                //console.log("trr:",trLen.length)
+                //console.log("tdfirst:",tdfirst)
+                var apiUrl=$('#left_exam p>p>a').text();//请求路径
 
-                    var $content1_pullNumber = $("<div></div>").addClass("content1_pullNumber").appendTo($content);
+                //console.log('apiUrl.indexOf:',apiUrl.indexOf('&',61))
+                //console.log('apiUrl',apiUrl);
+                var parametersValueArr=[];
+                var parameterskeyArr=[];
+                if(subscriptionsStates(reponame,itemname)==0){
+                    for(var i=0;i<trLen.length;i++){
+                        switch(i){
+                            case 0:
+                                var oneLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                //console.log(oneLine);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td style="text-align: center">值</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 1:
+                                var twoLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                var twoLineStart=apiUrl.indexOf(twoLine)+twoLine.length+1;
+                                var twoLineEnd=apiUrl.indexOf('&',twoLineStart);
+                                //console.log('twoLineStart',twoLineStart,'twoLineEnd',twoLineEnd)
+                                var twolineText=apiUrl.slice(twoLineStart,twoLineEnd);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td>'+twolineText+'</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 2:
+                                var threeLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                var threeLineStart=apiUrl.indexOf(threeLine)+threeLine.length+1;
+                                var threeLineEnd=apiUrl.indexOf('&',threeLineStart);
+                                var threeLineText=apiUrl.slice(threeLineStart,threeLineEnd);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td>'+threeLineText+'</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 3:
+                                var fourLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                var fourLineStart=apiUrl.indexOf(fourLine)+fourLine.length+1;
+                                var fourLineEnd=apiUrl.indexOf('&',fourLineStart);
+                                var fourLineText=apiUrl.slice(fourLineStart,fourLineEnd);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td>'+fourLineText+'</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 4:
+                                var fiveLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                var fiveLineStart=apiUrl.indexOf(fiveLine)+fiveLine.length+1;
+                                var fiveLineEnd=apiUrl.indexOf('&',fiveLineStart);
+                                var fiveLineText=apiUrl.slice(fiveLineStart,fiveLineEnd);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td>'+fiveLineText+'</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 5:
+                                var sixLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                var sixLineStart=apiUrl.indexOf(sixLine)+sixLine.length+1;
+                                var sixLineEnd=apiUrl.indexOf('&',sixLineStart);
+                                var sixLineText=apiUrl.slice(sixLineStart,sixLineEnd);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td>'+sixLineText+'</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                        }
+                    }
+                    $('.showApiResult').bind('click',function(){
+                        $('.left_content_con pre').show();
+                    });
 
-                    var $content1_copy = $("<div></div>").addClass("content1_copy").appendTo($content);
-                    var $content1_copy_div = $content1_copy.append("<div></div>");
-                    $content1_copy_div.append($("<input type='text'>").attr("value", reponame+"/"+ itemname+":"+ tag_tag).attr("id", "input_copy" + i).attr("readonly","readonly"));
-                    var clipbtn = $("<button data-original-title='复制tag地址，用于Client端下载' data-placement='top' data-toggle='tooltip' class='copyclip'>复制</button>").attr("data-clipboard-action", "copy").attr("data-clipboard-target", "#input_copy" + i).attr("data-clipboard-target-zero", "input_copy" + i);   
-                    
-                    
-                    if (i_flash) {
-                    	var clip = new ZeroClipboard(clipbtn);
-            			clip.on('aftercopy', function(event) {
-            				$('[data-toggle="tooltip"]').tooltip('hide');
-            				copytip("复制成功",$(event.target))
-            		    });
-            			clip.on('error', function (e) {
-            				$('[data-toggle="tooltip"]').tooltip('hide');
-            				copytip("复制失败",$(event.target))
-            		    });
-	            	}else{
-	            	      var clipboard = new Clipboard(".copyclip");
-	            	      clipboard.on('success', function (e) {
-	            	    	  $('[data-toggle="tooltip"]').tooltip('hide');
-	            	    	  copytip("复制成功",$(e.trigger.outerHTML))
-	            	      });
-	            	      clipboard.on('error', function (e) {
-	            	    	  $('[data-toggle="tooltip"]').tooltip('hide');
-	            	    	  copytip("复制失败",$(e.trigger.outerHTML))
-	            	      });			
-	            	}
-                    
-                    
-                    //复制功能结束
-                    $content1_copy_div.append(clipbtn);
-                    var content1_download = $("<div></div>").addClass("content1_download").appendTo($content);
-                    content1_download.append("<span data-original-title='下载量' data-toggle='tooltip' datapalecement='top'></span>");
-                    //获取tag的pull量
-                    var numMyPulls=0;
-                    $.ajax({
-                        url: "/api"  + "/transaction_stat/" + reponame + "/" + itemname + "/" + tag_tag,
-                        type: "GET",
-                        cache: false,
-                        async: false,
-                        dataType: 'json',
-                        headers:headerToken,
-                        success: function (json) {
-                            if (json.code == 0) {
-                                //$(".content1_pullNumber span:nth-child(2)").text("pull:" + json.data.nummypulls);
-                                numMyPulls=json.data.nummypulls;
-                                content1_download.append("<p>"+json.data.numpulls+"</p>");
+                }else{
+                    for(var i=0;i<trLen.length;i++){
+                        switch(i){
+                            case 0:
+                                var oneLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                //console.log(oneLine);
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td style="text-align: center">值</td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 1:
+                                var twoLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(twoLine);
+                                var twoLineStart=apiUrl.indexOf(twoLine)+twoLine.length+1;
+                                var twoLineEnd=apiUrl.indexOf('&',twoLineStart);
+                                //console.log('twoLineStart',twoLineStart,'twoLineEnd',twoLineEnd)
+                                var twolineText=apiUrl.slice(twoLineStart,twoLineEnd);
+                                if(twolineText.match('/')!=null){
+                                    twolineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+twolineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 2:
+                                var threeLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(threeLine);
+                                var threeLineStart=apiUrl.indexOf(threeLine)+threeLine.length+1;
+                                var threeLineEnd=apiUrl.indexOf('&',threeLineStart);
+                                var threeLineText=apiUrl.slice(threeLineStart,threeLineEnd);
+                                if(threeLineText.match('/')!=null){
+                                    threeLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+threeLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 3:
+                                var fourLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(fourLine);
+                                var fourLineStart=apiUrl.indexOf(fourLine)+fourLine.length+1;
+                                var fourLineEnd=apiUrl.indexOf('&',fourLineStart);
+                                var fourLineText=apiUrl.slice(fourLineStart,fourLineEnd);
+                                if(fourLineText.match('/')!=null){
+                                    fourLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+fourLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 4:
+                                var fiveLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(fiveLine);
+                                var fiveLineStart=apiUrl.indexOf(fiveLine)+fiveLine.length+1;
+                                var fiveLineEnd=apiUrl.indexOf('&',fiveLineStart);
+                                var fiveLineText=apiUrl.slice(fiveLineStart,fiveLineEnd);
+                                if(fiveLineText.match('/')!=null){
+                                    fiveLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+fiveLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 5:
+                                var sixLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(sixLine);
+                                var sixLineStart=apiUrl.indexOf(sixLine)+sixLine.length+1;
+                                var sixLineEnd=apiUrl.indexOf('&',sixLineStart);
+                                var sixLineText=apiUrl.slice(sixLineStart,sixLineEnd);
+                                if(sixLineText.match('/')!=null){
+                                    sixLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+sixLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 6:
+                                var sevenLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(sevenLine);
+                                var sevenLineStart=apiUrl.indexOf(sevenLine)+sevenLine.length+1;
+                                var sevenLineEnd=apiUrl.indexOf('&',sevenLineStart);
+                                var sevenLineText=apiUrl.slice(sevenLineStart,sevenLineEnd);
+                                if(sevenLineText.match('/')!=null){
+                                    sevenLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+sevenLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 7:
+                                var EightLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(EightLine);
+                                var EightLineStart=apiUrl.indexOf(EightLine)+EightLine.length+1;
+                                var EightLineEnd=apiUrl.indexOf('&',EightLineStart);
+                                var EightLineText=apiUrl.slice(EightLineStart,EightLineEnd);
+                                if(EightLineText.match('/')!=null){
+                                    EightLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+EightLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 8:
+                                var nineLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(nineLine);
+                                var nineLineStart=apiUrl.indexOf(nineLine)+nineLine.length+1;
+                                var nineLineEnd=apiUrl.indexOf('&',nineLineStart);
+                                var nineLineText=apiUrl.slice(nineLineStart,nineLineEnd);
+                                if(nineLineText.match('/')!=null){
+                                    nineLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+nineLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 9:
+                                var tenLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(tenLine);
+                                var tenLineStart=apiUrl.indexOf(tenLine)+tenLine.length+1;
+                                var tenLineEnd=apiUrl.indexOf('&',tenLineStart);
+                                var tenLineText=apiUrl.slice(tenLineStart,tenLineEnd);
+                                if(tenLineText.match('/')!=null){
+                                    tenLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+tenLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                            case 10:
+                                var lelvenLine= $(".left_content_con table tr:eq('"+i+"')").find("td:first").text();
+                                parameterskeyArr.push(lelvenLine);
+                                var lelvenLineStart=apiUrl.indexOf(lelvenLine)+lelvenLine.length+1;
+                                var lelvenLineEnd=apiUrl.indexOf('&',lelvenLineStart);
+                                var lelvenLineText=apiUrl.slice(lelvenLineStart,lelvenLineEnd);
+                                if(lelvenLineText.match('/')!=null){
+                                    lelvenLineText='';
+                                }
+                                $(".left_content_con table tr:eq('"+i+"')").find("td:last").after('<td><input class="parameterValue" type="text" value="'+lelvenLineText+'"></td>');
+                                if(trLen.length==i+1){
+                                    break;
+                                }else{
+                                    continue;
+                                }
+                        }
+                    }
+                    $('.showApiResult').bind('click',function(){
+                        //$('.left_content_con pre').show();
+                        var tdLast=$('.left_content_con table tr>td:last-child');
+                        for(var i=0;i<tdLast.length;i++){
+                            if(i==0){
+                                continue;
                             }
+                            parametersValueArr.push($('.left_content_con table tr:eq('+i+')>td').find('input').val());
+                            //console.log($('.left_content_con table tr:eq('+i+')>td').find('input').val())
+                        }
+
+                        //console.log('parameterskeyArr',parameterskeyArr);
+                        //console.log('parametersValueArr',parametersValueArr);
+                        var len=parameterskeyArr.length;
+                        var user=$.cookie('tname');
+                        //console.log('headerToken:',headerToken)
+                        //console.log('reponame'+data.reponame)
+                        //console.log('itemname'+data.itemname)
+                        var token=$.cookie('token');
+                        var keyArr=parameterskeyArr;
+                        var valueArr=parametersValueArr;
+                        var reponame=data.reponame;
+                        var itemname=data.itemname;
+
+
+
+                        var apiData=getApiData(len,user,token,keyArr,valueArr,reponame,itemname);
+                        //console.log('apiData:',apiData);
+                        if(apiData==undefined||apiData==null){
+                            // $('.reqResult').fadeOut();
+                            if($('.reqResult').length==0){
+                                $('.showApiResult').after('<pre class="reqResult" style="margin: 10px;">请求结果为空！</pre>');
+                            }
+                        }else{
+                            apiData=JSON.stringify(apiData);
+                            $('.showApiResult').after('<pre style="margin: 10px;word-wrap: break-word;white-space:pre-wrap;">'+apiData+'</pre>');
                         }
                     });
-                    if(login=="true"){
-                         $content1_pullNumber.append("<span data-original-title='我的下载量' data-toggle='tooltip' datapalecement='top'></span>");
-                         $content1_pullNumber.append("<span>Pull:"+numMyPulls+"</span>");
+
+
+                }
+                $('.left_content_con p').hide();
+            }else{
+
+                if (json.code == 0) {
+                    tagNum = json.data.tags;
+                    $("#nav1 > sup > span").text(tagNum);
+                    var list_length = json.data.taglist.length;
+                    var taglist = json.data.taglist;
+                    for (var i = 0; i < list_length; i++) {
+                        var tag_tag = taglist[i].tag;
+                        var tag_comment = taglist[i].comment;
+                        var tag_time = taglist[i].optime;
+                        var arry=new Array();
+                        arry=tag_time.split("|");
+
+
+                        var $left_content = $("#left_content .left_content_con");
+                        var $content = $("<div></div>").addClass("content").appendTo($left_content);
+                        var $content1_title = $("<div></div>").addClass("content1_title").appendTo($content);
+                        $content1_title.append($("<p></p>").text(tag_tag));
+                        $content1_title.append($("<p></p>").text(tag_comment));
+
+                        var $content1_time = $("<div></div>").addClass("content1_time").appendTo($content);
+                        $content1_time.append("<span></span>");
+                        $content1_time.append($("<span>2分钟以前</span>").text(arry[1]).attr({"data-toggle":"tooltip","datapalecement":"top","title":arry[0]}));
+
+                        var $content1_pullNumber = $("<div></div>").addClass("content1_pullNumber").appendTo($content);
+
+                        var $content1_copy = $("<div></div>").addClass("content1_copy").appendTo($content);
+                        var $content1_copy_div = $content1_copy.append("<div></div>");
+                        $content1_copy_div.append($("<input type='text'>").attr("value", reponame+"/"+ itemname+":"+ tag_tag).attr("id", "input_copy" + i).attr("readonly","readonly"));
+                        var clipbtn = $("<button data-original-title='复制tag地址，用于Client端下载' data-placement='top' data-toggle='tooltip' class='copyclip'>复制</button>").attr("data-clipboard-action", "copy").attr("data-clipboard-target", "#input_copy" + i).attr("data-clipboard-target-zero", "input_copy" + i);
+
+
+                        if (i_flash) {
+                            var clip = new ZeroClipboard(clipbtn);
+                            clip.on('aftercopy', function(event) {
+                                $('[data-toggle="tooltip"]').tooltip('hide');
+                                copytip("复制成功",$(event.target))
+                            });
+                            clip.on('error', function (e) {
+                                $('[data-toggle="tooltip"]').tooltip('hide');
+                                copytip("复制失败",$(event.target))
+                            });
+                        }else{
+                            var clipboard = new Clipboard(".copyclip");
+                            clipboard.on('success', function (e) {
+                                $('[data-toggle="tooltip"]').tooltip('hide');
+                                copytip("复制成功",$(e.trigger.outerHTML))
+                            });
+                            clipboard.on('error', function (e) {
+                                $('[data-toggle="tooltip"]').tooltip('hide');
+                                copytip("复制失败",$(e.trigger.outerHTML))
+                            });
+                        }
+
+
+                        //复制功能结束
+                        $content1_copy_div.append(clipbtn);
+                        var content1_download = $("<div></div>").addClass("content1_download").appendTo($content);
+                        content1_download.append("<span data-original-title='下载量' data-toggle='tooltip' datapalecement='top'></span>");
+                        //获取tag的pull量
+                        var numMyPulls=0;
+                        $.ajax({
+                            url: "/api"  + "/transaction_stat/" + reponame + "/" + itemname + "/" + tag_tag,
+                            type: "GET",
+                            cache: false,
+                            async: false,
+                            dataType: 'json',
+                            headers:headerToken,
+                            success: function (json) {
+                                if (json.code == 0) {
+                                    //$(".content1_pullNumber span:nth-child(2)").text("pull:" + json.data.nummypulls);
+                                    numMyPulls=json.data.nummypulls;
+                                    content1_download.append("<p>"+json.data.numpulls+"</p>");
+                                }
+                            }
+                        });
+                        if(login=="true"){
+                            $content1_pullNumber.append("<span data-original-title='我的下载量' data-toggle='tooltip' datapalecement='top'></span>");
+                            $content1_pullNumber.append("<span>Pull:"+numMyPulls+"</span>");
+                        }
                     }
                 }
             }
+
+
         },
         error:function(json){
             if ($.parseJSON(json.responseText).code == 1006) {
@@ -521,18 +848,18 @@ function tagInfo(nextpages){
             }
         }
     });
-        $(".left_content_page").pagination(tagNum, {
-            maxentries:tagNum,
-            items_per_page: 30,
-            num_display_entries: 5,
-            num_edge_entries: 5 ,
-            prev_text:"上一页",
-            next_text:"下一页",
-            ellipse_text:"...",
-            link_to:"javascript:void(0)",
-            callback:netpage,
-            load_first_page:false
-        });
+    $(".left_content_page").pagination(tagNum, {
+        maxentries:tagNum,
+        items_per_page: 30,
+        num_display_entries: 5,
+        num_edge_entries: 5 ,
+        prev_text:"上一页",
+        next_text:"下一页",
+        ellipse_text:"...",
+        link_to:"javascript:void(0)",
+        callback:netpage,
+        load_first_page:false
+    });
 }
 function netpage(new_page_index){
     $("#left_content .left_content_con").empty();
@@ -606,10 +933,10 @@ function netpage(new_page_index){
                             }
                         }
                     });
-                      if(login=="true"){
-                     $content1_pullNumber.append("<span data-original-title='我的下载量' data-toggle='tooltip' datapalecement='top'></span>");
-                     $content1_pullNumber.append("<span>Pull:"+numMyPulls+"</span>");
-                     }
+                    if(login=="true"){
+                        $content1_pullNumber.append("<span data-original-title='我的下载量' data-toggle='tooltip' datapalecement='top'></span>");
+                        $content1_pullNumber.append("<span>Pull:"+numMyPulls+"</span>");
+                    }
 
                 }
                 //$("<div></div>").addClass("left_content_page").appendTo($left_content);
@@ -643,7 +970,7 @@ function switchover(){
 }
 
 //tag、样例数据、元数据切换
-$("#left_nav>p").on("click",function(){
+$("body").on("click","#left_nav>p",function(){
     var index=$(this).index();
     nav_index = $(this).index();
     $(this).addClass('borderBt');
@@ -652,17 +979,88 @@ $("#left_nav>p").on("click",function(){
     //$("#left_nav>p:eq("+index+")" ).css({" border-bottom":"4px solid #8c97cb"," font-weight":"bold"});
     $("#left_contentALL>div:eq("+index+")").show().siblings().hide();
 });
-$("#left_nav>p").on("mouseover",function(){
+$("body").on("mouseover","#left_nav>p",function(){
     $(this).addClass('borderBt');
     $(this).siblings().removeClass('borderBt');
 })
-$("#left_nav>p").on("mouseout",function(){
+$("body").on("mouseout","#left_nav>p",function(){
     $("#left_nav>p").eq(nav_index).addClass('borderBt').siblings().removeClass('borderBt');
 })
 function tablesheet(){
     $("#left_unit table tbody tr:odd").css({"background-color":"#f3f3f3","height":"35px","width":"60px"});
     $("#left_unit table tbody tr:even").css({"background-color":"#f1f6fa","height":"35px","width":"60px"});
 }
+//判断是否订购需要token
+function subscriptionsStates(reponame,itemname){
+    //GET /subscriptions/pull/:repname/:itemname?groupbydate=[0|1]&legal=[0|1]&phase={phase}&page={page}&size={size}&username={username}
+    var url='/api/subscriptions/pull/'+reponame+'/'+itemname+'?phase=1&size=100';
+    var headerToken=this.headerToken;
+    getAjax(url,headerToken,function(json){
+        //console.log(json.data.total)
+        return json.data.total;
+    });
+}
+
+//获取在线调用的url
+// function getApiData(len,user,token,keyArr,valueArr,reponame,itemname){
+//     var url='';
+//     var data;
+//     //http://api.dataos.io:8088/query?authuser=shendf@asiainfo.com&token=4ce487907af52c94ae5160c7136d3803&lat=39.9928&lng=116.3961&cst=1&accuracy=0&ctype=1&repo=Location&item=Coordinate_location
+//         //动态参数
+//         switch(len){
+//             case 1:
+//
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             //return url;
+//             case 2:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             //return url;
+//             case 3:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             //return url;
+//             case 4:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 5:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 6:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&'+keyArr[6]+'='+valueArr[6]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 7:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&'+keyArr[6]+'='+valueArr[6]+'&'+keyArr[7]+'='+valueArr[7]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 8:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&'+keyArr[6]+'='+valueArr[6]+'&'+keyArr[7]+'='+valueArr[7]+'&'+keyArr[8]+'='+valueArr[8]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 9:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&'+keyArr[6]+'='+valueArr[6]+'&'+keyArr[7]+'='+valueArr[7]+'&'+keyArr[8]+'='+valueArr[8]+'&'+keyArr[9]+'='+valueArr[9]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 10:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&'+keyArr[6]+'='+valueArr[6]+'&'+keyArr[7]+'='+valueArr[7]+'&'+keyArr[8]+'='+valueArr[8]+'&'+keyArr[9]+'='+valueArr[9]+'&'+keyArr[10]+'='+valueArr[10]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             case 11:
+//                 url='http://api.dataos.io:9091/'+reponame+'/'+itemname+'?authuser='+user+'&appkey='+token+'&'+keyArr[0]+'='+valueArr[0]+'&'+keyArr[1]+'='+valueArr[1]+'&'+keyArr[2]+'='+valueArr[2]+'&'+keyArr[3]+'='+valueArr[3]+'&'+keyArr[4]+'='+valueArr[4]+'&'+keyArr[5]+'='+valueArr[5]+'&ctype=1&repo='+reponame+'&item='+itemname;
+//                 break;
+//             //return url;
+//         }
+//     //console.log("url:"+url);
+//     $.ajax({
+//         url:url,
+//         type:'get',
+//         cache:false,
+//         async:false,
+//         success:function(json){
+//             data=json;
+//         }
+//     })
+//     return data;
+// // }
+
+
 function getAjax(url,headerToken,func){
     $.ajax({
         url:url,
@@ -671,58 +1069,61 @@ function getAjax(url,headerToken,func){
         async:false,
         headers:headerToken,
         success:function(json){
-        func(json);
+            func(json);
+        },
+        error:function(){
+
         }
     })
 }
 //订购逻辑
-function buyLogic(){
-    if(login=="false") {
-        //登录前进行正在发布情况的判断
-        var tagNum=$("#nav1>sup>span").text();
-        var priceIndex=$("#LT-right .form-control option").val();
-        if(tagNum==0||priceIndex==undefined||priceIndex==""){
-            $("#upcoming_release").show().siblings().hide();
-        }
-        //$("#hurry_buy").text("登录后订购");
 
-        $("#hurry_buy").click(function(){
-            $(".alert_login").css({"display": "block", "left": "706px"}).show();
-        });
-    }
-    else{
-        $.ajax({
-            url: "/api" + "/repositories/" + reponame + "/" + itemname,
-            type: "get",
-            cache: false,
-            async: false,
-            headers: headerToken,
-            dataType: 'json',
-            success: function (json) {
-                var tags=json.data.tags;
-                var price=json.data.price;
-                if(tags==0||price==null||price=="undefined"|| price==undefined||price=="")
-                {
-                    $("#cancel_buy").hide();
-                    $("#hurry_buy").hide();
-                    $("#apply_buy").hide();
-                    $("#price_plan").hide();
-                    $("#upcoming_release").show();
-                }
-                else {
-                    $.ajax({
-                        url: "/api"+"/repositories/"+reponame+"/"+itemname+"?haspermission=1",
-                        type: "get",
-                        cache:false,
-                        data:{},
-                        async:false,
-                        headers:headerToken,
-                        dataType:'json',
-                        success:function(json){
-                            var permission=json.data.permission;
-                            //alert("permission:"+permission);
-                            if(permission==false||permission=="false")
-                            {
+// 联系客服 立刻订购 申请订购     取消订购
+//针对api类型 价格为空
+//非api tag==0 价格为空
+// if(tag==0&&name!=api||price==undefined)
+function buyLogic(){
+    $.ajax({
+        url: "/api" + "/repositories/" + reponame + "/" + itemname,
+        type: "get",
+        cache: false,
+        async: false,
+        headers: headerToken,
+        dataType: 'json',
+        success: function (json){
+            console.log('111111',json)
+            var tags=json.data.tags;
+            var price=json.data.price;
+            var supply_style=json.data.label.sys.supply_style.toLowerCase();
+            console.log('tags:',tags)
+            console.log('price:',price)
+            console.log('supply_style:',supply_style)
+
+            if((price==null||price=="undefined"|| price==undefined||price=="")||(tags==0&&supply_style!='api'))
+            {
+                //联系客服
+                $("#cancel_buy").hide();
+                $("#hurry_buy").hide();
+                $("#apply_buy").hide();
+                $("#price_plan").hide();
+                $("#upcoming_release").show();
+            }else{
+
+                $.ajax({
+                    url: "/api" + "/repositories/" + reponame + "/" + itemname + "?haspermission=1",
+                    type: "get",
+                    cache: false,
+                    data: {},
+                    async: false,
+                    headers: headerToken,
+                    dataType: 'json',
+                    success: function (json) {
+                        var permission=json.data.permission;
+                        console.log('permission:',permission)
+                        if(permission==false||permission=="false"){
+                            // alert(login);
+                            //申请订购
+                            if(login=='true'){
                                 $.ajax({
                                     url: "/api"+"/subscription/"+reponame+"/"+itemname+"/apply",
                                     type: "get",
@@ -731,6 +1132,7 @@ function buyLogic(){
                                     headers:headerToken,
                                     dataType:'json',
                                     success:function(json){
+                                        // console.log('bbbbbbbb',json)
                                         if(json.code==0){
                                             //alert("json.data:"+json.data);
                                             if(json.data=="undefined"||json.data==undefined||json.data==null||json.data=="null")
@@ -749,29 +1151,165 @@ function buyLogic(){
                                         }
                                     }
                                 });
+                            }else{
+                                $("#apply_buy").show();
+                                $("#hurry_buy").hide();
+                                $("#cancel_buy").hide();
                             }
-                            else {
+
+                        }else{
+                            //立即订购
+                            if(login=='true'){
                                 $("#hurry_buy").show();
                                 $("#cancel_buy").hide();
                                 $("#apply_buy").hide();
                                 hurry_buy();
+                            }else{
+                                $("#hurry_buy").show();
+                                $("#cancel_buy").hide();
+                                $("#apply_buy").hide();
                             }
                         }
-                    });
-
-
-                }
+                    },
+                    error:function(e){
+                        console.log(e);
+                    }
+                });
             }
-        });
-    }
+        },
+        error:function(e){
+            console.log(e);
+        }
+    });
+    //价格框和联系客服只显示一种
     var upcomsta=$("#upcoming_release").is(":visible");
-    //var display =$('#upcoming_release').css('display');
     if(upcomsta){
         $(".price-style").hide();
     }else{
         $(".price-style").show();
     }
+    if(login=="false") {
+        //登录前进行正在发布情况的判断
+
+        $('#hurry_buy').on('click',function(){
+            console.log('hurry')
+            $(".alert_login").css({"display": "block", "left": "706px"}).show();
+        });
+        $('#apply_buy').on('click',function(){
+            console.log('apply')
+            $(".alert_login").css({"display": "block", "left": "706px"}).show();
+        });
+    }
+
 }
+
+// function buyLogic(){
+//
+//         if(login=="false") {
+//         //登录前进行正在发布情况的判断
+//         var tagNum=$("#nav1>sup>span").text();
+//         var priceIndex=$("#LT-right .form-control option").val();
+//         if(tagNum==0||priceIndex==undefined||priceIndex==""){
+//             $("#upcoming_release").show().siblings().hide();
+//         }
+//         //$("#hurry_buy").text("登录后订购");
+//
+//         $("#hurry_buy").click(function(){
+//             $(".alert_login").css({"display": "block", "left": "706px"}).show();
+//         });
+//     }
+//     else{
+//         $.ajax({
+//             url: "/api" + "/repositories/" + reponame + "/" + itemname,
+//             type: "get",
+//             cache: false,
+//             async: false,
+//             headers: headerToken,
+//             dataType: 'json',
+//             success: function (json) {
+//                 console.log('qqqqqqqq',json)
+//                 var tags=json.data.tags;
+//                 var price=json.data.price;
+//                 // console.log('json:',json);
+//                 var supply_style=json.data.label.sys.supply_style.toLowerCase();
+//                 // console.log('tags:',tags)
+//                 // console.log('price:',price)
+//                 // console.log('supply_style:',supply_style)
+//                 if((price==null||price=="undefined"|| price==undefined||price=="")||(tags==0&&supply_style!='api'))
+//                 // if(tags==0||price==null||price=="undefined"|| price==undefined||price=="")
+//                 {
+//                     $("#cancel_buy").hide();
+//                     $("#hurry_buy").hide();
+//                     $("#apply_buy").hide();
+//                     $("#price_plan").hide();
+//                     $("#upcoming_release").show();
+//                 }
+//                 else {
+//                     $.ajax({
+//                         url: "/api"+"/repositories/"+reponame+"/"+itemname+"?haspermission=1",
+//                         type: "get",
+//                         cache:false,
+//                         data:{},
+//                         async:false,
+//                         headers:headerToken,
+//                         dataType:'json',
+//                         success:function(json){
+//                             console.log('aaaaaaaaaaaaaaa',json)
+//                             var permission=json.data.permission;
+//                             //alert("permission:"+permission);
+//                             if(permission==false||permission=="false")
+//                             {
+//                                 $.ajax({
+//                                     url: "/api"+"/subscription/"+reponame+"/"+itemname+"/apply",
+//                                     type: "get",
+//                                     cache:false,
+//                                     async:false,
+//                                     headers:headerToken,
+//                                     dataType:'json',
+//                                     success:function(json){
+//                                         console.log('bbbbbbbb',json)
+//                                         if(json.code==0){
+//                                             //alert("json.data:"+json.data);
+//                                             if(json.data=="undefined"||json.data==undefined||json.data==null||json.data=="null")
+//                                             {
+//                                                 alert()
+//                                                 $("#apply_buy").show();
+//                                                 $("#hurry_buy").hide();
+//                                                 $("#cancel_buy").hide();
+//                                                 // apply_buy();
+//                                             }
+//                                             else {
+//                                                 $("#cancel_buy").show();
+//                                                 $("#hurry_buy").hide();
+//                                                 $("#apply_buy").hide();
+//                                                 // cancel_buy();
+//                                             }
+//                                         }
+//                                     }
+//                                 });
+//                             }
+//                             else {
+//                                 $("#hurry_buy").show();
+//                                 $("#cancel_buy").hide();
+//                                 $("#apply_buy").hide();
+//                                 // hurry_buy();
+//                             }
+//                         }
+//                     });
+//
+//
+//                 }
+//             }
+//         });
+//     }
+//     var upcomsta=$("#upcoming_release").is(":visible");
+//     //var display =$('#upcoming_release').css('display');
+//     if(upcomsta){
+//         $(".price-style").hide();
+//     }else{
+//         $(".price-style").show();
+//     }
+// }
 
 //立即订购
 function hurry_buy(){
@@ -781,7 +1319,7 @@ function hurry_buy(){
     }
     var limitBoo=false;
     $("#hurry_buy").click(function(e){
-    	$("#p-modal").css({top:"50px"});
+        $("#p-modal").css({top:"50px"});
         $(".repnamePm").text(reponame);
         $(".itemnamePm").text(itemname);
         var price_plan=$("#price_plan").text();
@@ -881,6 +1419,7 @@ function hurry_buy(){
                 },
                 error:function(json){
                     if ($.parseJSON(json.responseText).code == 5008||$.parseJSON(json.responseText).code == 5007) {
+                        // if ($.parseJSON(json.responseText).code == 5007) {
                         $("#myself_alert").show().fadeOut(2500);
                         myself=false;
                     }
@@ -1011,7 +1550,7 @@ function hurry_buy(){
 
         //process
 
-        
+
         $("#subscriptDialog .modal-header").show();
         $("#myModalLabel").text("签约中");
         $("#subscriptDialog .modal-header .close").hide();
@@ -1066,13 +1605,13 @@ function hurry_buy(){
                         dataType:'json',
                         headers:header,
                         success:function(json){
-                        	
+
                             if(json.code == 0){
                                 setTimeout(function() {
                                     clearInterval(timer);
                                     $("#subscriptDialog .modal-header").show();
                                     $("#subscriptDialog .subprocess").hide();
-                                    $("#myModalLabel").text("签约结果");        
+                                    $("#myModalLabel").text("签约结果");
                                     $("#p-modal").css({top:(successedheight-60)+"px"});
                                     $("#subscriptDialog .subafterprocess .successed").show();
                                     $("#subscriptDialog .modal-header .close").show();
@@ -1111,7 +1650,7 @@ function hurry_buy(){
                 }
             }
         });
-       // modalCen('p-modal');
+        // modalCen('p-modal');
     });
 }
 
@@ -1163,7 +1702,6 @@ function apply_buy(){
                                         //alert("您的有限免费额度已经用完，请选择其他计费包。");
                                         $("#limit_buy_alert").show().fadeOut(2500);
                                     }
-
                                 }
                             });
                         }
@@ -1214,6 +1752,7 @@ function apply_buy(){
                 },
                 error:function(json){
                     if ($.parseJSON(json.responseText).code == 5008||$.parseJSON(json.responseText).code == 5007) {
+                        // if ($.parseJSON(json.responseText).code == 5007) {
                         $("#myself_alert").show().fadeOut(2500);
                     }
                 }
@@ -1238,6 +1777,7 @@ function apply_buy(){
                 },
                 error:function(json){
                     if ($.parseJSON(json.responseText).code == 5008||$.parseJSON(json.responseText).code == 5007) {
+                        // if ($.parseJSON(json.responseText).code == 5007) {
                         $("#myself_alert").show().fadeOut(2500);
                         myself=false;
                     }
@@ -1399,8 +1939,8 @@ function apply_buy(){
             dataType:'json',
             headers:headerToken,
             success:function(json){
-             /*   $("#myModalLabel").text("申请签约结果");
-                $("#subscriptDialog .modal-header .close").show();*/
+                /*   $("#myModalLabel").text("申请签约结果");
+                 $("#subscriptDialog .modal-header .close").show();*/
                 if(json.code == 0){
                     setTimeout(function() {
                         clearInterval(timer);
@@ -1446,7 +1986,7 @@ function apply_buy(){
                 //}
             }
         });
-       // modalCen('p-modal');
+        // modalCen('p-modal');
     });
 }
 
@@ -1483,6 +2023,7 @@ function cancel_buy(){
                     },
                     error:function(json){
                         if ($.parseJSON(json.responseText).code == 5008||$.parseJSON(json.responseText).code == 5007) {
+                            // if ($.parseJSON(json.responseText).code == 5007) {
                             $("#myself_alert").show().fadeOut(2500);
                             location.reload();
                         }
@@ -1492,3 +2033,4 @@ function cancel_buy(){
         });
     });
 }
+

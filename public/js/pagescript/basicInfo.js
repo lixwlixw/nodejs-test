@@ -13,9 +13,9 @@ var accountInfo=new Vue({
         regtime:0,
         membership:'',
         endTime:0,
-        username:'sss',
-        nickname:'sss',
-        comment:'sss',
+        username:'',
+        nickname:'',
+        comment:'',
         s:0,
         y:0
     },
@@ -34,9 +34,12 @@ var accountInfo=new Vue({
             }
         },
         comment:function(val){
-            if(val.length<100){
+            if(val==null){
+            }
+            else if(val.length<100&&val.length>=0){
                 $("#error_limit").siblings().finish().hide();
                 $('#error_limit').hide();
+
                 this.y=1;
             }else{
                 $("#error_limit").text("已达最长字符数").siblings().finish().hide();
@@ -57,21 +60,23 @@ var accountInfo=new Vue({
             });
 
             getAjax("/api/vip/"+$.cookie("tname"),headerToken,function(data){
-                if (data.data.userType==1)
+                switch (data.data.userType)
                 {
-                    accountInfo.membership="注册用户";
-                }
-                else if (data.data.userType==3)
-                {
-                    accountInfo.membership="认证会员";
-                }
-                else if (data.data.userType==4)
-                {
-                    accountInfo.membership="金卡会员";
-                }
-                else if (data.data.userType==5)
-                {
-                    accountInfo.membership="钻石会员";
+                    case 1:
+                        accountInfo.membership="注册用户";
+                        break;
+                    case 2:
+                        accountInfo.membership="管理员用户";
+                        break;
+                    case 3:
+                        accountInfo.membership="认证会员";
+                        break;
+                    case 4:
+                        accountInfo.membership="金卡会员";
+                        break;
+                    case 5:
+                        accountInfo.membership="钻石会员";
+                        break;
                 }
             });
 
@@ -246,4 +251,63 @@ function getAjax(url,headerToken,func) {
         }
     });
 }
+
+
+$(document).ready(function(){
+    $("#nameAlert").hide();
+    $("#commentAlert").hide();
+   if($("#textComment").val()==null||$("#exampleInputName2").val()==null){
+       $("#button01").show();
+       $("#update_icon").hide();
+       //$("#textComment").removeAttr("disabled");
+       $("#exampleInputName2").removeAttr("disabled");
+   }else{
+       $("#button01").hide();
+       $("#update_icon").show();
+       //$("#textComment").attr("disabled","disabled");
+       $("#exampleInputName2").attr("disabled","disabled");
+
+   }
+
+
+
+    $(document).on('blur',"#exampleInputName2",function(){
+        if($(this).val()=="") {
+            //$("#exampleInputName2").focus();    // 如果内容为空，继续聚集焦点
+            $("#nameAlert").show();
+            $("#button01").attr("disabled", "disabled");
+        }else {
+
+            if($("#textComment").val()==""){
+
+                $("#button01").attr("disabled", "disabled");
+            }else {
+                $("#nameAlert").hide();
+                $("#button01").removeAttr("disabled");
+            }
+            $("#nameAlert").hide();
+
+        }
+
+    })
+    $(document).on('blur',"#textComment",function(){
+        if($(this).val()=="") {
+            $("#commentAlert").show();
+            $("#button01").attr("disabled", "disabled");
+        }else {
+
+            if($("#exampleInputName2").val()==""){
+                $("#button01").attr("disabled", "disabled");
+            }else {
+                $("#commentAlert").hide();
+                $("#button01").removeAttr("disabled");
+            }
+            $("#commentAlert").hide();
+        }
+    })
+})
+
+
+
+
 

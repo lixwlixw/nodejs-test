@@ -2,7 +2,7 @@
     padding:0 0;
 
 }
-#message,#message2,#message3{
+#message,#message2,#message3,#message4{
     color:#ea0c1d;
     font-size:14px;
     display:none;
@@ -98,3 +98,9 @@
 }
 /*modelpwback页面样式结束*/
 
+.register{
+     color:#29abe2;
+ }
+.register{
+    color:#1998ce;
+}

@@ -1,0 +1,71 @@
+/*导航stylesheet*/
+.m-navselect{
+    width:180px;
+    margin: 45px 0px 45px 40px;
+    float: left
+}
+.m-navselect>ul{
+    border: 1px solid #44bbf5;
+    padding: 0;
+}
+.m-navselect>ul>li{
+    /*border-bottom: 1px solid #748ab8;*/
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+    color:#44bbf5;
+    list-style-type:none;
+    padding-left: 20px;
+    background-position: left;
+}
+.m-navselect .active{
+    cursor: pointer;
+    background-color: #44bbf5 !important;
+    color:white;
+}
+.m-navselect>ul>li>span{
+    margin-left: 50px;
+}
+
+
+
+.m-navselect .li_img_0{
+    background: url("/img/indexNew/selects/images_03.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_1{
+    background: url("/img/indexNew/selects/images_10.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_2{
+    background: url("/img/indexNew/selects/images_12.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_3{
+    background: url("/img/indexNew/selects/images_14.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_4{
+    background: url("/img/indexNew/selects/images_16.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_5{
+    background: url("/img/indexNew/selects/images_33.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_6{
+    background: url("/img/indexNew/selects/images_35.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_7{
+    background: url("/img/indexNew/selects/images_37.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_8{
+    background: url("/img/indexNew/selects/images_39.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_9{
+    background: url("/img/indexNew/selects/images_41.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_10{
+    background: url("/img/indexNew/selects/images_43.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_11{
+    background: url("/img/indexNew/selects/images_45.png") no-repeat 30px 14px;
+}
+.m-navselect .li_img_12{
+    background: url("/img/indexNew/selects/images_47.png") no-repeat 30px 14px;
+}

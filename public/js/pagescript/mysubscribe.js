@@ -26,28 +26,28 @@ $(document).ready(function(){
 //GET /permission/:repname/:itemname
 //GET /repositories/:repname/:itemname
 /*function judgeUser(repo,item,i){
- var header={};
- if($.cookie("token")!=null&&$.cookie("token")!="null"){
- header={Authorization:"Token "+$.cookie("token")};
- }
- $.ajax({
- url: "/api/repositories/"+repo+"/"+item+"?haspermission=1",
- type: "get",
- cache: false,
- async: false,
- headers: header,
- success: function (json) {
- var permission=json.data.permission;
- if(permission==false){
- $('#comment'+i+'').unbind('click');
- $('#comment'+i+'').attr({"disabled":"true","href":"javascript:void(0)"});
- $('#comment'+i+'').css({"background-color":"#666","border":"none"})
- }
- },
- error:function(){
- }
- })
- }*/
+    var header={};
+    if($.cookie("token")!=null&&$.cookie("token")!="null"){
+        header={Authorization:"Token "+$.cookie("token")};
+    }
+    $.ajax({
+        url: "/api/repositories/"+repo+"/"+item+"?haspermission=1",
+        type: "get",
+        cache: false,
+        async: false,
+        headers: header,
+        success: function (json) {
+           var permission=json.data.permission;
+            if(permission==false){
+                $('#comment'+i+'').unbind('click');
+                $('#comment'+i+'').attr({"disabled":"true","href":"javascript:void(0)"});
+                $('#comment'+i+'').css({"background-color":"#666","border":"none"})
+            }
+        },
+        error:function(){
+        }
+    })
+}*/
 /*itemlIst start*/
 var type=0;
 var size=0;
@@ -275,8 +275,8 @@ function ajaxTotal(type,size){
 
                     }
                 }else{
-                    $(".dataitem").find("p").hide();
-                    $(".dataitem").append("<div><p class='text-center' style='font-weight:normal;margin-top:50px;font-size:14px;line-height:0px;'>暂未订购任何数据</p></div>");
+                	$(".dataitem").find("p").hide();
+            		$(".dataitem").append("<div><p class='text-center' style='font-weight:normal;margin-top:50px;font-size:14px;line-height:0px;'>暂未订购任何数据</p></div>"); 
                 }
                 $('.getAPIkey').bind('click',function(){
                     console.log($.cookie('tname'))
@@ -297,11 +297,11 @@ function ajaxTotal(type,size){
 
 
                 $('[data-toggle="tooltip"]').tooltip();
-
+                
 
 
             }
-
+        
         });
     }
     $(".pages").pagination(allrepnum, {
@@ -341,11 +341,11 @@ function ajaxFunHtml(type,size,page){
                 headers:headerToken,
                 dataType:'json',
                 success:function(json){
-                    var totals=json.data.total;
+                	var totals=json.data.total;
                     console.log("json:",json)
-                    //totals=0;
-                    if(totals!=0){
-                        var len=json.data.results.length;
+                	//totals=0;
+                	if(totals!=0){
+                		var len=json.data.results.length;
                         for(var i=0;i<len;i++){
                             var oderdate="";
                             if(json.data.results[i].signtime!=undefined){
@@ -495,34 +495,34 @@ function ajaxFunHtml(type,size,page){
                                 $('#comment'+i+'').attr({"disabled":"true","href":"javascript:void(0)"});
                                 $('#comment'+i+'').css({"background-color":"#666","border":"none"})
                             }
-                            /*var header={};
-                             if($.cookie("token")!=null&&$.cookie("token")!="null"){
-                             header={Authorization:"Token "+$.cookie("token")};
-                             }
-                             $.ajax({
-                             url: "/api/repositories/"+json.data.results[i].repname+"/"+json.data.results[i].itemname+"?haspermission=1",
-                             type: "get",
-                             cache: false,
-                             async: false,
-                             headers: header,
-                             success: function (json) {
-                             var permission=json.data.permission;
-                             if(permission==false){
-                             $('#comment'+i+'').unbind('click');
-                             $('#comment'+i+'').attr({"disabled":"true","href":"javascript:void(0)"});
-                             $('#comment'+i+'').css({"background-color":"#666","border":"none"})
-                             }
-                             },
-                             error:function(){
-                             }
-                             });*/
+                          /*var header={};
+                            if($.cookie("token")!=null&&$.cookie("token")!="null"){
+                                header={Authorization:"Token "+$.cookie("token")};
+                            }
+                            $.ajax({
+                                url: "/api/repositories/"+json.data.results[i].repname+"/"+json.data.results[i].itemname+"?haspermission=1",
+                                type: "get",
+                                cache: false,
+                                async: false,
+                                headers: header,
+                                success: function (json) {
+                                    var permission=json.data.permission;
+                                    if(permission==false){
+                                        $('#comment'+i+'').unbind('click');
+                                        $('#comment'+i+'').attr({"disabled":"true","href":"javascript:void(0)"});
+                                        $('#comment'+i+'').css({"background-color":"#666","border":"none"})
+                                    }
+                                },
+                                error:function(){
+                                }
+                            });*/
                             $(".repoE").eq(len-1).css("margin-bottom","0px");
                         }
                         //(json.data.results[i].repname,json.data.results[i].itemname,i);
-                    }else{
-                        $(".dataitem").find("p").hide();
-                        $(".dataitem").append("<div><p class='text-center'  style='font-weight:normal;margin-top:50px;font-size:14px;line-height:0px;'>暂未订购任何数据</p></div>");
-                    }
+                	}else{
+                		$(".dataitem").find("p").hide();
+                		$(".dataitem").append("<div><p class='text-center'  style='font-weight:normal;margin-top:50px;font-size:14px;line-height:0px;'>暂未订购任何数据</p></div>");              		
+                	}
                     $('.getAPIkey').bind('click',function(){
                         //alert('ssssss')
                         $('.apiKeyInfo').val($.cookie('token'));
@@ -537,7 +537,7 @@ function ajaxFunHtml(type,size,page){
                     //    //    alert("Copied text to clipboard: " + event.data["text/plain"] );
                     //    //} );
                     //} );
-                    $('[data-toggle="tooltip"]').tooltip();
+                	$('[data-toggle="tooltip"]').tooltip();
                 }
             });
         }
@@ -684,13 +684,13 @@ $(function(){
             success: function(msg){
                 pulltotal = msg.data.total;
                 if(pulltotal!=0){
-                    $("#pull-head>b").text(pulltotal);
+                	$("#pull-head>b").text(pulltotal);
                     $('#pull-body').empty();
                     var str = '<div class="pullbox">';
                     for(var i= 0 ;i<msg.data.results.length;i++){
                         var pulltimes = msg.data.results[i].date;
                         str+='<div class="record"><div class="head ">'+
-                                //'<span class="icon togglebox"></span>'+
+                            //'<span class="icon togglebox"></span>'+
                             '<p class="date">'+pulltimes+'</p>'+
                             '</div>'+
                             '<div class="body">'+
@@ -721,11 +721,11 @@ $(function(){
                     str+= '</div>';
                     $('#pull-body').append(str);
                 }else{
-                    $("#pull-head").hide();
-                    $("#pull-title").hide();
-                    $("#pull-body").append("<div><p style='margin-top:50px' class='text-center'>暂未下载过数据，通过Client客户端下载订购的数据</p></div>");
+                	$("#pull-head").hide();
+                	$("#pull-title").hide();
+                	$("#pull-body").append("<div><p style='margin-top:50px' class='text-center'>暂未下载过数据，通过Client客户端下载订购的数据</p></div>");	
                 }
-
+                
             }
         });
     }

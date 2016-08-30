@@ -232,8 +232,8 @@ function replyToAll(replyJson) {
         ///////////////////发表评论///////////////////////
         getissub: function (thisobj, orreply) {
             var issubscription = false;
-            if (!headerToken) {
-                this.addprompt(thisobj, '您还没有登录，请<span class="gotologin">登录</span>');
+            if (!($.cookie("token")!=null&&$.cookie("token")!="null")) {
+                $(".alert_login").css({"display": "block", "left": "716px","top":"313px","z-index":"99"}).show();
                 return;
             } else {
                 $.ajax({
@@ -340,10 +340,10 @@ function replyToAll(replyJson) {
                     $(".promptbox").css("display", "none");
                 }
             });
-            $(document).on('click', '.gotologin', function () {
+        /*    $(document).on('click', '.gotologin', function () {
                 $(".modal-open").css("padding-right", "15px");
                 $('#myModal').modal('toggle');
-            })
+            })*/
         }
 
     }

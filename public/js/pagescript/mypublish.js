@@ -77,7 +77,7 @@ $(function(){
     };
     // 得到所有的rep数量
     $.ajax({
-        url: "/api/repositories?size=-1",
+        url: "/api/repositories?size=-1&&myRelease=1",
         type: "get",
         cache: false,
         data: {},
@@ -99,7 +99,7 @@ $(function(){
         $('.repList').empty();
         reps = null;
         $.ajax({
-            url: "/api/repositories?size=10&page=" + nextpages,
+            url: "/api/repositories?size=10&page=" + nextpages+"&myRelease=1",
             type: "get",
             cache: false,
             data: {},
@@ -115,6 +115,9 @@ $(function(){
                 		$("#pubitemnum").text(json.data.length);
                 		for (var i = 0;i<json.data.length;i++) {
                             getrepocon(json.data[i]);
+
+                            //!!!!!!!!
+                            $(".repo").eq(json.data.length-1).css("margin-bottom","0px");
                         }
                 	}
 
@@ -312,6 +315,7 @@ $(function(){
             repright
         '</div>'+
         '</div>';
+
         $('.repList').append(repostr);
         $(function(){
             $('[data-toggle="tooltip"]').tooltip();

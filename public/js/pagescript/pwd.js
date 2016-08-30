@@ -13,6 +13,10 @@ var pwInput=new Vue({
         s2:false,
         s3:false
     },
+    ready: function () {
+    	$("#u-header-notLogin").val("");
+    	$("#oldpwd").val("");
+    },
     watch:{
         passwd:function(val){
 

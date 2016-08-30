@@ -65,6 +65,8 @@ $(function(){
             $('#ispublic').attr("disabled",true);
             $('#addRep').modal('toggle');
             $("#ispublic").val(1);
+            $("#ispublic").attr("mark","public");
+            //$("#ispublic").attr("mark","public").text("开放");
             $("#judgment").css("display","none");
         }else {
             $("#judgment_number").css("display","block");
@@ -90,6 +92,9 @@ $(function(){
             $('#ispublic').attr("disabled",true);
             $('#addRep').modal('toggle');
             $("#ispublic").val(2)
+            $("#ispublic").attr("mark","private");
+            //$("#ispublic").attr("mark","private").text("私有");
+            //$("#ispublic").text("私有");
             $("#judgment").css("display","none");
         }else {
             $("#judgment_number").css("display","block").slideDown(2000);
@@ -113,17 +118,25 @@ $(function(){
         var thisval = $(this).parents('.repo').find('.description').find('p').html();
         $('.surplusnum').html(200-parseInt(thisval.length));
         $('.exceednum').html('0');
+
         if(ispublic=="public")
         {
             $("#ispublic").attr('data-tagle',1);
             $("#addRep .submit input").attr('data-tagle',1);
             $("#ispublic").val(1);
+
+            //$("#ispublic").attr("mark","public").text("开放");
+
         }
         if(ispublic=="private")
         {
+
             $("#ispublic").attr('data-tagle',2);
             $("#addRep .submit input").attr('data-tagle',2)
             $("#ispublic").val(2);
+
+            //$("#ispublic").attr("mark","private").text("私有");
+
         }
         $("#addRep .repcomment .value textarea").val(thisval);
         $("#ListManagement p span:first").empty();
@@ -264,7 +277,7 @@ $(function(){
                 reperrorstr = '您可新增的<span class="ispublicrepo">私有</span>Repository资源不足，<a class="viplinks" target="_blank" href="/my/member" target="_blank">升级会员</a>获取更多资源';
                 $('.xiugaireperror').html(reperrorstr);
                 $('.xiugaireperror').show();
-                $('#ispublic').val(0);
+                $('#ispublic').val(2);
             }else if(cooperateitems > 0){
                 reperrorstr = '该Repository下有被协作的DataItem，不能调整为私有属性';
                 $('.xiugaireperror').html(reperrorstr);
@@ -301,14 +314,20 @@ $(function(){
         var thisispublic = '';
         repname = $.trim($("#addRep .repname .value input").val());
         data["comment"] = $.trim($("#addRep .repcomment .value textarea").val());
-        if($("#ispublic").val()==1) {
+
+        if($("#ispublic").val()=="1") {
+        //if($("#ispublic").attr("mark")=="public") {
             data["repaccesstype"] ="public";
             thisispublic = '开放';
         }
         else {
             data["repaccesstype"] ="private";
             thisispublic = '私有';
+
         }
+
+        //测试
+        data["ch_repname"]="uuu";
 
         if($(this).attr("repevent") == "add") {
             if(checkRepName(repname) == false){
@@ -326,7 +345,6 @@ $(function(){
             url: "/api/repositories/"+repname,
             type: method,
             cache:false,
-            data:{},
             async:false,
             dataType:'json',
             data:JSON.stringify(data),

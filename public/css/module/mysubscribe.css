@@ -78,12 +78,12 @@
     color: #29abe2;
 }
 /*#pull-body .record .head .icon {*/
-/*background-image: url("/img/sliceU1.png");*/
-/*background-repeat: no-repeat;*/
-/*background-position: -272px -6px;*/
-/*width: 15px;*/
-/*height: 15px;*/
-/*margin-right: 20px;*/
+    /*background-image: url("/img/sliceU1.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: -272px -6px;*/
+    /*width: 15px;*/
+    /*height: 15px;*/
+    /*margin-right: 20px;*/
 /*}*/
 #pull-body .record .body table {
     color: #333333;
@@ -115,8 +115,8 @@
     padding-right: 20px;
 }
 /*#pull-body .record .body table tr:nth-child(odd) {*/
-/*!*background-color: #f5f5f5;*!*/
-/*padding-bottom: 5px;*/
+    /*!*background-color: #f5f5f5;*!*/
+    /*padding-bottom: 5px;*/
 /*}*/
 #pull-body .record .body table tr{
     /*padding-top: 5px;*/

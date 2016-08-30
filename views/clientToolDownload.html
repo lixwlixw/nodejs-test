@@ -11,8 +11,8 @@
         <div class="zfont">支持DataHub上数据的一键获取,轻松链接海量数据源。</div>
         <div class="zfont">支持任意批量数据(如文本文件、HDFS、S3、DB等)、API、流数据的发布。</div>
         <div class="zfont">有效降低数据流通的成本。数据协议、格式的机器可读,轻松构建本地分析环境。</div>
-        <div class="zfont">有效降低数据获取难道。丰富的客户端和SDK,预置各种接口。</div>
-        <div class="xfont">DataHub客户端由Daemon和CLI两部分组成。Daemon作为守护进程,负责完成用户的命令<a href="http://docs.hub.dataos.io/client"><span class="afont"> ( 查看客户端命令介绍 ) </span></a> ,并维护本地数据资源。CLI用于用户输入命令。</div>
+        <div class="zfont">有效降低数据获取难度。丰富的客户端和SDK,预置各种接口。</div>
+        <div class="xfont">DataHub客户端由Daemon和CLI两部分组成。Daemon作为守护进程,负责完成用户的命令<a href="http://docs.hub.dataos.io/client.html"><span class="afont"> ( 查看客户端命令介绍 ) </span></a> ,并维护本地数据资源。CLI用于用户输入命令。</div>
     </div>
     <div class="downway">
         <div class="downway_con">
@@ -33,12 +33,12 @@
             <div class="downwaytext">OS环境客户端安装</div>
             <div class="goway" id="gosetup_3">安装</div>
         </div>
-<!--        <div class="downway_con">
-            <div class="downwayname">SDK工具包安装</div>
-            <div style="border-bottom: 1px solid #c8c8c8;margin: 0px 20px;"></div>
-            <div class="downwaytext">包含Python , R , Java , Go</div>
-            <div class="goway" id="gosetup_4">安装</div>
-        </div>-->
+        <!--        <div class="downway_con">
+                    <div class="downwayname">SDK工具包安装</div>
+                    <div style="border-bottom: 1px solid #c8c8c8;margin: 0px 20px;"></div>
+                    <div class="downwaytext">包含Python , R , Java , Go</div>
+                    <div class="goway" id="gosetup_4">安装</div>
+                </div>-->
     </div>
     <div class="box">
         <div class="boxcontent" style='margin-left:20px;'>
@@ -48,9 +48,9 @@
                 <div class="nobg_p">获取安装包</div>
                 <div class="nobg_p">在安装 GO (GO1.4以上版本) 语言和设置完GO PATH环境变量之后，安装DataHub Client：</div>
                 <div class="bg_pp">go get github.com/asiainfoLDP/datahub</div>
-                <div class="nobg_p">启动 Daemon 服务</div>
+                <div class="nobg_p">启动 Daemon 服务:</div>
                 <div class="bg_pp">sudo $GOPATH/bin/datahub --daemon --token <span class="havetoken"></span></div>
-                <div class="nobg_p">停止 Daemon 服务</div>
+                <div class="nobg_p">停止 Daemon 服务:</div>
                 <div class="bg_pp">sudo $GOPATH/bin/datahub stop</div>
             </div>
 
@@ -97,7 +97,7 @@
         <div class="boxcontent">
             <div class="downwayname" style="text-align: left;margin-bottom: 30px" id="setup_2">Windows环境客户端安装</div>
             <div class="nobg_p">获取安装包</div>
-            <div style="margin-top: 15px;"><a href="https://s3.cn-north-1.amazonaws.com.cn/datahub-client/datahub-v1.8.1-windows-amd64.zip">
+            <div style="margin-top: 15px;"><a href="https://s3.cn-north-1.amazonaws.com.cn/datahub-client/datahub-windows-x86_64.zip">
                 <botton  class="btn btn-default windowDownloadBtn" aria-label="Left Align" >客户端下载</botton>
             </a>
             </div>
@@ -120,9 +120,9 @@
         <div class="boxcontent">
             <div class="downwayname" style="text-align: left;margin-bottom: 30px" id="setup_3">OS环境客户端安装</div>
             <div class="nobg_p">获取安装包</div>
-            <div class="bg_pp" style="margin-bottom: 20px">curl -L https://s3.cn-north-1.amazonaws.com.cn/datahub-client/datahub-v1.8.1-darwin-amd64.zip -o datahub-v1.8.1-darwin-amd64.zip</div>
+            <div class="bg_pp" style="margin-bottom: 20px">curl -L  https://s3.cn-north-1.amazonaws.com.cn/datahub-client/datahub-darwin-x86_64.tgz -o datahub-darwin-x86_64.tgz</div>
             <div class="nobg_p">解压缩</div>   
-            <div class="bg_pp" >tal -xvzf datahub_v1.8.1_darwin_x64.tgz</div>
+            <div class="bg_pp" >tar -xvzf datahub-darwin-x86_64.tgz</div>
             <div class="nobg_p">将解压缩后的文件放置到环境变量 PATH 所含路径中的某一个路径下。</div>
             <div class="nobg_p">如PATH路径包含：/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/sbin。</div>
             <div class="nobg_p">将解压缩后的文件mv到/sbin目录下 。</div>
@@ -138,19 +138,19 @@
             <!--<div class="sub-nav">安装说明文字</div>-->
         </div>
     </div>
-<!--    <div class="box">
-        <div class="boxcontent">
-            <div class="downwayname" style="text-align: left;margin-bottom: 30px" id="setup_4">SDK工具包安装</div>
-            <div class="sub-nav">安装说明文字</div>
+    <!--    <div class="box">
+            <div class="boxcontent">
+                <div class="downwayname" style="text-align: left;margin-bottom: 30px" id="setup_4">SDK工具包安装</div>
+                <div class="sub-nav">安装说明文字</div>
+            </div>
         </div>
-    </div>
-</div>-->
+    </div>-->
     <!--<div class="rightbox">-->
-        <!--<div class="rightwrop">-->
-            <!--<div class="right_p activecur"><a href="javascript:void(0)">DataHub Client端介绍</a></div>-->
-            <!--<div class="right_p"><a href="javascript:void(0)">DataHub Client端安装方式</a></div>-->
-            <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">脚本安装</a></div>-->
-            <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">源码安装</a></div>-->
-            <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">Docker镜像安装安装</a></div>-->
-        <!--</div>-->
+    <!--<div class="rightwrop">-->
+    <!--<div class="right_p activecur"><a href="javascript:void(0)">DataHub Client端介绍</a></div>-->
+    <!--<div class="right_p"><a href="javascript:void(0)">DataHub Client端安装方式</a></div>-->
+    <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">脚本安装</a></div>-->
+    <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">源码安装</a></div>-->
+    <!--<div class="right_p"><span class="rboxicon"></span><a href="javascript:void(0)">Docker镜像安装安装</a></div>-->
+    <!--</div>-->
     <!--</div>-->

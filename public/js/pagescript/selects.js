@@ -2,6 +2,9 @@
  * Created by Max cheng on 2016/3/4.
  */
 $(function(){
+    $(window).load(function(){
+        $(".be-loader").fadeOut("slow");
+    });
    //var setJson=selects.setJson2();
     function setJson2(navName){
         var thisjson={
@@ -75,17 +78,14 @@ $(function(){
         setJson2("竞赛数据");
         window.clickindex=11;
         changebg(clickindex);
-    } else if(selectsType=='api'){
-        $(".u-selects-title").text("API");
-        setJson2("API");
-        window.clickindex=12;
-        changebg(clickindex);
     }else{
         $(".u-selects-title").text("全部精选");
         setJson2('');
     }
 
+
     $("body").on("click",".m-navselect ul li",function(){
+        $(".be-loader").show();
         $('.g-selects-box').empty();
         navName=$(this).children().text();
         window.clickindex = $(this).index();
@@ -95,17 +95,9 @@ $(function(){
             navName="";
         }
        setJson2(navName);
+        $(".be-loader").fadeOut("slow");
     });
-    $(".m-navselect ul li").on("mouseenter mouseleave",function(event){
-        if(event.type=="mouseenter"){
-            mouseoverindex=$(this).index();
-            changebg(mouseoverindex);
-        }
-        if(event.type=="mouseleave"){
-            mouseoutindex=window.clickindex;
-            changebg(mouseoutindex);
-        }
-    });
+
 });
 
 function changebg(index){

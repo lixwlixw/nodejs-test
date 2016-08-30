@@ -38,10 +38,12 @@ $(document).ready(function(){
         cache:false,
         dataType:'json',
         success:function(json){
+            //console.log(json)
             var bgarr = [];
             if(json.data.length!=0){
                 var fornum=json.data.length-1;
                 bgarr = json.data;
+                //console.log(json)
                 var aa = parseInt(fornum / 8);
                 var bb = fornum % 8;
                 var navpage = 0;
@@ -50,8 +52,20 @@ $(document).ready(function(){
                     $('.topnavlistwrop').append(lilist);
                     for(var j=1;j<=8;j++){
                         var thisssss = navpage*8+j;
+                        //console.log('thisssss:'+thisssss)
+
+                        var strimg="";
+                        strimg="<div class='selectimgwrop select' style='background-image:url("+json.data[thisssss].icon+")'>";
+
+
+                        //if(json.data[thisssss].icon=="api.png"){
+                        //    strimg="<div class='selectimgwrop select' style='background-image:url("+json.data[thisssss].icon+")'>";
+                        //}else{
+                        //    strimg="<div class='selectimgwrop select' style='background-image:url(\"images/"+json.data[thisssss].icon+".png\")'>";
+                        //}
+
                         var str =  '<div class="imgwrop">'+
-                            "<div class='selectimgwrop select' style='background-image:url(\"/mobile/images/"+json.data[thisssss].icon+".png\")'>"+
+                            strimg+
                             '</div>'+
                             '<p>'+json.data[thisssss].labelname +'</p>'+
                             '</div>';
@@ -67,8 +81,16 @@ $(document).ready(function(){
                     $('.topnavlistwrop').append(lilist);
                     for(var j=0;j<bb;j++){
                         var thisnum = navpage*8+j+1;
+                        var strimg="";
+                        strimg="<div class='selectimgwrop select' style='background-image:url("+json.data[thisnum].icon+")'>";
+
+                        //if(json.data[thisnum].icon=="api.png"){
+                        //    strimg="<div class='selectimgwrop select' style='background-image:url(\"images/"+json.data[thisnum].icon+"\")'>";
+                        //}else{
+                        //    strimg="<div class='selectimgwrop select' style='background-image:url(\"images/"+json.data[thisnum].icon+".png\")'>";
+                        //}
                         var str =  '<div class="imgwrop">'+
-                            "<div class='selectimgwrop select' style='background-image:url(\"/mobile/images/"+json.data[thisnum].icon+".png\")'>"+
+                        	strimg+
                             '</div>'+
                             '<p>'+json.data[thisnum].labelname +'</p>'+
                             '</div>';
@@ -198,64 +220,68 @@ $(document).ready(function(){
 //  填充html代码；
     function addhtml(){
         $('#terminal-content-body').empty();
-
-        for(var i= 0;i<repos.length;i++) {
-            //////////////  填充
-            $.ajax({
-                url: ngUrl+"/repositories/"+repos[i][0]+"/"+repos[i][1],
-                type: "get",
-                cache:false,
-                async:false,
-                dataType:'json',
-                success:function(json){
-                    $("#loading").empty();
-                    var realname="";
-                    var datastyle = '';
-                    var itemdatatype = json.data.pricestate
-                    if(itemdatatype == '免费'){
-                        datastyle = 'freedata';
-                    }else if(itemdatatype == '付费'){
-                        datastyle = 'paydata';
-                    }else if(itemdatatype == '限量试用'){
-                        datastyle = 'limitdata';
-                    }else{
-                        datastyle = '';
-                    }
-                    //该用户昵称
-                    $.ajax({
-                        url: ngUrl+"/users/"+json.data.create_user,
-                        type: "get",
-                        cache:false,
-                        data:{},
-                        async:false,
-                        dataType:'json',
-                        success:function(json){
-                            if(json.code == 0){
-                                realname=json.data.userName;
-                            }else {
-                                console.log("报错");
-                            }
-                        },
-                        error:function(json){
-                            alert("程序出错，请稍后重试");
+        if(repos.length==0){
+        	$(".repinfoList").append("<p class='text-center' style='margin-top:30px;'>暂无可浏览的开放数据</p>");
+        }else{
+        	for(var i= 0;i<repos.length;i++) {
+                //////////////  填充
+                $.ajax({
+                    url: ngUrl+"/repositories/"+repos[i][0]+"/"+repos[i][1],
+                    type: "get",
+                    cache:false,
+                    async:false,
+                    dataType:'json',
+                    success:function(json){
+                        $("#loading").empty();
+                        var realname="";
+                        var datastyle = '';
+                        var itemdatatype = json.data.pricestate
+                        if(itemdatatype == '免费'){
+                            datastyle = 'freedata';
+                        }else if(itemdatatype == '付费'){
+                            datastyle = 'paydata';
+                        }else if(itemdatatype == '限量试用'){
+                            datastyle = 'limitdata';
+                        }else{
+                            datastyle = '';
                         }
-                    });
-                    var str =   '<li class="replist">'+
-                        '<div class="liconwrop borderb">'+
-                        '<div class="listTop"><a href="itemDetailsPhone.html?repname='+repos[i][0]+'&itemname='+repos[i][1]+'">'+repos[i][0]+'/'+ repos[i][1]+'</a></div>'+
-                        '<div class="listbt">本数据由：<span class="itemcur">'+realname+'</span>&nbsp;提供</div>'+
-                        '<div class="listicon"><a href="itemDetailsPhone.html?repname='+repos[i][0]+'&itemname='+repos[i][1]+'"></a></div>'+
-                        '<span class="pricestate '+datastyle +'">'+itemdatatype+'<'+datastyle +'/span>'
-                    '</div>'+
-                    '</li>'
-                    $(".repinfoList").append(str);
-                },
-                error:function(json){
-                    alert("程序出错，请稍后重试");
-                }
-            });
+                        //该用户昵称
+                        $.ajax({
+                            url: ngUrl+"/users/"+json.data.create_user,
+                            type: "get",
+                            cache:false,
+                            data:{},
+                            async:false,
+                            dataType:'json',
+                            success:function(json){
+                                if(json.code == 0){
+                                    realname=json.data.userName;
+                                }else {
+                                    console.log("报错");
+                                }
+                            },
+                            error:function(json){
+                                alert("程序出错，请稍后重试");
+                            }
+                        });
+                        var str =   '<li class="replist">'+
+                            '<div class="liconwrop borderb">'+
+                            '<div class="listTop"><a href="itemDetailsPhone.html?repname='+repos[i][0]+'&itemname='+repos[i][1]+'">'+repos[i][0]+'/'+ repos[i][1]+'</a></div>'+
+                            '<div class="listbt">本数据由：<span class="itemcur">'+realname+'</span>&nbsp;提供</div>'+
+                            '<div class="listicon"><a href="itemDetailsPhone.html?repname='+repos[i][0]+'&itemname='+repos[i][1]+'"></a></div>'+
+                            '<span class="pricestate '+datastyle +'">'+itemdatatype+'<'+datastyle +'/span>'
+                        '</div>'+
+                        '</li>'
+                        $(".repinfoList").append(str);
+                    },
+                    error:function(json){
+                        alert("程序出错，请稍后重试");
+                    }
+                });
 
+            }
         }
+        
     }
     ////////////////////////返回顶部
 

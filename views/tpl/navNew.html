@@ -1,0 +1,29 @@
+<% layout('tpl/layoutNew.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/include/navNew.css" />') %>
+<% block('js').append('<script src="/js/widget/navNew.js"></script>') %>
+
+<div class="m-navselect">
+    <ul>
+        <li v-for="name in obj"  class="li_img_{{$index}}" @click.capture="selFun" @mouseenter="selFunEnter" @mouseleave="selFunLeave" >
+            <!--<span name="{{name.labelname}}" mark="0" class="li_{{$index}}"></span>-->
+            <span v-text="name.labelname" @click="selChildFun" class="li_{{$index}}"></span>
+        </li>
+
+
+
+        <!--<li v-for="name in obj" class="li{{$index}}">-->
+            <!--<div @mouseenter="li_enter" @click="li_click" class="li_{{$index}}" v-if="hoverStates[$index]='1'">-->
+                <!--&lt;!&ndash;<img :src='name.icon_web' />&ndash;&gt;-->
+                <!--<img :src='name.icon_web_hover'/>-->
+                <!--<span v-text="name.labelname"></span>-->
+            <!--</div>-->
+            <!--<div @mouseleave="li_leave" class="li_{{$index}}" v-else>-->
+                <!--<img :src='name.icon_web' />-->
+                <!--&lt;!&ndash;<img :src='name.icon_web_hover' />&ndash;&gt;-->
+                <!--<span v-text="name.labelname"></span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li v-for="name in obj" class="li0{{$index}}"><span v-text="name.labelname"></span></li>-->
+        <!--D:\localrepo\datahub_web_new\public\img\selects_new-->
+    </ul>
+</div>

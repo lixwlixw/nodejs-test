@@ -39,6 +39,7 @@ function getMyItemList(obj,thisrepName,thisitems,isItems){
         ' <span class="additembtn">添加DataItem<div class="additemwrop">' +
         '<p class="additemp1">批量数据</p>' +
         '<p class="additemp2">流式数据</p>' +
+        '<p class="additemp3"><a href=http://plat-dataex.app-dacp.dataos.io/dataex-plat/ldp/api?reponame='+thisrepName+'&username='+$.cookie("tname")+'&apitoken='+$.cookie("token")+'>API数据</a></p>' +
         '</div></span>' +
         ' </div>';
     var itemstr = ' <div class="tablelist">' +

@@ -6,7 +6,6 @@ Vue.component('model', {
   },
   methods: {
 	remote:function (msg,msg2,msg3){
-			
 		if($("#myModal").is(":hidden")){
 			$('.modal-dialog').css("width",msg3+"px");
 	    	$('#myModal').modal({remote:'/model/'+msg2});

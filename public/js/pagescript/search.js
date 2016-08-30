@@ -6,6 +6,7 @@ $(document).ready(function() {
     if (vals == "") {
         getthisjson("");
     } else {
+        vals=encodeURIComponent(vals);
         getthisjson(vals);
     }
 });

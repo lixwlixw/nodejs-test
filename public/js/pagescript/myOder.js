@@ -173,7 +173,7 @@ $(function(){
                     '<td style="width: 12%">' + oderdate + '</td>' +
                     '<td style="width: 22%;word-wrap: break-word;word-break: break-all;" >' + thisrepname + '/' + thisitemname + '</td>' +
                     '<td style="width: 18%;">' + username + '</td>' +
-                    '<td style="width: 24%;"><div>' + jsonoder.data.results[i].subscriptions[j].plan.money + '元/' + jsonoder.data.results[i].subscriptions[j].plan.units + '条</div><div>有效期：' + jsonoder.data.results[i].subscriptions[j].plan.expire + '天</div><div>失效日期：' + expiretime + '</div><div><img src="/img/images_98.png" alt=""/>&nbsp;&nbsp;Pull：' + jsonoder.data.results[i].subscriptions[j].plan.used + '</div></td>' +
+                    '<td style="width: 24%;"><div>' + jsonoder.data.results[i].subscriptions[j].plan.money + '元/' + jsonoder.data.results[i].subscriptions[j].plan.units + '条</div><div>有效期：' + jsonoder.data.results[i].subscriptions[j].plan.expire + '天</div><div>失效日期：' + expiretime + '</div><div><img src="/img/images_98.png" alt=""/>&nbsp;&nbsp;下载量：' + jsonoder.data.results[i].subscriptions[j].plan.used + '</div></td>' +
                     '<td style="width: 12%;"><div class="thisoder">' + thisphase + ischethisbtn+'</div></td>' +
                     '</tr>' +
                     '</table>';

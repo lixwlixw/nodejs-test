@@ -69,7 +69,6 @@
                 var obox=s.parentNode;
                 var lis=obox.children;
                 lis[2].click();
-
             },
             onchangeer: function(){
 

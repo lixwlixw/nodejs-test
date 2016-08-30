@@ -7,7 +7,8 @@ body{
     background-color:#f5f5f5;
 }
 .main{
-    padding-bottom:500px;
+    /*padding-bottom:500px;*/
+    padding-bottom:320px;
 }
 /*账户信息开始*/
 .topBox{
@@ -211,15 +212,17 @@ body{
 }
 
 .form-group input{
-    background-color:#f5f5f5;
+    background-color:#f06f77;
 }
 .form-group textarea{
     background-color:#f5f5f5;
 }
 
 .mid_main .form-group input{
-    width:480px;
-    height:40px;
+    /*width:480px;*/
+    width:160px;
+    background-color: #f5f5f5;
+    height: 40px;
 }
 .form-group label{
     font-size:14px;

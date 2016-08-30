@@ -2,17 +2,14 @@
  * 
  */
 .nav > li > a:hover{
-	color:#262626;
+	background-color:rgba(31,154,218,0.7);
 	cursor: pointer; 
 }
-.li-a-hover{
-	color:#262626 !important;
-}
 .nav .open > a , .nav .open > a:focus {
-	/*background-color: #29abe2;*/
+	background-color: #29abe2;
 }	
 .nav .open > a:hover{
-	/*background-color:rgba(31,154,218,0.7); */
+	background-color:rgba(31,154,218,0.7); 
 }
 .navbar-toggle .icon-bar {
     background-color: #fff;
@@ -58,7 +55,7 @@
 	color: #fff;font-size: 1em;
 }
 .g-iLoginf li a{
-	color: #eee;font-size: 1em
+	color: #fff;font-size: 1em
 }
 .g-iLoginb li a span{
 	
@@ -95,7 +92,7 @@
 
 .m-loginbtnshow{
 	display: block;
-    line-height: 30px;
+    line-height: 50px;
     text-align: center;
     width: 60px;
 }
@@ -146,8 +143,4 @@ button.close:hover {
 	.g-iLoginf li[class="inLoginfLiF"]{
 		display:none;
 	}
-}
-.dropdown-menu li a{
-	color:#262626;
-	font-size: 12px;
 }

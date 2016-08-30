@@ -1,7 +1,10 @@
 $("a").focus(function(){this.blur()});
-$(window).load(function(){
+//$(window).load(function(){
+//	$(".be-loader").fadeOut("slow");
+//});
+$(function(){
 	$(".be-loader").fadeOut("slow");
-});
+})
 $.stellar({
 	positionProperty: 'transform',
 	verticalOffset: 1
@@ -88,17 +91,25 @@ $(document).ready(function(){
 		$(document).on('keydown',"#kw",function (e) {
 			  if (e.keyCode == 13) {
 				  var vals=$(this).val();
-			  if(pcorphone == 'pc'){
-				  location.href="search.html?rtext="+vals;
-			  }
-			  if(pcorphone == 'phone'){
-				  location.href="searchPhone.html?rtext="+vals;
-			  }
+				  vals=encodeURIComponent(vals);
+			  		if(vals!=""){
+			  			vals=vals.replace("\/","_*_");
+			        }
+				  if(pcorphone == 'pc'){
+					  location.href="search.html?rtext="+vals;
+				  }
+				  if(pcorphone == 'phone'){
+					  location.href="searchPhone.html?rtext="+vals;
+				  }
 			  }
 		 });
 		
 		$(document).on('click',"#su",function (e) {
 			var vals=$("#kw").val();
+			  vals=encodeURIComponent(vals);
+		  		if(vals!=""){
+		  			vals=vals.replace("\/","_*_");
+		        }
 			if(vals==""){
 				location.href="search";
 			}else{

@@ -8,7 +8,7 @@ var type="";
 new Vue({
     el:'.certificateCenter',
     data:{
-        email:$.cookie("tname").slice($.cookie("tname").indexOf("+")+1),
+        email:$.cookie("tname"),
         href:"",
         status:"",
         type:"",

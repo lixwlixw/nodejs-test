@@ -21,7 +21,7 @@ $(function(){
     if(datas == 'Sample'){
         $('.contop').html('样例数据');
     }else{
-        $('.contop').html('元数据');
+        $('.contop').html('详细说明');
     }
     $.ajax({
         url:  ngUrl+"/repositories/"+repname+"/"+itemname,

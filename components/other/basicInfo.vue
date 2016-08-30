@@ -64,63 +64,63 @@
                             <div style="width: 200px;height: 40px;margin-right: 28px;background-color: #eee;border: 1px solid #cacaca;border-radius: 5px;line-height:40px;padding-left: 12px;" disabled="disabled">{{userStatus}}</div>
                         </div>
                     </div>
-                    <template v-if="type=='个人'">
-                        <div class="form-group" style="width: 480px">
-                            <label for="exampleInputName">个人姓名<span style="color: red">*<span id="nameAlert" style="float: right"> <img src="/img/images02_127.png" style="float: left;margin: 4px 5px;width: 12px;" />请输您的姓名</span></span></label>
-                            <input v-model="userName"  type="email"  class="form-control " id="exampleInputName2" placeholder="个人姓名"
-                                   style="margin-bottom: 0;width:480px;" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">昵称</label>
-                            <input  v-model="nickName" class="form-control"  id="exampleInputName" placeholder="昵称"
-                                    style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px" disabled="disabled">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputBusiness" style="float: left;width: 100%;margin-bottom: 0px">所属行业</label>
-                            <input v-model="industry"  class="form-control" id="exampleInputBusiness" placeholder="所属行业" disabled="disabled"
-                                   style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPhone" style="float: left;width: 100%;margin-bottom: 0px">手机号码</label>
-                            <input v-model="tel"  class="form-control" id="exampleInputPhone" placeholder="手机号码" disabled="disabled"
-                                   style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputHome" style="float: left;width: 100%;margin-bottom: 0px">个人主页</label>
-                            <input v-model="homepage"  class="form-control" id="exampleInputHome" placeholder="个人主页" disabled="disabled"
-                                   style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
-                        </div>
+                <template v-if="type=='个人'">
+                    <div class="form-group" style="width: 480px">
+                        <label for="exampleInputName">个人姓名<span style="color: red">*<span id="nameAlert" style="float: right"> <img src="/img/images02_127.png" style="float: left;margin: 4px 5px;width: 12px;" />请输您的姓名</span></span></label>
+                        <input v-model="userName"  type="email"  class="form-control " id="exampleInputName2" placeholder="个人姓名"
+                               style="margin-bottom: 0;width:480px;" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">昵称</label>
+                        <input  v-model="nickName" class="form-control"  id="exampleInputName" placeholder="昵称"
+                                style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px" disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputBusiness" style="float: left;width: 100%;margin-bottom: 0px">所属行业</label>
+                        <input v-model="industry"  class="form-control" id="exampleInputBusiness" placeholder="所属行业" disabled="disabled"
+                               style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhone" style="float: left;width: 100%;margin-bottom: 0px">手机号码</label>
+                        <input v-model="tel"  class="form-control" id="exampleInputPhone" placeholder="手机号码" disabled="disabled"
+                               style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputHome" style="float: left;width: 100%;margin-bottom: 0px">个人主页</label>
+                        <input v-model="homepage"  class="form-control" id="exampleInputHome" placeholder="个人主页" disabled="disabled"
+                               style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
+                    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputHome" style="float: left;width: 100%;margin-bottom: 0px">个人头像</label>
-                            <div style="float: left;margin-bottom: 15px;width: 300px;">
-                                <uploadavtoer :dis=dis></uploadavtoer>
-                            </div>
+                    <div class="form-group">
+                        <label for="exampleInputHome" style="float: left;width: 100%;margin-bottom: 0px">个人头像</label>
+                        <div style="float: left;margin-bottom: 15px;width: 300px;">
+                            <uploadavtoer :dis=dis></uploadavtoer>
                         </div>
+                    </div>
 
 
-                        <!--<div class="form-group">-->
+                    <!--<div class="form-group">-->
                         <!--<label style="float: left;width: 100%;margin-bottom: 0px">个人头像</label>-->
                         <!--<div style="float:left;margin-bottom:15px">-->
-                        <!--&lt;!&ndash;<div style="width: 150px;height: 100px;float: left;border: 1px solid #cacaca"></div>&ndash;&gt;-->
-                        <!--<div class="col-lg-6" style="padding: 0;width: 600px; float: none;">-->
-                        <!--<div class="input-group">-->
-                        <!--<uploadpng detmsg="不符合要求,请修改后重新上传" :picid.sync=headPic v-bind:headers="xhrHeaders" action="/api/certification/upload"></uploadpng>-->
+                            <!--&lt;!&ndash;<div style="width: 150px;height: 100px;float: left;border: 1px solid #cacaca"></div>&ndash;&gt;-->
+                            <!--<div class="col-lg-6" style="padding: 0;width: 600px; float: none;">-->
+                                <!--<div class="input-group">-->
+                                    <!--<uploadpng detmsg="不符合要求,请修改后重新上传" :picid.sync=headPic v-bind:headers="xhrHeaders" action="/api/certification/upload"></uploadpng>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash;<span>图片大小500K以内，支持PNG/JPG格式</span>&ndash;&gt;-->
+                            <!--</div>-->
                         <!--</div>-->
-                        <!--&lt;!&ndash;<span>图片大小500K以内，支持PNG/JPG格式</span>&ndash;&gt;-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--</div>-->
+                    <!--</div>-->
 
-                        <div class="form-group">
-                            <label for="exampleInputTime" style="float: left;width: 100%;margin-bottom: 0px">个人简介</label>
+                    <div class="form-group">
+                        <label for="exampleInputTime" style="float: left;width: 100%;margin-bottom: 0px">个人简介</label>
                     <textarea  v-model="comment" id="personIntroduce"  class="form-control form-control-self" rows="6"
-                               placeholder="基本情况介绍，100字以内"maxlength="100" style="width:480px;float:left;" disabled="disabled"></textarea>
-                        </div>
-                        <div style="width: 480px;float: left">
-                            <button class="btn btn-default"  @click="formSubmit"  id="button01" type="submit" style="width: 100%;float: left;border: none;margin-top: 15px">修改</button>
-                        </div>
-                    </template>
+                              placeholder="基本情况介绍，100字以内"maxlength="100" style="width:480px;float:left;" disabled="disabled"></textarea>
+                    </div>
+                    <div style="width: 480px;float: left">
+                        <button class="btn btn-default"  @click="formSubmit"  id="button01" type="submit" style="width: 100%;float: left;border: none;margin-top: 15px">修改</button>
+                    </div>
+                </template>
 
                     <template v-if="type=='企业'">
                         <div class="form-group" style="width: 480px">
@@ -129,9 +129,9 @@
                                    style="margin-bottom: 0;width:480px;" disabled>
                         </div>
                         <!--<div class="form-group">-->
-                        <!--<label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">公司简介</label>-->
-                        <!--<input  v-model="nickName" class="form-control"  id="exampleInputName" placeholder="公司简介"-->
-                        <!--style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px" disabled="disabled">-->
+                            <!--<label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">公司简介</label>-->
+                            <!--<input  v-model="nickName" class="form-control"  id="exampleInputName" placeholder="公司简介"-->
+                                    <!--style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px" disabled="disabled">-->
                         <!--</div>-->
                         <div class="form-group">
                             <label for="exampleInputBusiness" style="float: left;width: 100%;margin-bottom: 0px">所属行业</label>
@@ -160,16 +160,16 @@
                             </div>
                         </div>
                         <!--<div class="form-group">-->
-                        <!--<label style="float: left;width: 100%;margin-bottom: 0px">公司LOGO</label>-->
-                        <!--<div style="float:left;margin-bottom:15px">-->
-                        <!--&lt;!&ndash;<div style="width: 150px;height: 100px;float: left;border: 1px solid #cacaca"></div>&ndash;&gt;-->
-                        <!--<div class="col-lg-6" style="padding: 0;width: 600px; float: none;">-->
-                        <!--<div class="input-group">-->
-                        <!--<uploadpng detmsg="不符合要求,请修改后重新上传" :picid.sync=headPic v-bind:headers="xhrHeaders" action="/api/certification/upload"></uploadpng>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash;<span>图片大小500K以内，支持PNG/JPG格式</span>&ndash;&gt;-->
-                        <!--</div>-->
-                        <!--</div>-->
+                            <!--<label style="float: left;width: 100%;margin-bottom: 0px">公司LOGO</label>-->
+                            <!--<div style="float:left;margin-bottom:15px">-->
+                                <!--&lt;!&ndash;<div style="width: 150px;height: 100px;float: left;border: 1px solid #cacaca"></div>&ndash;&gt;-->
+                                <!--<div class="col-lg-6" style="padding: 0;width: 600px; float: none;">-->
+                                    <!--<div class="input-group">-->
+                                        <!--<uploadpng detmsg="不符合要求,请修改后重新上传" :picid.sync=headPic v-bind:headers="xhrHeaders" action="/api/certification/upload"></uploadpng>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;<span>图片大小500K以内，支持PNG/JPG格式</span>&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
                         <!--</div>-->
                         <!--<div class="form-group">-->
                         <!--<label style="float: left;width: 100%;margin-bottom: 0px">个人头像</label>-->
@@ -282,7 +282,7 @@
         data:function(){
             return {
                 xhrHeaders: {"Authorization" : "Token "+$.cookie("token")},
-                email:$.cookie("tname").slice($.cookie("tname").indexOf("+")+1),
+                email:$.cookie("tname"),
                 href:"",
                 userStatus:"",
                 type:"",
@@ -300,10 +300,12 @@
                 registTime:"",
                 invalidTime:"",
                 userType:"",
-                dis:false
+                dis:false,
+                accountInfo:{}
             }
         },
         ready: function () {
+            this.getInfo();
 
             $(document).ready(function(){
 
@@ -385,7 +387,7 @@
                 async:false,
                 headers:{Authorization:"Token "+$.cookie("token")},
                 success: function(msg){
-                    console.log('msg:',msg)
+//                    console.log('msg:',msg)
                     userStatus=msg.data.userStatus;
                     type=msg.data.type;
                     masssage=msg.data.masssage;
@@ -555,8 +557,31 @@
 //                }
 //            },
             getInfo: function () {
+                var headerToken={};
+                var accountInfo=this.accountInfo;
+                if($.cookie("token")!=null&&$.cookie("token")!="null"){
+                    headerToken={Authorization:"Token "+$.cookie("token")};
+                }
+                function getAjax(url,headerToken,func){
+                    $.ajax({
+                        url:url,
+                        type:'get',
+                        cache:false,
+                        async:false,
+                        headers:headerToken,
+                        success:function(json){
+                            func(json);
+                        },
+                        error:function(){
+
+                        }
+                    })
+                }
+//                datahub+wangdi6@asiainfo.com
+//                alert($.cookie("tname"))
+
                 //以上是测试code
-                getAjax('/api/users/' + $.cookie("tname"), headerToken, function (data) {
+                getAjax('/api/users/' + $.cookie("tname")+'?sregion=datahub', headerToken, function (data) {
                     accountInfo.nickName=data.data.nickName;
                     accountInfo.userName=data.data.userName;
                     accountInfo.comment=data.data.comment;
@@ -607,14 +632,15 @@
                     //$("#pullNum").attr("data-original-title","今天已Pull:"+use+"次");
                 });
                 //三个圆环信息
-                getAjax("/api"+"/vip/"+$.cookie("tname"),headerToken,function(data){
+                getAjax("/api"+"/vip/"+$.cookie("tname")+'?sregion=datahub',headerToken,function(data){
                     $(".circle p span").text(data.data.repoPub+"个");
                     $(".circle1 p span").text(data.data.repoPri+"个");
                     $(".circle2 p span").text(data.data.deposit);
                 });
                 //repo配额
                 getAjax("/api"+"/quota/"+$.cookie("tname")+"/repository",headerToken,function(data){
-                    console.log(data.data);
+//                    console.log('quota1:',data)
+
                     var usePublic=parseFloat(data.data.usePublic);
                     var usePrivate=parseFloat(data.data.usePrivate);
                     var quotaPublic=parseFloat(data.data.quotaPublic);
@@ -661,11 +687,12 @@
                 });
 //托管空间
                 getAjax("/api"+"/quota/"+$.cookie("tname")+"/deposit",headerToken,function(data){
+//                    console.log('quota2',data)
                     var use1 = data.data.use;//使用配额
                     var quota1 = data.data.quota;//托管配额
                     var use = use1.substring(0, (use1.length - 1));
                     var quota = quota1.substring(0, (quota1.length - 1));
-                    uq = (use / quota).toFixed(2);
+                    var uq = (use / quota).toFixed(2);
 
                     $("#deposit").text(use1);
                     $(".circle2 p span").text(quota1);
@@ -707,7 +734,7 @@
 
 //                if((this.s)*(this.y)==1){
                 if($("#exampleInputName2").val!=null){
-                    console.log("!!!!!!!!!")
+//                    console.log("!!!!!!!!!")
 
                     $("#button01").css("display","none");
                     $("#exampleInputName2").attr("disabled","disabled");
@@ -749,6 +776,7 @@
                         }
                     });
                 }
+
             },
             formUpdate:function(){
 

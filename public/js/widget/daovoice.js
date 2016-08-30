@@ -1,4 +1,5 @@
-	(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/3bac1a4a.js","daovoice");	
+	(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/cd9644b0.js","daovoice");
+		
 	if($.cookie("token")!=null&&$.cookie("token")!="null"){
 		
 		if($.cookie("tuserid")!=null&&$.cookie("tuserid")!="null"){
@@ -37,7 +38,7 @@
 		}
 		
 		daovoice('init', {
-		  	app_id: "3bac1a4a",
+		  	app_id: "cd9644b0",
 		  	user_id: $.cookie("tuserid"), // 必填: 该用户在您系统上的唯一ID
 		  	email: $.cookie("tname"), // 选填:  该用户在您系统上的主邮箱
 		  	name: $.cookie("tnickname"), // 选填: 用户名
@@ -46,7 +47,7 @@
 		
 	}else{		
 		daovoice('init', {
-			  app_id: "3bac1a4a"
+			  app_id: "cd9644b0"
 		});
 	}
 	daovoice('update');

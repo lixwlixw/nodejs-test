@@ -18,8 +18,11 @@
     list-style-type:none;
     padding-left: 20px;
 }
+.m-navselect>ul>li:hover{
+    cursor: pointer;
+}
 .m-navselect>ul>li>span{
-    margin-left: 10px;
+    margin-left: 26px;
 }
 /*.m-navselect>ul>li:hover{
     color: #43609f;

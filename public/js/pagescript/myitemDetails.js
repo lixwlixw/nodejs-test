@@ -162,6 +162,15 @@ function tagbox(pages){
         headers:headerToken,
         url:"/api/repositories/"+thisreponame+"/"+thisitemname+"?size=10&page="+pages,
         success: function(msg) {
+
+            var supply_style=msg.data.label.sys.supply_style;
+            if(supply_style=='api'){
+                $('#tag-name').text('在线调用');
+                $('.tagList div').remove();
+            }else{
+                $('#tag-name').text('tag');
+            }
+
             $('.baimingdan').attr('ispublic',getrepocurname().repispublic);
             //添加状态开始
             var thisispricestatenew="";
@@ -195,7 +204,7 @@ function tagbox(pages){
             }else{
             	var itemnameitemNext=$(".itemnameitem").next().html();
             	if(itemnameitemNext==undefined){
-            		thisispricestatenew = '<strong style="border-radius: 3px;display: inline;font-size: 12px;margin-left: 5px;padding: 2px 5px;color:#f49f12;border:1px solid #f49f12;position: relative;top: -3px;">' + msg.data.pricestate + '</strong>'                  
+            		thisispricestatenew = '<strong style="border-radius: 3px;display: inline;font-size: 12px;margin-left: 5px;padding: 2px 5px;color:#f49f12;border:1px solid #f49f12;position: relative;top: -3px;">' + msg.data.pricestate + '</strong>'
             	}
             }
             $(".itemnameitem").after(thisispricestatenew);
@@ -204,6 +213,7 @@ function tagbox(pages){
             tagallnum = msg.data.tags;
             $('.alltagnums').html(tagallnum);
             taglist = msg.data.taglist;
+
             supply_style = msg.data.label.sys.supply_style;
             var classjson = judgeLabel(supply_style)
             $("#supply_style").attr('class', classjson.vvclass);
@@ -224,7 +234,7 @@ function tagbox(pages){
                     }
                 }
         	}
-            
+
             $(".topbtcenter").append(labelstr);
             if (msg.data.Sample != null) {
                 sample = msg.data.Sample;

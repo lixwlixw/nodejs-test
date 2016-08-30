@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="DataHub,批量数据,API数据,流式数据,数据流动,数据交易,运营商数据,空气质量数据,免费数据调用,数据版权保护,大数据,电商大数据,物流大数据,交通大数据,企业大数据,政府大数据,科研大数据,征信大数据,竞赛数据,数据竞赛,用户画像,画像数据,个人数据,物联网数据,数据资产,数据资源,数据商品,大数据交换标准委员会,去中心化(P2P),数据市场,数据中介,数据集市,数据银行,数据交易所,一站式数据,数据咖啡馆,数据共享,数据交换,跨领域数据,跨域数据,多源数据,数据链接,数据权利,数据权属,数据隐私,数据许可,数据审计,数据使用,数据拥有,数据安全,数据定价,数据估值,数据质量,数据溯源,数据脱敏,数据流通,数据采购,数据合作,数据开放,区块链(Blockchain),数字网络(Digital Mesh),万物互联(Internet of Everything,IoE),PDS(Personal Data Store, OpenPDS),机器学习(Machine Learning),深度学习(Deep Learning),增强学习(Reinforcement Learning),监督学习(Supervised Learning),非监督学习(Unsupervised Learning),人工智能(Artificial Intelligence,AI),智能增强(Intelligence Augmentation,IA),数据开放平台,开放式创新,社会化分析,数据服务,数据价值链,价值链共享交换,数据经济,信息经济,数据即服务(Data as a service,DaaS),数据思维,数据驱动,数据科学,数字化生存(Being Digital),数据生态,数据互联网,数据骨干网,大数据应用"/>
+    <meta name="description" content="DataHub是国内首个去中心化、P2P大数据流通平台，通过将DataHub协议开源，致力于与全社会一起共建一套数据流通协议，打造数据互联网，让数据流通在阳光下流通。"/>
+    <!-- build:css /css/full.css -->
+    <link href="/css/include/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/include/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/css/include/reset.css" rel="stylesheet" />
+    <link href="/css/include/function.css" rel="stylesheet" />
+    <link href="/css/module/loader.css" rel="stylesheet" >
+    <link href="/css/include/animate.css" rel="stylesheet" >
+    <!-- endbuild -->
+    <!--<link href="/css/include/header.css" rel="stylesheet" />-->
+    <style type="text/css">
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        li{
+            list-style-type : none;
+        }
+        .index-box{
+
+            width:100%;
+            position: relative;
+        }
+        .index-box .logo{
+
+            height: 110px;
+            padding-left: 30px;
+            padding-top: 20px;
+        }
+        .index-box>div{
+            left: 0;
+            right: 0;
+        }
+        .index-box .header-out{
+            background-color: #fff;
+            border-bottom: 1px solid #7ecef4;
+            height: 120px;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+
+        }
+        .index-box .header-in{
+            width: 1200px;
+            margin: auto;
+            height: 125px;
+        }
+        .index-box .nav-search{
+            position:absolute;
+            top: 0px;
+            width:100%;
+            height: 100px;
+        }
+        #help-menu-box{
+            height: 34px;
+        }
+        .index-box .nav-search .search{
+            position:absolute;
+            width:680px;
+            height:40px;
+            top: 30px;
+            left:250px;
+        }
+        .index-box .nav-search .nav{
+            position:absolute;
+            width:680px;
+            height:40px;
+            top: 85px;
+            left:250px;
+        }
+        .index-box .nav-search .nav .menu-style{
+            width: 129px;
+            top: 38px;
+            /*left: 499px;*/
+            padding-top: 0px;
+            padding-bottom: 0px;
+            height: 212px;
+            left: 520px;
+            min-width: 120px;
+        }
+        .index-box .nav-search .nav .menu-style>li{
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            font-size: 12px;
+            background-image: none;
+        }
+        .index-box .nav-search .nav .menu-style>li>a{
+            display: inline-block;
+            width: 100%;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0;
+            color:#44bbf5;
+            background-image: none;
+
+        }
+        .index-box .nav-search .nav .menu-style>li>a:hover{
+            background-color: #44bbf5 !important;
+            border: none;
+            color: #ffffff;
+            background-image: none;
+        }
+        .index-box .nav-search .nav .menu-style>li:hover{
+            background-color: #44bbf5 !important;
+            background-image: none;
+        }
+        .sign-login{
+            position: relative;
+        }
+        .sign-login .member-menu{
+            width: 120px;
+            min-width: 120px;
+            top: 78px;
+            margin-left: 40px;
+            padding: 0;
+        }
+        .dropdown-menu.member-menu ul li{
+            height: 36px;
+            line-height: 35px;
+            text-align: center;
+        }
+        .dropdown-menu.member-menu a{
+            color:#44bbf5;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            padding: 0;
+        }
+        .dropdown-menu.member-menu  a:hover{
+            background-color: #44bbf5 !important;
+            background-image: none;
+            border: none;
+            color: #ffffff;
+        }
+        .dropdown-menu.member-menu ul li:hover{
+            background-color: #44bbf5 !important;
+            background-image: none;
+        }
+
+        .index-box .nav-search .nav ul{
+            width:680px;
+            height:40px;
+        }
+        .index-box .nav-search .nav ul li{
+            width:166px;
+            float: left;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            height: 40px;
+        }
+        #sign-gj .sign-member {
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+            /*background:url("/img/indexNew/images_17.png") no-repeat right;*/
+            /*min-width: 115px;*/
+            /*color:#44bbf5;*/
+        }
+        #innames{
+            height: 23px;
+            line-height: 23px;
+            min-width: 50px;
+            max-width: 114px;
+            display:inline-block;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        #sign-gj .sign-member .bg-icon{
+            background:url("/img/indexNew/images_17.png") no-repeat right;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            vertical-align: super;
+
+        }
+        #sign-gj .sign-member:hover{
+            color:#1eaef6;
+            background: none;
+            /*background:url("/img/indexNew/images_19.png") no-repeat right;*/
+        }
+        /*.index-box .nav-search .nav ul li:hover{*/
+        /*color:#4e63aa;*/
+        /*}*/
+        .index-box .nav-search .nav .nav-name{
+            color:#1eaef6;
+            background-color: #ffffff;
+        }
+        .index-box .nav-search .nav .nav-active{
+            color:#4e63aa;
+            text-decoration: none;
+            border-bottom: 3px solid #4e63aa;
+            display: inline-block;
+            height: 34px;
+            background-color: #ffffff;
+        }
+        #search-text{
+            /*background-image: url("/img/indexNew/lens.png");*/
+            /*background-position: 11px 11px;*/
+            background-repeat: no-repeat;
+            border: 1px solid #7ecef4;
+            border-radius: 20px;
+            color: #7ecef4;
+            height: 36px;
+            position: absolute;
+            width: 670px;
+            padding-left: 15px;
+        }
+        #search-text::-webkit-input-placeholder{
+            color: #7ecef4;
+        }
+        #search-text::-moz-placeholder{
+            color: #7ecef4;
+        }
+        #search-text[placeholder]{
+            color: #7ecef4;
+        }
+        #search-btn{
+            background-image: url("/img/indexNew/images_56.png") ;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width:50px;
+            height:36px;
+            position: absolute;
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            border:1px solid #7ecef4 ;
+            right: 10px;
+            background-color: #1eaef6;
+            font-size: 16px;
+            color:#ffffff;
+
+        }
+        #search-btn:hover{
+            background-color: #44bbf5;
+        }
+        .header-in .sign-in-out{
+            right: 0;
+            height: 120px;
+            position: absolute;
+            top: 0;
+            /*background-color: #00c4ff;*/
+            min-width: 185px;
+            padding-top: 30px;
+            max-width: 230px;
+        }
+        .sign-login>div.inLoginfLiF{
+        }
+        .header-in .layout-box{
+            position: relative;
+        }
+        .sign-in-out>div{
+            display: inline-block;
+            font-size: 18px;
+            height: 32px;
+            margin-left: 10px;
+            text-align: center;
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .sign-in-out>div:nth-child(1){
+            background-color: #ffffff;
+            border: 1px solid #4e63aa;
+            border-radius: 2px;
+            color: #4e63aa;
+        }
+        .sign-in-out>div:nth-child(2){
+            background-color: #4e63aa;
+            border: 1px solid #4e63aa;
+            border-radius: 2px;
+            color: #ffffff;
+        }
+        .sign-nologin>div>a{
+            color: #ffffff;
+        }
+        .sign-nologin > div > *{
+            vertical-align: middle;
+        }
+        a{
+            text-decoration: none !important;
+        }
+
+        .sign-nologin  div:hover{
+            color: #ffffff;
+            background-color: #1eaef6;
+            border-radius: 2px;
+        }
+
+        button.close {
+            background: rgba(0, 0, 0, 0) url("/img/closebox.png") no-repeat scroll 0 0;
+            height: 18px;
+            opacity: 1;
+            width: 18px;
+        }
+
+        .g-body{
+            margin-top: 140px;
+        }
+
+        .g-ft{
+            background-color: #4e63aa;
+            height: 60px;
+
+        }
+        .g-ft .text-center{
+            color: white;
+        }
+
+        /*-----------*/
+        .index-box .logo>img{
+            height: 89px;
+        }
+        .search_label {
+            position: absolute;
+            top: 9px;
+            display: block;
+            color: black;
+            z-index: 10;
+            text-align: right;
+            left: 416px;
+            width: 205px;
+
+        }
+        .search_label>a{
+            margin-right: 25px;
+            background-color: #d1edfc;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 2px;
+            color:#44bbf5;
+        }
+        .search_label>a:hover{
+            color: #ffffff;
+            background-color: #44bbf5;
+        }
+        #sign-menu-box>a{
+            color:#44bbf5;
+        }
+        .index-box .nav-search .nav .nav-active>a{
+            color:#4e63aa !important;
+        }
+    </style>
+    <%- block('css').toString() %>
+    <title><%=title %></title>
+</head>
+<body>
+
+<!-- load开始 -->
+<div class="be-loader">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+<!-- /load结束 -->
+
+<!-- 头部 -->
+<div class="container index-box">
+<div class="header-out">
+    <div class="header-in">
+        <div class="layout-box">
+            <div class="logo"><img src="img/indexNew/logo-octopus.png"/></div>
+            <div class="nav-search">
+                <div class="search">
+                    <div class="search_label" style="display: block;">
+                        <a target="_blank" href="">终端</a>
+                        <a target="_blank" href="">位置</a>
+                        <a target="_blank" href="">征信</a>
+                    </div>
+                    <input type="text" name="search-text" id="search-text" placeholder="请输入关键词" class="form-control" />
+                    <input type="button" name="search-btn" id="search-btn"  />
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a class="nav-name nav-active" href="/" title='首页' target="_blank">首页</a></li>
+                        <li><a class="nav-name" href="/selects" title='数据精选' target="_blank">数据精选</a></li>
+                        <li><a class="nav-name" href="/clientToolDownload" title='工具' target="_blank">工具</a></li>
+                        <li>
+                            <div id="help-menu-box">
+                                <a href="javaScript:void(0);" title='帮助' class="dropdown-toggle nav-name js-activated">帮助</a>
+                                <ul class="dropdown-menu menu-style">
+                                    <li><a href="http://docs.hub.dataos.io/member.html" target="_blank">用户注册</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/certification.html" target="_blank">会员认证</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/upgrade.html" target="_blank">会员升级</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/demander.html" target="_blank">下载数据</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/supplier.html" target="_blank">发布数据</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/client.html" target="_blank">Client端命令</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="sign-in-out sign-nologin" style="display: none">
+                <div><model m-text="登录" m-title="登录" m-href="login" m-width="300"></model></div>
+                <div><a href="/reg" target="_blank">注册</a></div>
+            </div>
+            <div class="sign-in-out sign-login" style="display: none">
+                <li class="inLoginfLiF">
+                    <div id="sign-menu-box">
+                        <a id="sign-gj" target="_blank" href='javaScript:void(0);' title='会员中心' class="dropdown-toggle js-activated">
+                            <img src="/img/indexNew/member.png" alt="">
+                            <!--<span class="badgeHeader" style="display: inline;">&nbsp;</span>-->
+                            <div class="sign-member">
+                                <span id="innames">chengkj</span>
+                                <span class="bg-icon"></span>
+                            </div>
+
+                        </a>
+
+                        <ul class="dropdown-menu member-menu">
+                            <!--<li><a id="innames" href="javaScript:void(0);" style="cursor: default;"></a></li>-->
+                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/my/member">会员升级</a></li>
+                            <li><a href="/my/pwd">修改密码</a></li>
+                            <li><a href="/my/basicInfovue">基本信息</a></li>
+                            <!--<li class="divider"></li>-->
+                            <li><a href="/monitor">监控中心</a></li>
+                            <!--<li class="dropdown-header">监控中心</li>-->
+                            <li><a href="/my/myaccount">财务中心</a></li>
+                            <li><a href="/my/msgreq">消息中心</a></li>
+                            <li><a href="/my/ca">认证中心</a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a id="logout" href="javaScript:void(0);">退出</a></li>
+                        </ul></div>
+
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /头部 -->
+<div class="container g-body">
+    <%-body -%>
+</div>
+<!-- 尾部 -->
+<div class="container-fluid navbar-fixed-bottom g-ft">
+    <p class="text-center">© 2016 版权所有  北京亚信智慧数据科技有限公司  京ICP备11005544号-15 京公网安备110108007119号</p>
+</div>
+</div>
+<!-- /尾部 -->
+<!-- 模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" ID="origin">
+        <div class="modal-content" style="padding:30px;font-size: 14px;">
+            <div class="modal-header" style="border-bottom:1px solid #cacaca;padding: 0px 0px 10px 0px;">
+                <button style='float: right;margin-top: 5px;' type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" id="myModalLabel1" style="font-size: 20px;color: #333;"></h4>
+            </div>
+            <div class="modal-body" style="padding: 0px;" ></div>
+        </div>
+    </div>
+</div>
+<!-- /模态框 -->
+</body>
+<!-- build:js /js/full.js -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/plugin/jquery.cookie.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/plugin/base64.js"></script>
+<script src="/js/widget/footTops.js"></script>
+<!-- endbuild -->
+<%- block('js').toString() %>
+<script src="/js/bootstrap-hover-dropdown.js"></script>
+<script src="/js/widget/bAnalysis.js"></script>
+<script src="/js/widget/growAnalysis.js"></script>
+<script src="/js/widget/daovoice.js"></script>
+<script src="/js/widget/model.js"></script>
+<script src="/js/pagescript/layout.js"></script>
+<script src="/js/util/ajaxSetup.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $(".be-loader").fadeOut("slow");
+        $('.js-activated').dropdownHover().dropdown();
+
+//        console.log($("#innames").text().length);
+//        var textLen=$("#innames").text().length
+//        if(textLen>=11){
+//            $("#innames").css({'display':'block','white-space':'nowrap','overflow':'hidden', 'text-overflow':'ellipsis'})
+//        }
+//        console.log($.cookie("token"))
+
+        $('body').on('mouseover mouseout','#help-menu-box',function(event){
+
+            if(event.type=='mouseover'){
+                $('#help-menu-box').addClass('open')
+                $('#help-menu-box>a').css('color','#4e63aa')
+            }
+            if(event.type=='mouseout'){
+//                $('#help-menu-box').removeClass('open')
+                $('#help-menu-box>a').css('color','#1eaef6')
+            }
+        })
+
+        $('#search-text').focus(function(){
+            $('.nav-search .search_label').fadeOut();
+        })
+        $('#search-text').blur(function(){
+            $('.nav-search .search_label').fadeIn();
+        })
+        $('body').on('mouseover mouseout','#sign-menu-box',function(event){
+
+            if(event.type=='mouseover'){
+                $('#sign-menu-box').addClass('open');
+                $('#sign-gj .sign-member').css('color','#4e63aa');
+                $('#sign-gj .sign-member .bg-icon').css('background','url("/img/indexNew/images_19.png") no-repeat right');
+            }
+
+            if(event.type=='mouseout'){
+                // $('#sign-menu-box').removeClass('open')
+                $('#sign-gj .sign-member .bg-icon').css('background','url("/img/indexNew/images_17.png") no-repeat right');
+                $('#sign-gj .sign-member').css('color','#44bbf5');
+            }
+
+        });
+
+        if($.cookie("token")!=null&&$.cookie("tname")!=null&&$.cookie("tname")!="null"&&$.cookie("tname")!="null"){
+            $(".sign-nologin").hide();
+            $(".sign-login").show();
+
+            var tname=$.cookie("tname")
+            var atname=tname.split('@');
+            $("#innames").text(atname[0]);
+
+            if(atname[0].length>=11){
+                $("#innames").css({'display':'block','white-space':'nowrap','overflow':'hidden', 'text-overflow':'ellipsis'})
+            }
+        }else{
+            $(".sign-nologin").show();
+            $(".sign-login").hide();
+        }
+
+    });
+    // dropdown menu
+    $(document).on('keydown',"#search-text",function (e) {
+        if (e.keyCode == 13) {
+            var vals=$(this).val();
+            vals=encodeURIComponent(vals);
+            if(vals!=""){
+                vals=vals.replace("\/","_*_");
+            }
+            if(pcorphone == 'pc'){
+                location.href="/search/"+vals;
+            }
+            if(pcorphone == 'phone'){
+                location.href="searchPhone.html?rtext="+vals;
+            }
+        }
+    });
+
+    // dropdown menu
+    $(document).on('click',"#search-btn",function (e) {
+        var vals=$("#search-text").val();
+        vals=encodeURIComponent(vals);
+        if(vals!=""){
+            vals=vals.replace("\/","_*_");
+        }
+        if(vals==""){
+            location.href="search";
+        }else{
+            location.href="/search/"+vals;
+        }
+    });
+
+    $(document).on('click','#logout',function(){
+        $.cookie("tname",null,{path:"/"});
+        $.cookie("token",null,{path:"/"});
+
+        $.cookie("tuserid",null,{path:"/"}); // 必填: 该用户在您系统上的唯一ID
+        $.cookie("tnickname",null,{path:"/"}); // 选填: 用户名
+        $.cookie("tregtime",null,{path:"/"}); // 选填: 用户的注册时间，用Unix时间戳表示
+
+        $.cookie("badgeHeader",null,{path:"/"}); //新消息提示
+
+        location.href="/";
+    });
+
+    $(function(){
+        //  nav menu sytle
+        navSwitch();
+    })
+    var navIndex=0;
+    function navSwitch(){
+
+        $('.nav>ul>li').on('click',function(e){
+            navIndex=$(this).index();
+            $('.nav>ul>li').eq(navIndex).children().addClass('nav-active')
+            $('.nav>ul>li').eq(navIndex).siblings().children().removeClass('nav-active')
+        })
+
+        $('.nav>ul>li').on('mouseenter mouseleave',function(e){
+            var index=$(this).index();
+            if(e.type=='mouseenter'){
+                $('.nav>ul>li').eq(index).children().addClass('nav-active')
+                $('.nav>ul>li').eq(index).siblings().children().removeClass('nav-active')
+            }
+            if(e.type=='mouseleave'){
+                $('.nav>ul>li').eq(navIndex).children().addClass('nav-active')
+                $('.nav>ul>li').eq(navIndex).siblings().children().removeClass('nav-active')
+            }
+        })
+    }
+</script>
+</html>

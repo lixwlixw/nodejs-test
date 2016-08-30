@@ -1,7 +1,8 @@
-FROM registry.dataos.io/nodejs/nodejs:latest
+FROM registry.dataos.io/nodejs/baseimage-web-nodejs:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY start.sh /start.sh
 ADD . /datahub/raw/main/webapp
-EXPOSE  80
-RUN chmod u+x /start.sh
+RUN cd /datahub/raw/main/webapp && gulp build
+WORKDIR /datahub/raw/main/webapp/dist
+EXPOSE  80 443
 CMD ["/start.sh"]

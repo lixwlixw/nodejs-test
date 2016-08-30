@@ -1,8 +1,11 @@
 <% layout('tpl/layout.html') -%>
 <% block('css').append('<link rel="stylesheet" href="/css/module/basicInfo.css">')%>
+
+<% block('js').append('<script src="/js/pagescript/certificateCenter.js"></script>') %>
 <% block('js').append('<script src="/js/pagescript/basicInfo.js"></script>')%>
+
 <div  class="container main">
-    <div class="topBox">
+    <div class="topBox" >
         <div style="float:left;margin-top:30px;width:950px;">
             <div class="top_title">
                 <p>账户信息</p>
@@ -50,22 +53,175 @@
                 <div id="update_icon" @click="formUpdate">
                     <span class="span_icon"></span>
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">-->
+                    <!--&lt;!&ndash;<label for="exampleInputName">名称<span>设置后不能修改</span></label>&ndash;&gt;-->
+                    <!--<label for="exampleInputName">名称</label>-->
+                    <!--<input v-model="username" disabled="disabled" type="email"  class="form-control " id="exampleInputName" placeholder="企业名称/个人名称"-->
+                           <!--style="margin-bottom: 0;width:480px;">-->
+                <!--</div-->
+                <!--<div class="form-group">-->
+                    <!--<label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">昵称</label>-->
+                    <!--<input  v-model="nickname" class="form-control"  id="exampleInputName2" placeholder="昵称"-->
+                            <!--style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">-->
+                    <!--<span style="float: left;width: 40%;height: 40px;line-height: 40px;-->
+                        <!--margin-left: 10px;color: red" id="nameAlert">昵称不能为空!</span>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="exampleInputTime" style="float: left;width: 100%;margin-bottom: 0px">简介</label>-->
+                    <!--<textarea v-model="comment" id="textComment"  class="form-control form-control-self" rows="6"-->
+                              <!--placeholder="基本情况介绍，100字以内"maxlength="100" style="width:480px;float:left;"></textarea>-->
+                    <!--<span style="float: left;width: 40%;height: 140px;line-height: 140px;-->
+                        <!--margin-left: 10px;color: red" id="commentAlert">简介不能为空!</span>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<button type="submit" @click="formSubmit" id="button01" class="btn btn-default" style="float: left">提交</button>&ndash;&gt;-->
+                <!--<div style="width: 100%;float: left;margin-top: 15px">-->
+                    <!--<button type="submit" @click="formSubmit" id="button01" class="btn btn-default" style="border: none">提交</button>-->
+                <!--</div>-->
+                <!--<div class="certificateCenter" style="height: auto">-->
+                    <!--<div class="ca_title">-->
+                        <!--<p>认证中心</p>-->
+                    <!--</div>-->
+
+
+                    <!--<div class="form-group">-->
+                        <!--<label for="ca_account">账号</label>-->
+                        <!--<input  type="email" v-model="email" class="form-control " id="ca_account" placeholder="" readonly="readonly" disabled="disabled">-->
+                    <!--</div>-->
+
+                    <!--<template v-if="statusbool">-->
+                        <!--<div class="account_input form-group">-->
+                            <!--<label>类型</label>-->
+                            <!--<div>-->
+                                <!--<span class="company" id="company" @click="selected" style="margin-right: 28px;">企业</span>-->
+                                <!--<span class="personal" id="personal" @click="selected">个人</span>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; <a href="{{href}}"><div @click="next" class="nextBtn">下一步</div></a> &ndash;&gt;-->
+                            <!--<a href="javaScript:void(0);"><div @click="next" class="nextBtn">下一步</div></a>-->
+                        <!--</div>-->
+                    <!--</template>-->
+                    <!--<template v-else>-->
+
+                        <!--<template v-if="statusauth">-->
+                            <!--&lt;!&ndash;显示审核不通过的状态&ndash;&gt;-->
+
+                            <!--<div class="account_input form-group">-->
+                                <!--<label>类型</label>-->
+                                <!--<div>-->
+                                    <!--&lt;!&ndash;<label style="float: left;width: 100%;">类型</label>&ndash;&gt;-->
+                                    <!--<span class="company" id="company" style="margin-right: 28px;background-color: #f9f9f9;" >{{type}}</span>-->
+                                <!--</div>-->
+                                <!--<label style="margin-top: 20px;">审核状态</label>-->
+                                <!--<div>-->
+						<!--<span class="autoStatus">-->
+							<!--{{status}}-->
+						<!--</span>-->
+                                    <!--<p class="autoNo">-->
+                                        <!--{{masssage}}-->
+                                    <!--</p>-->
+                                    <!--<a :href="dhref" class="autoTo">点击重新填写认证信息</a>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; <a href="{{href}}"><div @click="next" class="nextBtn">下一步</div></a> &ndash;&gt;-->
+                                <!--&lt;!&ndash;<a href="javaScript:void(0);"><div @click="next" class="nextBtn">下一步</div></a>&ndash;&gt;-->
+                            <!--</div>-->
+
+
+                        <!--</template>-->
+                        <!--<template v-else>-->
+                            <!--&lt;!&ndash;除了审核不通过的情况&ndash;&gt;-->
+
+                            <!--<div class="account_input form-group" >-->
+                                <!--<label style="float: left;width: 100%;">类型</label>-->
+                                <!--<span class="company" style="margin-right: 28px;background-color: #f9f9f9;">{{type}}</span>-->
+                            <!--</div>-->
+                            <!--<div class="account_input form-group" >-->
+                                <!--<label style="float: left;width: 100%;">状态</label>-->
+                                <!--<span class="company" style="margin-right: 28px;background-color: #f9f9f9;">{{status}}</span>-->
+                            <!--</div>-->
+
+                        <!--</template>-->
+
+
+
+                    <!--</template>-->
+
+
+                <!--</div>-->
+                <div class="certificateCenter">
+                    {{email}}
+                    {{type}}
+                    <div class="form-group" style="margin-bottom: 15px">
+                        <label for="exampleInputEmail1">账号</label>
+                        <input  type="email" v-model="email" disabled="disabled" class="form-control " placeholder="注册邮箱"
+                                style="margin-bottom: 0px;width:480px;">
+                    </div>
+                    <div class="form-group">
+                        <label>类型</label>
+                        <!--<input class="form-control" placeholder="" readonly="readonly" disabled="disabled" style="width: 200px">-->
+                        <div style="width: 200px;height: 40px;margin-right: 28px;background-color: #eee;border: 1px solid #cacaca;border-radius: 5px;line-height:40px;padding-left: 12px;" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label>状态</label>
+                        <!--<input class="form-control"  placeholder="" readonly="readonly" disabled="disabled" style="width: 200px">-->
+                        <div style="width: 200px;height: 40px;margin-right: 28px;background-color: #eee;border: 1px solid #cacaca;border-radius: 5px;line-height:40px;padding-left: 12px;" >{{status}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="width: 480px">
                     <!--<label for="exampleInputName">名称<span>设置后不能修改</span></label>-->
-                    <label for="exampleInputName">名称</label>
-                    <input v-model="username" disabled="disabled" type="email"  class="form-control " id="exampleInputName" placeholder="企业名称/个人名称"
+                    <label for="exampleInputName">个人姓名<span style="color: red">*<span id="nameAlert" style="float: right"> <img src="/img/images02_127.png" style="float: left;margin: 4px 5px;width: 12px;" />请输您的姓名</span></span></label>
+                    <input v-model="username"  type="email"  class="form-control " id="exampleInputName2" placeholder="个人姓名"
                            style="margin-bottom: 0;width:480px;">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputName">昵称</label>
-                    <input  v-model="nickname" class="form-control"  id="exampleInputName2" placeholder="昵称"
-                            style="margin-bottom: 0;width:480px;">
+                    <label for="exampleInputName" style="float: left;width: 100%;margin-bottom: 0px">昵称</label>
+                    <input  v-model="nickname" class="form-control"  id="exampleInputName" placeholder="昵称"
+                            style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
+                    <!--<span style="float: left;width: 40%;height: 40px;line-height: 40px;-->
+                        <!--margin-left: 10px;color: red" id="nameAlert">昵称不能为空!</span>-->
+                </div>
+               <div class="form-group">
+                   <label for="exampleInputBusiness" style="float: left;width: 100%;margin-bottom: 0px">所属行业</label>
+                   <input class="form-control" id="exampleInputBusiness" placeholder="所属行业"
+                          style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
+               </div>
+                <div class="form-group">
+                    <label for="exampleInputPhone" style="float: left;width: 100%;margin-bottom: 0px">手机号码</label>
+                    <input class="form-control" id="exampleInputPhone" placeholder="手机号码"
+                           style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputTime">简介</label>
-                    <textarea v-model="comment" id="textComment"  class="form-control form-control-self" rows="6" placeholder="基本情况介绍，100字以内"maxlength="100" style="width:480px;"></textarea>
+                    <label for="exampleInputHome" style="float: left;width: 100%;margin-bottom: 0px">个人主页</label>
+                    <input class="form-control" id="exampleInputHome" placeholder="个人主页"
+                           style="margin-bottom: 0;width:480px;float: left;margin-bottom: 15px">
                 </div>
-                <button type="submit" @click="formSubmit" id="button01" class="btn btn-default">提交</button>
+                <!--<div class="form-group">-->
+                    <!--<label style="float: left;width: 100%;margin-bottom: 0px">个人头像</label>-->
+                    <!--<div style="float:left;margin-bottom:15px">-->
+                        <!--<div style="width: 150px;height: 100px;float: left;border: 1px solid #cacaca"></div>-->
+                        <!--&lt;!&ndash;<input type="file" style="width: 200px;float:left;">&ndash;&gt;-->
+                        <!--<div class="col-lg-6" style="padding: 0;width: 600px; float: none;">-->
+                            <!--<div class="input-group">-->
+                                <!--<upload detmsg="不符合要求,请修改后重新上传" :picid.sync=orgPic v-bind:headers="xhrHeaders" action="/api/certification/upload"></upload>-->
+                            <!--</div>-->
+                            <!--<span>图片大小500K以内，支持PNG/JPG格式</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="exampleInputTime" style="float: left;width: 100%;margin-bottom: 0px">个人简介</label>
+                    <textarea v-model="comment" id="textComment"  class="form-control form-control-self" rows="6"
+                              placeholder="基本情况介绍，100字以内"maxlength="100" style="width:480px;float:left;"></textarea>
+                    <!--<span style="float: left;width: 40%;height: 140px;line-height: 140px;-->
+                        <!--margin-left: 10px;color: red" id="commentAlert">简介不能为空!</span>-->
+                </div>
+                <!--<button type="submit" @click="formSubmit" id="button01" class="btn btn-default" style="float: left">提交</button>-->
+                <!--<div style="width: 100%;float: left;margin-top: 15px">-->
+                    <!--<button type="submit"id="button01" class="btn btn-default" style="border: none">提交</button>-->
+                <!--</div>-->
+                <div style="width: 480px;float: left">
+                    <button class="btn btn-default"  @click="formSubmit"  id="button01" type="submit" style="width: 100%;float: left;border: none;margin-top: 15px">修改</button>
+                </div>
             </div>
         </div>
     </div>
@@ -78,7 +234,7 @@
             </div>
             <div  class="under_main">
                 <div  class="p_progress">
-                    <p>Pull量：<span>2000次/天</span></p>
+                    <p>免费资源下载量：<span>2000次/天</span></p>
                     <div class="pn_progress">
                         <div id="pullNum" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top">
                             <span class="sr-only">40% Complete (success)</span>
@@ -139,3 +295,40 @@
     </div>
 
 </div>
+
+<script>
+
+    var upload = require('../../reusable/upload.vue');
+
+//    export default {
+//        data:function(){
+//            return {
+//                btntext:"下一步",
+//                xhrHeaders: {"Authorization" : "Token "+$.cookie("token")},
+//                kbisPic:'',
+//                orgPic:''
+//            }
+//        },
+//        computed: {
+//        },
+////        components: {
+////            upload
+////        },
+//        watch:{
+//            'kbisPic':function(val){
+//                this.$parent.kbisPic=val;
+//            },
+//            'orgPic':function(val){
+//                this.$parent.orgPic=val;
+//            }
+//        },
+//        methods:{
+//
+//        }
+//    }
+
+
+
+
+
+</script>

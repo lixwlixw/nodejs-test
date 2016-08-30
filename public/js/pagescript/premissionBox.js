@@ -136,6 +136,9 @@
                 $(obj).append(str)
             },
             appendAddrepstr : function(obj){
+                console.log("---------");
+                console.log(obj);
+                console.log("----------");
                 var str = '<div id="addRep" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
                     '<div class="modal-dialog">'+
                     '<div class="modal-content">'+
@@ -169,10 +172,11 @@
                     '<div class="key">属性 <span class="reptypeicon"   data-placement="right" data-toggle="tooltip" data-html="true" data-original-title="开放：所用用户能看到Repository、以及下属DataItem的详情。<br/>私有：仅有自己和白名单用户能看到Repository、以及下属DataItem的详情。"></span></div>'+
 
                     '<div class="value">'+
-                    '<select name="" id="ispublic" data-tagle="">'+
-                    '<option value="1">开放</option>'+
-                    '<option value="2">私有</option>'+
+                    '<select name="" id="ispublic">'+
+                        '<option value="1">开放</option>'+
+                        '<option value="2">私有</option>'+
                     '</select>'+
+                        //'<div id="ispublic" style="border: 1px solid #cacaca;border-radius: 5px;padding: 2px 5px;width:40px "></div>'+
                     '</div>'+
                     '<div class="xiugaireperror"></div>'+
                     '</div>'+

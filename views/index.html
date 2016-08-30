@@ -1,1039 +1,566 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<title>首页_广数交</title>
-	
-	<meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-	<meta name="description" content="广州数据交易服务有限公司2016年3月正式挂牌成立并开始运营，主要是面向全国提供创新型数据交易服务，采用“政府指导，市场化运作”的方针，遵循“公平、开放、安全、可控”的基本原则，旨在促进数据流动，规范数据交易行为，维护数据交易市场秩序，保护数据交易各方合法权益，向社会提供完整的数据交易、支付、结算、交付、安全保障、数据资产管理等服务。" />
-	<meta name="keywords" content="首页，广数交，GZBDEX，批量数据，API数据，流式数据，数据流动，数据交易，终端数据，基站信息，个人征信，金融理财，交通运输，互联网数据" />
-	<title>首页_广数交</title>
-	<!-- build:css /css/full.css -->
-	<link rel="stylesheet" href="/css/include/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/module/loader.css">
-	<link rel="stylesheet" href="/css/include/animate.css">
-	<!-- endbuild -->
-	<link rel="stylesheet" type="text/css" href="css/gz/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/gz/common.css">
-    <link rel="stylesheet" type="text/css" href="css/gz/home.css">
-    <link rel="stylesheet" type="text/css" href="css/gz/indexs.css">
-    <style>
-/* 			.modal {
-			    bottom: 0;
-			    display: none;
-			    left: 0;
-			    outline: 0 none;
-			    position: fixed;
-			    right: 0;
-			    top: 0;
-			    z-index: 1050;
-			}
-			.embed-responsive, .modal, .modal-open, .progress {
-			    overflow: hidden;
-			}
-			.fade {
-			    opacity: 0;
-			    transition: opacity 0.15s linear 0s;
-			} */
-		button.close {
-		    background: rgba(0, 0, 0, 0) url("/img/closebox.png") no-repeat scroll 0 0;
-		    height: 18px;
-		    opacity: 1;
-		    width: 18px;
-		}
-		button.close:hover {
-		    background: rgba(0, 0, 0, 0) url("/img/closebox_hover.png") no-repeat scroll 0 0;
-		    opacity: 1;
-		}
-		
-    	.bg{
-			/* background-image: url("/img/gz/nav/wdqt.jpg"); */
-
-			background-repeat: no-repeat;
-			height: 304px;
-			background-color: rgb(36,179,239);
-		}
-		.moduleBom{
-			float:left;
-		}
-		.moduleBom ul{
-			float:left;
-			width:100%;
-		}
-		.moduleBom ul li{
-			 float: left;
-			font-size: 13px;
-			padding: 10px 0 0;
-			width: 100%;
-		}
-		.table_partner{
-			width: 100%;
-			float: left;
-		}
-		/*.table_title{*/
-			/*float: left;*/
-			/*margin: 10px 20px;*/
-			/*font-size: 18px;*/
-			/*font-weight: bold;*/
-			/*color: #053f6d;*/
-		/*}*/
-		.table_left_zong{
-				 width: 100%;
-				 height: 50px;
-				 border: 1px solid #24b4ee;
-				 float: left;
-
-				font-size: 18px;
-				font-family: '微软雅黑';
-				text-align: center;
-				line-height: 50px;
-			 }
-
-		.table_partner_left{
-			float: left;
-			border: 1px solid #24b4ee;
-			border-top: none;
-			width: 100%;
-			height: 190px;
-		}
-		.navMenu{
-			background-color: #fff;
-		}
-		.navMenu li:hover{
-			background-color: #ccc;
-			cursor: pointer;
-
-		}
-
-
-	</style>
-    	<style type="text/css">
-		#pull {
-			padding: 20px 40px;
-		}
-		#pull-head {
-			font-size: 18px;
-			color: #333;
-			margin-bottom: 20px;
-		}
-		#pull-body .record .head {
-			font-size: 0px;
-			cursor: pointer;
-		}
-		#pull-body .record .body {
-			border-left: 1px solid #ccc;
-			margin-bottom: 5px;
-			margin-left: 11px;
-			margin-top: -6px;
-			padding: 20px 0 3px 28px;
-		}
-		#pull-body .record .head>span {
-			display: inline-block;
-			font-size: 16px;
-			color: #29abe2;
-			float:left;
-		}
-		#pull-body .record .head .icon {
-			background-image: url("/img/gz//time1.png");
-			background-repeat: no-repeat;
-			width: 25px;
-			height: 25px;
-		}
-		#pull-body .record .head .icon2 {
-			background-image: url("/img/gz//time2.png");
-    background-position: 5px 0;
-    background-repeat: no-repeat;
-    height: 25px;
-    width: 25px;
-		}
-		#pull-body .record .body table {
-			color: #666;
-			font-size: 14px;
-			width: 100%;
-			table-layout:fixed;
-		}
-		#pull-body .record .body table tr td{
-			height: 30px;
-			line-height: 30px;
-			text-align: center;
-			width: 20%;
-			word-break: keep-all;
-			white-space:nowrap;
-			overflow:hidden;
-			text-overflow:ellipsis;
-		}
-		#pull-body .record .body table tr .first {
-			text-align: left;
-			padding-left: 20px;
-		}
-		#pull-body .record .body table tr .last {
-			text-align: right;
-			padding-right: 20px;
-		}
-		#pull-body .record .body table tr:nth-child(odd) {
-			background-color: #f5f5f5;
-		}
-		#pull-body .record .body table tr:nth-child(even) td{
-			padding-top: 5px;
-			padding-bottom: 5px;
-		}
-		
-		.imgparnter{
-			vertical-align:text-bottom;height: 50px;margin-right: 55px;width:130px;
-		}
-
-		.date a:hover{
-			color: #29abe2;
-		}
-		
-		.slideBoxs a:hover{
-			color: #29abe2;
-		}
-		
-		#tableXin a:hover{
-			color: #29abe2;
-		}
-		
-		#gzrds a:hover{
-			color: #29abe2;
-		}
-		
-		.tempWrap{
-			margin-left: 0px;
-		}
-		
-		.styleObject{
-			color: #29abe2;
-		}
-
-		@media (max-width: 768px){
-			#pull-body .record .body table tr {
-				overflow:hidden;
-			}
-			#pull-body .record .body table tr td {
-				width: 50%;
-				float: left;
-			}
-			#pull-body .record .body table tr td:nth-child(2), #pull-body .record .body table tr td:nth-child(4) {
-				clear: right;
-			}
-			#pull-body .record .body table tr .first {
-				text-align: center;
-				padding: 0px;
-			}
-			#pull-body .record .body table tr .last {
-				text-align: center;
-				padding: 0px;
-			}
-			#pull-body .record .body table tr:nth-child(even) td{
-				padding-top: 0px;
-				padding-bottom: 0px;
-			}
-		}
-		@media (max-width: 420px) {
-			#pull-body .record .body table tr td {
-				width: 100%;
-				line-height: 30px;
-				text-align: left;
-				display: block;
-				padding: 0px;
-			}
-			#pull-body .record .body table tr .first {
-				text-align: left;
-				padding: 0px;
-			}
-			#pull-body .record .body table tr .last {
-				text-align: left;
-				padding: 0px;
-			}
-			#pull-body .record .body table tr:nth-child(even) td{
-				padding-top: 0px;
-				padding-bottom: 0px;
-			}
-		}
-			.logli{
-				height: 30px;line-height: 30px;
-			}
-		.nav > li > a:focus, .nav > li > a:hover {
-			background-color: #eee;
-			text-decoration: none;
-			color: #000 !important;
-		}
-
-		.sjxqselected{
-			float:left; font-size:18px; margin: 16px 20px;font-family: 微软雅黑;text-decoration: none;border-bottom: 3px solid #24b4ee;padding-bottom: 4px;cursor: pointer;
-		}
-		.jsxqselected{
-			float:left; font-size:18px; margin: 16px 20px;font-family: 微软雅黑;text-decoration: none;cursor: pointer;padding-bottom: 4px;
-		}
-		.hyxwselected{
-			float:left; font-size:18px; margin: 16px 20px;font-family: 微软雅黑;text-decoration: none;border-bottom: 3px solid #24b4ee;padding-bottom: 4px;cursor: pointer;
-		}
-		.gszxselected{
-			float:left; font-size:18px; margin: 16px 20px;font-family: 微软雅黑;text-decoration: none;cursor: pointer;padding-bottom: 4px;
-		}
-
-	</style>
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="keywords" content="DataHub,批量数据,API数据,流式数据,数据流动,数据交易,运营商数据,空气质量数据,免费数据调用,数据版权保护,大数据,电商大数据,物流大数据,交通大数据,企业大数据,政府大数据,科研大数据,征信大数据,竞赛数据,数据竞赛,用户画像,画像数据,个人数据,物联网数据,数据资产,数据资源,数据商品,大数据交换标准委员会,去中心化(P2P),数据市场,数据中介,数据集市,数据银行,数据交易所,一站式数据,数据咖啡馆,数据共享,数据交换,跨领域数据,跨域数据,多源数据,数据链接,数据权利,数据权属,数据隐私,数据许可,数据审计,数据使用,数据拥有,数据安全,数据定价,数据估值,数据质量,数据溯源,数据脱敏,数据流通,数据采购,数据合作,数据开放,区块链(Blockchain),数字网络(Digital Mesh),万物互联(Internet of Everything,IoE),PDS(Personal Data Store, OpenPDS),机器学习(Machine Learning),深度学习(Deep Learning),增强学习(Reinforcement Learning),监督学习(Supervised Learning),非监督学习(Unsupervised Learning),人工智能(Artificial Intelligence,AI),智能增强(Intelligence Augmentation,IA),数据开放平台,开放式创新,社会化分析,数据服务,数据价值链,价值链共享交换,数据经济,信息经济,数据即服务(Data as a service,DaaS),数据思维,数据驱动,数据科学,数字化生存(Being Digital),数据生态,数据互联网,数据骨干网,大数据应用" />
+		<meta name="description" content="DataHub是国内首个去中心化、P2P大数据流通平台，通过将DataHub协议开源，致力于与全社会一起共建一套数据流通协议，打造数据互联网，让数据流通在阳光下流通。" />
+		<title>DataHub.阳光下的数据流通平台</title>
+		<!-- build:css /css/full.css -->
+		<link rel="stylesheet" href="/css/include/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/module/loader.css">
+		<link rel="stylesheet" href="/css/include/animate.css">
+		<link rel="stylesheet" href="/css/include/function.css">
+		<!-- endbuild -->
+		<link rel="stylesheet" href="/css/include/command.css">
+		<link rel="stylesheet" href="/css/module/index.css">
 </head>
+
 <body>
-	<div id="basic" class="information">
-		<!-- 顶部 -->
-		<div class="top">
-			<div class="topCenter">
-				<ul id="inLoginno"  class="nav navbar-nav" style="height: 30px;width: 225px;float: right;">
-					<li class="logli"><a style="height: 30px;line-height: 30px;padding: 0px 10px;color: #fff" href="/" target="_blank" title="首页">首页</a></li>
-					<li class="logli"><a style="height: 30px;line-height: 30px;padding: 0px 10px;color: #fff" href="/clientToolDownload" target="_blank" title="工具">工具</a></li>
-					<li class="logli">
-						<!-- <a href="http://docs.hub.dataos.io" target="_blank" title="帮助">帮助</a> -->
-						<a style="height: 30px;line-height: 30px;padding: 0px 10px;color: #fff"  data-toggle="dropdown" class="dropdown-toggle js-activated" aria-haspopup="true" aria-expanded="false"  href="javaScript:void(0);" title='帮助' >帮助</a>
-						<ul class="dropdown-menu">
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/member.html" target="_blank">用户注册</a></li>
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/certification.html" target="_blank">会员认证</a></li>
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/upgrade.html" target="_blank">会员升级</a></li>
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/demander.html" target="_blank">下载数据</a></li>
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/supplier.html" target="_blank">发布数据</a></li>
-							<li><a style="color: #333;font-size: 1em" href="http://docs.gzbdex.com/client.html" target="_blank">Client端命令</a></li>
-						</ul>
-					</li>
 
-					<li class="logli"><a style="height: 30px;line-height: 30px;padding: 0px 10px;color: #fff"><model m-text="登录" m-title="登录" m-href="login" m-width="300"></model></a></li>
-					<li class="logli" style="width: 5px"><span style="display: block;color: #fff;">|</span></li>
-					<li class="logli"><a style="height: 30px;line-height: 30px;padding: 0px 10px;color: #fff" href="/reg" target="_blank" title="注册">注册</a></li>
-				</ul>
-				<!--<ul id="inLoginb" class="topr" style="width:305px">-->
-					<!--<li>-->
-						<!--<a id="pclogins" style="cursor: pointer;padding: 0px;">首页</a>-->
-					<!--</li>-->
-					<!--<li><a href="/clientToolDownload" target="_blank" title="工具">工具</a></li>-->
-					<!--<li>-->
-						<!--&lt;!&ndash; <a href="http://docs.hub.dataos.io" target="_blank" title="帮助">帮助</a> &ndash;&gt;-->
-						<!--<a  data-toggle="dropdown" class="dropdown-toggle js-activated" aria-haspopup="true" aria-expanded="false"  href="javaScript:void(0);" title='帮助' >帮助</a>-->
-						<!--<ul class="dropdown-menu">-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/member.html" target="_blank">用户注册</a></li>-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/certification.html" target="_blank">会员认证</a></li>-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/upgrade.html" target="_blank">会员升级</a></li>-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/demander.html" target="_blank">下载数据</a></li>-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/supplier.html" target="_blank">发布数据</a></li>-->
-							<!--<li><a style="color: #333;font-size: 1em" href="http://docs.hub.dataos.io/client.html" target="_blank">Client端命令</a></li>-->
-						<!--</ul>-->
-					<!--</li>-->
-					<!--<li>-->
-						<!--&lt;!&ndash; <a href="javascript:void(0)">登录</a> &ndash;&gt;-->
-						<!--<a id="pclogins" style="cursor: pointer;padding: 0px;"><model m-text="登录" m-title="登录" m-href="login" m-width="300"></model></a>-->
-					<!--</li>-->
-					<!--<span>|</span>-->
-					<!--<li><a href="/reg" style="padding: 0px;">注册</a></li>-->
-				<!--</ul>-->
-				<ul id="inLoginf" class="nav navbar-nav topr">
-					<li class="inLoginfLiF">
-						<a id="sign-gj" target="_blank" href='javaScript:void(0);' title='会员中心' class="dropdown-toggle js-activated">会员中心 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a id="innames" href="javaScript:void(0);" style="cursor: default;"></a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="/my/member">会员升级</a></li>
-							<li><a href="/my/pwd">修改密码</a></li>
-							<li><a href="/my/basicInfovue">基本信息</a></li>
-							<!--<li class="divider"></li>-->
-							<li><a href="/monitor">监控中心</a></li>
-							<!--<li class="dropdown-header">监控中心</li>-->
-							<li><a href="/my/myaccount">财务中心</a></li>
-							<li><a href="/my/msgreq">消息中心</a></li>
-							<li><a href="/my/ca">认证中心</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a id="logout" href="javaScript:void(0);">退出</a></li>
-						</ul>
-					</li>
-					<li class="inLoginfLiF">
-					  <a id="sign-gj" target="_blank" href='javaScript:void(0);' title='帮助' class="dropdown-toggle js-activated">帮助<b class="caret"></b></a>
-					  <ul class="dropdown-menu" style="z-index: 99999">
-						<li><a href="http://docs.gzbdex.com/member.html" target="_blank">用户注册</a></li>
-						<li><a href="http://docs.gzbdex.com/certification.html" target="_blank">会员认证</a></li>
-						<li><a href="http://docs.gzbdex.com/upgrade.html" target="_blank">会员升级</a></li>
-						<li><a href="http://docs.gzbdex.com/demander.html" target="_blank">下载数据</a></li>
-						<li><a href="http://docs.gzbdex.com/supplier.html" target="_blank">发布数据</a></li>
-						<li><a href="http://docs.gzbdex.com/client.html" target="_blank">Client端命令</a></li>
-					  </ul>
-				  </li>
-				  					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/clientToolDownload' title='工具'>工具</a></li>
-					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/my/mysub' title='我的订购'>我的订购</a></li>
-					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/my/publish' title='我的发布'>我的发布</a></li>
-					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/selects' title='数据精选'>数据精选</a></li>
-					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/' title='首页'>首页</a></li>
-					<!--<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/clientDownload' title='帮助'>帮助</a></li>
-					<li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/clientDownload' title='博客'>博客</a></li>-->
-
-				</ul>
-			</div>
+<!-- load开始 -->
+<div class="be-loader" style="display: block;">
+   	<div class="spinner">
+		<div class="spinner-container container1">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
 		</div>
-
-		<!-- 头部 -->
-		<div class="header">
-			<div class="hearderCenter">
-				<img src="/img/gz//logo.png" class="logo">
-			</div>
-
-			<div class="form">
-				<p><input type="text" placeholder="请输入关键词搜索，例如：金融" name="" class="all" id="kw"><input type="button" value="搜索" class="butt" id="su"></p>
-				<div class="clear"></div>
-			</div>
-		</div>
-
-		<div class="clear"></div>
-
-
-
-
-		<!-- 导航 -->
-		<div class="nav">
-			<div class="navCenter">
-				<ul>
-					<li style="background-color:#149fd9;width:157px;"><a style="margin:0px;color:#fff;" href="/" id="01" class="cur">数据资源</a></li>
-					<li><a href="/selects" id="03">数据资源</a></li>
-                    <li><a href="/rqselects" id="">数据需求</a></li>
-                    <li><a href="/help" id="">帮助中心</a></li>
-                    <li><a href="/abouts" id="">公司简介</a></li>
-					<li><a href="/contact" id="">联系我们</a></li>
-				<!--	<li class="inLoginfLiF open">
-						<a id="sign-gj" target="_blank" href='/clientDownload' title='帮助中心' class="dropdown-toggle js-activated">帮助中心 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="http://docs.hub.dataos.io/client">客户端命令介绍</a></li>
-							<li><a href="http://docs.hub.dataos.io/demander-pull">数据获取</a></li>
-							<li><a href="http://docs.hub.dataos.io/supplier-pub">数据发布</a></li>
-						</ul>
-					</li>-->
-                    <!--<li><a href="javascript:void(0)" id="">新闻动态</a></li>-->
-				</ul>
-			</div>
-		</div>
-
-   <div class="index_main" id="index_main" >
-   	<div style="width:1200px;margin:0 auto; position:relative">
-    	<div style="position:absolute;z-index:999999; background:#21a6da;" class="index_main_nav">
-        	<ul>
-            	<li>
-					<a target="_blank" href="/selects/finance">
-						<img src="/img/gz//nav/jrlc.png" />
-						<span>金融理财</span>
-					</a>
-               </li>
-               <li>
-				   <a target="_blank" href="/selects/traffic">
-					   <img src="/img/gz//nav/jtys.png" />
-					   <span >交通运输</span>
-				   </a>
-               </li>
-				<li>
-					<a target="_blank" href="/selects/weather">
-                		<img src="/img/gz//nav/hjbh.png" />
-               		 <span>气象环保</span>
-					</a>
-               </li>
-				<li>
-					<a target="_blank" href="/selects/life">
-               			 <img src="/img/gz//nav/shsh.png" />
-                		<span >生活服务</span>
-					</a>
-               </li>
-				<li>
-					<a target="_blank" href="/selects/space">
-                		<img src="/img/gz//nav/qyzx.png" />
-                		<span>时空数据</span>
-					</a>
-               </li>
-				<li>
-					<a target="_blank" href="/selects/healthy">
-               		 	<img src="/img/gz//nav/yljk.png" />
-                		<span>医疗健康</span>
-					</a>
-               </li>
-              <li>
-				  <a target="_blank" href="/selects">
-					  <span style="color:#fff;padding-left: 48px;">更多》</span>
-				  </a>
-               </li>
-            </ul>
-        </div>
-
-        <div class="navRight">
-        	<ul>
-            	<li>
-					<a href="/selects" target="_blank" style="display: block;">
-					<img src="/img/gz//t1.png" />
-					<span>数据资源</span>
-					</a>
-               </li>
-               <li>
-				   <a href="/selects/api" target="_blank" style="display: block;">
-                   <img src="/img/gz//t2.png" style="margin-left: -85px"/>
-                   <span>API</span>
-				   </a>
-               </li>
-               <li>
-				   <a href="/gzselects"  target="_blank" style="display: block;">
-                   <img src="/img/gz//t3.png" style="margin-left: -35px;" />
-                   <span>产品/方案</span>
-				   </a>
-               </li>
-               <li>
-               
-	               <a href="/rqselects" target="_blank" style="display: block;">
-	                <img src="/img/gz//t4.png" />
-	                <span>数据需求</span>
-	              
-	               </a>
-	                </li>
-            </ul>
-        </div>
-
-        <img src="/img/gz/b1sss.jpg" style="position: absolute; z-index: 99999; left: 200px; top: 180px;"/>
-        <img src="/img/gz/b1ss.jpg" style="position: absolute; z-index: 99999; right: 250px; height: 305px;"/>
-
-    </div>
-
-	<!--焦点图-->
-		<div class="index_banner" id="indexBanner" style="width: 1903px; height: 305px;">
-		<ul style="display: block;">
-			<!--第1张-->
-			<li style="opacity: 1; z-index: 0;" class="on">
-                <div>
-					<div class="bg">
-
-					</div>
-
-                </div>
-			</li>
-		</ul>
-
-</div>
-</div>
-
-
-    <div style="margin: 0 auto;width: 1200px;z-index: 999;">
-    	<div style="font-size:18px; font-family:微软雅黑; float:left; margin-top:30px;">推荐数据</div>
-         <div class="moduleBom" id="moduleBoms" style="border:none; width:100%; margin:30px 0px">
-                	<div style="position:relative">
-
-
-
-                    	<div style=" position:absolute;top:0px;border: 1px solid #24b4ee;height: 100%;padding-top: 50px;background-color: #fff" class="preBom">
-                    		<!--<a href="javaScript:void(0);" style="display:block;background:rgba(0, 0, 0, 0) url('/img/gz//slider-arrow.png') no-repeat scroll -175px 0px;height:30px;width:30px;"></a>-->
-							<a href="javaScript:void(0);" style="display:block;width:30px;">
-								<div style="background-image: url('/img/gz//slider-arrow.png');
-						background-size: 90% 20px;
-						height: 30px;
-						width: 200px;
-						background-position: -128px center;
-						background-repeat: no-repeat;"></div>
-							</a>
-
-                      </div>
-                        <div class="shows" style="position:absolute;left:20px;">
-							<div class="slideBoxs" style="width:1110px;">
-								<a target="_blank" href="/itemdet/Kcomber/CCM">
-								 <div style="float:right; width:220px;height:130px; background-color:#fff;">
-									 <div class="topicImg"><img src="/img/gz//nav/zd.png" style="width: 75px;height: 55px"/></div>
-									 <div style="color: #535353;
-				float: left;
-				font-size: 18px;
-				text-align: center;
-				margin-top: 15px;
-				width: 100%;">重点行业数据 </div>
-								 </div>
-								</a>
-								<a target="_blank" href="/itemdet/Kcomber/Tranalysis">
-									<div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-										<div   class="topicImg"><img src="/img/gz//nav/jck.png" style="width: 75px;height: 55px"/></div>
-										<div style="color: #535353;
-				float: left;
-				font-size: 18px;
-				text-align: center;
-				margin-top: 15px;
-				width: 100%;">进出口贸易数据</div>
-									</div>
-								</a>
-								<a target="_blank" href="/itemdet/Kcomber/KCD">
-									<div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-										<div  class="topicImg"><img src="/img/gz//nav/yt.png" style="width: 75px;height: 55px"/></div>
-										<div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;">亚太区企业数据</div>
-									</div>
-								</a>
-								<a target="_blank" href="/itemdet/Financial_Statistics/Financial_Market_Statistics">
-								<div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-									<div  class="topicImg"><img src="/img/gz//nav/tb.png"/></div>
-									<div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;">股票每日市值数据</div>
-								</div>
-								</a>
-								<a target="_blank" href="/itemdet/Base_station_location/Base_station_location">
-									<div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-										<div  class="topicImg"><img src="/img/gz//nav/jz.png"/></div>
-
-										<div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;">全国基站信息</div>
-									</div>
-								</a>
-                             </div>
-                         </div>
-                         <div style=" position:absolute; right:0px;top:0px;border: 1px solid #24b4ee;height: 100%;padding-top: 50px;background-color: #fff;transform: rotate(180deg)" class="nextBom">
-                            <!--<a href="javaScript:void(0);" style="display:block;background:rgba(0, 0, 0, 0) url('/img/gz//slider-arrow.png') no-repeat scroll -60px 0px;height:30px;width:30px;"></a>-->
-							 <a href="javaScript:void(0);" style="display:block;width:30px;">
-								 <div style="background-image: url('/img/gz//slider-arrow.png');
-						background-size: 90% 20px;
-						height: 30px;
-						width: 200px;
-						background-position: -128px center;
-						background-repeat: no-repeat;"></div>
-							 </a>
-						 </div>
-                    </div>
-    </div>
-
-
-     <div style="margin: 0 auto;width: 1200px;z-index: 999;">
-    	<div style="font-size:18px; font-family:微软雅黑; float:left;">推荐需求</div>
-         <div class="moduleBom" id="moduleBomss" style="border:none; width:100%; margin:30px 0px">
-			 <div style="position:relative">
-				 <div style=" position:absolute;top:0px;border: 1px solid #24b4ee;height: 100%;padding-top: 50px;background-color: #fff" class="preBom">
-					 <!--<a href="javaScript:void(0);" style="display:block;background:rgba(0, 0, 0, 0) url('/img/gz//slider-arrow.png') no-repeat scroll -175px 0px;height:30px;width:30px;"></a>-->
-					 <a href="javaScript:void(0);" style="display:block;width:30px;">
-						 <div style="background-image: url('/img/gz//slider-arrow.png');
-						background-size: 90% 20px;
-						height: 30px;
-						width: 200px;
-						background-position: -128px center;
-						background-repeat: no-repeat;"></div>
-					 </a>
-				 </div>
-				 <div class="shows" style="position:absolute;left:20px;">
-
-					 <div class="slideBoxs" style="width:1110px;">
-					 	<a href='rqselects/3wnWrAQ4beg0O8OcYC8qCM' target="_blank">
-						 <div style="float:right; width:220px;height:130px; background-color:#fff;">
-							 <div class="topicImg"><img src="/img/gz//nav/sjxq.png" style="width: 56px;height: 57px"/></div>
-							 <div style="color: #535353;
-					    float: left;
-					    font-size: 18px;
-					   text-align: center;
-					    margin-top: 15px;
-					    width: 100%;">国内跨境电商综合...</div>
-					   
-						 </div>
-						  </a>
-						  <a href='singlerqselects/waTN0Uqe5wGkwg6OS2iec' target="_blank">
-						 <div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-							 <div class="topicImg"><img src="/img/gz//nav/yc.png"/></div>
-							 <div style="color: #535353;
-    float: left;
-    font-size: 18px;
-  text-align: center;
-    margin-top: 15px;
-    width: 100%;">全国污染源企业排放数据</div>
-						 </div>
-						 </a>
-						 <a href='rqselects/sigq7QxyUgeASGosK0qIq' target="_blank">
-						 <div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-							 <div class="topicImg"><img src="/img/gz//nav/jsxq.png"style="width: 56px;height: 57px"/></div>
-							 <div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;">广州市大数据企业...</div>
-						 </div>
-						 </a>
-						 <a href='rqselects/1a51gXe6xEWcUiiIwOGY8A' target="_blank">
-						 <div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-							 <div class="topicImg"><img src="/img/gz//nav/sjxq.png"style="width: 56px;height: 57px"/></div>
-							 <div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;"> 	广东省内跨境电商...</div>
-						 </div>
-						 </a>
-						 <a href='singlerqselects/3N5kcBZuS4KOAU8USg2s0U' target="_blank">
-						 <div style="float:right; width:220px;height:130px; background-color:#fff; border-right:1px solid #d2d2d2;">
-							 <div class="topicImg" ><img src="/img/gz//nav/dq.png"/></div>
-							 <div style="color: #535353;
-							float: left;
-							font-size: 18px;
-							text-align: center;
-							margin-top: 15px;
-							width: 100%;">全国行政村届图层...</div>
-						 </div>
-						 </a>
-					 </div>
-				 </div>
-				 <div style=" position:absolute; right:0px;top:0px;border: 1px solid #24b4ee;height: 100%;padding-top: 50px;background-color: #fff;transform: rotate(180deg)" class="nextBom">
-					 <!--<a href="javaScript:void(0);" style="display:block;background:rgba(0, 0, 0, 0) url('/img/gz//slider-arrow.png') no-repeat scroll -60px 0px;height:30px;width:30px;"></a>-->
-					 <a href="javaScript:void(0);" style="display:block;width:30px;">
-						 <div style="background-image: url('/img/gz//slider-arrow.png');
-						background-size: 90% 20px;
-						height: 30px;
-						width: 200px;
-						background-position: -128px center;
-						background-repeat: no-repeat;"></div>
-					 </a>
-				 </div>
-			 </div>
-		 </div>
-	 </div>
-
- 	<div class="BillboardRight">
-					<h3 style="float: left;font-family: '微软雅黑';width: 100%; border-bottom:1px solid #d2d2d2;padding-bottom: 7px">
-                        <div style="float:left; font-size:18px; margin: 16px 20px; font-family: 微软雅黑">最热数据排行</div>
-                        <a href="/selects" target="_blank"><img style="margin-top: 15px;float: right;margin-right: 10px" onmouseover="this.src='/img/gz/image_27.png'" onmouseout="this.src='/img/gz/image_24.png'" src="/img/gz/image_24.png"></a>
-                    
-                    </h3>
-
-					<!-- 信息热度榜 -->
-					<div style="display:block" class="table">
-						<table cellspacing="0" cellpadding="0" border="0" style="font-size:14px" id="tableXin" class="useTable">
-							<tbody>
-
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">1</td>
-								<td style="color: #29abe2;" class="message">
-									<a href="/itemdet/Base_station_location/Base_station_location" target="_blank" style="color: #29abe2;">全国基站信息</a></td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">2</td>
-								<td class="message" style="color: #29abe2;" ><a href="/itemdet/Meteorological/BeiShangGuang_Air_Quality" target="_blank" style="color: #29abe2;">广州空气质量数据</a></td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">3</td>
-								<td class="message" style="color: #29abe2;"><a href="/itemdet/Internet_stats/Ecommerce_goods" target="_blank" style="color: #29abe2;">电商平台商品资源信息</a></td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">4</td>
-								<td class="message" style="color: rgb(102, 102, 102);"><a href="/itemdet/Financial_Statistics/Financial_Market_Statistics" target="_blank">股票每日市值数据</a></td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">5</td>
-								<td class="message" style="color: rgb(102, 102, 102);"><a href="https://hub.dataos.io/itemdet/Transportation_of_beijing/Rail_transit_route" target="_blank">北京市轨道交通线路信息</a></td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">6</td>
-								<td class="message" style="color: rgb(102, 102, 102);"><a href="/itemdet/Transportation_of_shanghai/Used_car_trade" target="_blank">货车、客车运营车辆数据</a></td>
-							</tr>
-
-						</tbody></table>
-					</div>
-
-
-				</div>
-
-
-  	<div class="BillboardRight" style="margin-right: 35px">
-					<h3 style="float: left;font-family: '微软雅黑';width: 100%; border-bottom:1px solid #d2d2d2;">
-                        <div class="sjxqselected">数据需求</div>
-						<div class="jsxqselected" style="margin: 16px 0px">技术需求</div>
-                        <a id="xqjump" href="/rqselects" target="_blank"><img style="margin-top: 15px;float: right;margin-right: 10px" onmouseover="this.src='/img/gz/image_27.png'" onmouseout="this.src='/img/gz/image_24.png'" src="/img/gz/image_24.png"></a>
-                    </h3>
-					<!-- 信息热度榜 -->
-					<div style="display:block" class="table" id="sjxq">
-						<table cellspacing="0" cellpadding="0" border="0" style="font-size:14px" id="tableXin" class="useTable">
-							<!--<td><table>-->
-							<tr v-for="obj in datacon" style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td>
-									<table v-if="$index<=5">
-										<template v-if="$index<=5">
-											<td :class="{ 'number': $index<=2 ,'numbers': $index>2 }" style="font-weight: bold;font-size:10px; margin-right:40px;">{{$index+1}}</td>
-											<td style="color: #29abe2;" class="message"><a :class="{ 'styleObject': $index<=2 }" target="_blank"  href='/rqselects/{{obj.sys.id}}'>{{obj.fields.demand_title | str}}</a></td>
-										</template>
-									</table>
-								</td>
-							</tr>
-							<!-- <tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">1</td>
-								<td style="color: #29abe2;" class="message">银行产品信息</td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">2</td>
-								<td class="message" style="color: #29abe2;">全国行政村届图层数据</td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="number" style="font-weight: bold;font-size:10px; margin-right:40px;">3</td>
-								<td class="message" style="color: #29abe2;">全国污染源企业排放数据</td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">4</td>
-								<td class="message" style="color: rgb(102, 102, 102);">车辆信息</td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">5</td>
-								<td class="message" style="color: rgb(102, 102, 102);">风控需求</td>
-							</tr>
-							<tr style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-								<td class="numbers" style="font-weight: bold;font-size:10px; margin-right:40px;">6</td>
-								<td class="message" style="color: rgb(102, 102, 102);">4G营销日报</td>
-							</tr> -->
-
-						<!--</table></td>-->
-						</table>
-					</div>
-		<div style="display:none" class="table" id="jsxq">
-			<table cellspacing="0" cellpadding="0" border="0" style="font-size:14px" id="tableXin2" class="useTable">
-				<!--<td><table>-->
-				<tr v-for="obj in datacon" style="background: transparent none repeat scroll 0% 0%; border-left: medium none; color: rgb(71, 170, 255);">
-					<td>
-						<table v-if="$index<=5">
-							<template v-if="$index<=5">
-								<td :class="{ 'number': $index<=2 ,'numbers': $index>2 }" style="font-weight: bold;font-size:10px; margin-right:40px;">{{$index+1}}</td>
-								<td style="color: #29abe2;" class="message"><a :class="{ 'styleObject': $index<=2 }" target="_blank"  href='/rqselects/{{obj.sys.id}}'>{{obj.fields.demand_title | str}}</a></td>
-							</template>
-						</table>
-					</td>
-				</tr>
-			</table>
+	  	<div class="spinner-container container2">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+	  	</div>
+	  	<div class="spinner-container container3">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
 		</div>
 	</div>
-		<div class="BillboardRight"style="width: 480px;margin-right: 0px">
-			<h3 style="float: left;font-family: '微软雅黑';width: 100%; border-bottom:1px solid #d2d2d2;">
-				<div class="hyxwselected">行业新闻</div>
-				<div class="gszxselected" style="margin: 16px 0px">公司资讯</div>
-				<a id="jump" href="/newsSelects" target="_blank"><img src="/img/gz/image_24.png" onmouseout="this.src='/img/gz/image_24.png'"
-					 onmouseover="this.src='/img/gz/image_27.png'" style="margin-top: 15px;float: right;margin-right: 10px"/></a>
-			</h3>
-			<div id="hyxw" style="float: left;width: 100%">
-				<div id="pull" style="float:left;width: 100%;padding-right: 10px">
-					<div id="pull-body">
-						<div class="record" v-for="obj in datacon">
-							<template v-if="$index<=5">
+</div>
+<!-- /load结束 -->
 
-							<div class="head" style="float: left">
-								<span class="icon"></span>
+<!-- 视差效果 -->
+<div class="parallax"  data-stellar-ratio="0.15" >
+  <div class="parallaxImg parallaxImg-header"></div>
+</div>
+<!-- /视差效果 -->
 
-									<span class="date" style="color: rgb(102, 102, 102);margin-bottom:-7px; font-size:14px; margin-left:10px;"><a href="/newsSelects/{{obj.sys.id}}" target="_blank">{{obj.fields.news_title |str}}</a></span>
-							</div>
-							<div style="float: right">
-								<span>{{obj.fields.pub_date | time}}</span>
-							</div>
-								<template v-if="$index==5">
-									<div class="body" style="padding-bottom: 0px">
-										<!--<span class="date ">{{obj.fields.pub_date | time}}</span>-->
-									</div>
-								</template>
-								<template v-else>
-									<div class="body" style="padding-bottom: 17px">
-										<!--<span class="date ">{{obj.fields.pub_date | time}}</span>-->
-									</div>
-								</template>
-							</template>
-						</div>
-	<!-- 					<div class="record">
-							<div class="head">
-								<span class="icon2"></span>
-								<span class="date sss" style="margin-bottom:-7px; font-size:14px; margin-left:10px;"></span>
-							</div>
-							<div class="body">
-								<span class="date sss">2015-11-01</span>
-							</div>
-						</div>
-						<div class="record">
-							<div class="head">
-								<span class="icon2"></span>
-								<span class="date sss" style="margin-bottom:-7px; font-size:14px; margin-left:10px;"></span>
-							</div>
-							<div class="body">
-								<span class="date sss">2015-11-01</span>
-							</div>
-						</div>
-						<div class="record">
-							<div class="head">
-								<span class="icon2"></span>
-								<span class="date sss" style="margin-bottom:-7px; font-size:14px; margin-left:10px;"></span>
-							</div>
-							<div class="body">
-								<span class="date sss">2015-11-01</span>
-							</div>
-						</div>
-						<div class="record">
-							<div class="head">
-								<span class="icon2"></span>
-								<span class="date sss" style="margin-bottom:-7px; font-size:14px; margin-left:10px;"></span>
-							</div>
-							<div class="body">
-								<span class="date sss">2015-11-01</span>
-							</div>
-						</div> -->
+<div class="section-header m-headerindex">
+		<!-- 顶部导航 -->
+        <div role="navigation" class="navbar navbar-fixed-top m-nav">
+            <div class="container-fluid m-navChild">
+                <div class="navbar-header" style="padding-top:10px;">  
+                <a id="phoneSelect" class="selectbtn" href="/selects" style='position: absolute;right: 90px;top: 25px;color: #fff;font-size: 1em;'>数据精选</a>          	
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                                      
+                    <a href="/" style='color: #fff;font-size: 2.8em' class="navbar-brand">DataHub</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul id="inLoginb" class="nav navbar-nav" >           	
+                        <li class="active" id="selectsIndexs1"><a class="selectbtn" title="数据精选" href="/selects">数据精选</a></li> 
+                        <li style="float: left;">            	
+                         	<a id="pclogins" style="cursor: pointer;padding:0px;"><model m-text="登录" m-title="登录" m-href="login" m-width="300"></model></a>
+                         	<a id='mlogins' title='登录' href='/mobile/login_media.html' style='cursor: pointer;'>登录</a>
+                        </li>  
+                        <li style="float: left;"><a id="sign-gj" title='工具' target="_blank" href='/clientToolDownload'>工具</a></li>
+                        <li style="float: left;">                 	
+                        	<!-- <a  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="javaScript:void(0);" title='帮助' >帮助</a> -->
+                        	<a href="javaScript:void(0);" title='帮助' class="dropdown-toggle js-activated">帮助</a>
+                   			<ul class="dropdown-menu">
+								<li><a href="http://docs.hub.dataos.io/member.html" target="_blank">用户注册</a></li>
+								<li><a href="http://docs.hub.dataos.io/certification.html" target="_blank">会员认证</a></li>
+								<li><a href="http://docs.hub.dataos.io/upgrade.html" target="_blank">会员升级</a></li>
+								<li><a href="http://docs.hub.dataos.io/demander.html" target="_blank">下载数据</a></li>
+								<li><a href="http://docs.hub.dataos.io/supplier.html" target="_blank">发布数据</a></li>
+								<li><a href="http://docs.hub.dataos.io/client.html" target="_blank">Client端命令</a></li>
+ 							</ul>                	
+                        </li>
+                        <li style="float: left;"><a title='博客' target="_blank" href='http://blog.hub.dataos.io' >博客</a></li> 
+                    </ul>
+                    <ul id="inLoginf" class="nav navbar-nav">   	
+                        <li id="selectIndexs" class="active"><a class="selectbtn" href="/selects">数据精选</a></li>                       
+                        <li class="inLoginfLiF"><a title='我的发布' href="/my/publish">我的发布</a></li>
+						<li class="inLoginfLiF"><a title='我的订购' href="/my/mysub">我的订购</a></li>                          
+		                 <!-- id="inLoginLiF" -->
+		          <!--       <li class="inLoginfLiF"style="width: auto;">
+		                  	<a aria-haspopup="true" aria-expanded="false" title='会员中心'  href="javaScript:void(0);">
+		                  		会员中心
+		                  		<span class="badgeHeader" style="display: inline;">&nbsp;</span>
+		                  	</a>
+							 <ul class="dropdown-menu">
+								 <li><a id="innames" href="javaScript:void(0);" style="cursor: default;"></a></li>
+								 <li role="separator" class="divider"></li>
+								 <li><a href="/my/member">会员升级</a></li>
+								 <li><a href="/my/pwd">修改密码</a></li>
+								 <li><a href="/my/basicInfo">基本信息</a></li>
+								 &lt;!&ndash;<li class="divider"></li>&ndash;&gt;
+								 <li><a href="/monitor">监控中心</a></li>
+								 &lt;!&ndash;<li class="dropdown-header">监控中心</li>&ndash;&gt;
+								 <li><a href="/my/myaccount">财务中心</a></li>
+								 <li><a href="/my/msgreq">消息中心</a></li>
+								 <li role="separator" class="divider"></li>
+								 <li><a id="logout" href="javaScript:void(0);">退出</a></li>
+							 </ul>
+		                 </li>-->
+						<li class="inLoginfLiF">
+							<a id="sign-gj" target="_blank" href='javaScript:void(0);' title='会员中心' class="dropdown-toggle js-activated">会员中心
+								<span class="badgeHeader" style="display: inline;">&nbsp;</span>
+								<!--<b class="caret"></b>-->
+							</a>
+							<ul class="dropdown-menu">
+								<li><a id="innames" href="javaScript:void(0);" style="cursor: default;"></a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="/my/member">会员升级</a></li>
+								<li><a href="/my/pwd">修改密码</a></li>
+								<li><a href="/my/basicInfovue">基本信息</a></li>
+								<!--<li class="divider"></li>-->
+								<li><a href="/monitor">监控中心</a></li>
+								<!--<li class="dropdown-header">监控中心</li>-->
+								<li><a href="/my/myaccount">财务中心</a></li>
+								<li><a href="/my/msgreq">消息中心</a></li>
+								<li><a href="/my/ca">认证中心</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a id="logout" href="javaScript:void(0);">退出</a></li>
+							</ul>
+						</li>
+		                 <!-- /id="inLoginLiF" -->
+                 <li class="inLoginfLiF"><a id="sign-gj" target="_blank" href='/clientToolDownload' title='工具' >工具</a></li>
+                 <li class="inLoginfLiF">
+                  	<!-- <a  target="_blank" href="http://docs.hub.dataos.io" title='帮助' >帮助</a> -->
+                  	<a  data-toggle="dropdown" class="dropdown-toggle js-activated" aria-haspopup="true" aria-expanded="false"  href="javaScript:void(0);" title='帮助' >帮助</a>
+                	<ul class="dropdown-menu">
 
+						<li><a href="http://docs.hub.dataos.io/member.html" target="_blank">用户注册</a></li>
+						<li><a href="http://docs.hub.dataos.io/certification.html" target="_blank">会员认证</a></li>
+						<li><a href="http://docs.hub.dataos.io/upgrade.html" target="_blank">会员升级</a></li>
+						<li><a href="http://docs.hub.dataos.io/demander.html" target="_blank">下载数据</a></li>
+						<li><a href="http://docs.hub.dataos.io/supplier.html" target="_blank">发布数据</a></li>
+						<li><a href="http://docs.hub.dataos.io/client.html" target="_blank">Client端命令</a></li>
+						</ul>
+                  </li>
+                 <li class="inLoginfLiF">
+                  	<a id='sign-blog' target="_blank" href='http://blog.hub.dataos.io'>博客</a>
+                  </li>
+                  <li id="phoneshowhelp">
+                  	<a  target="_blank" href="http://docs.hub.dataos.io" title='帮助' >帮助</a>
+                  </li> 
+                   <li id="phoneshowblog">
+                  	<a id='sign-blog' target="_blank" href='http://blog.hub.dataos.io'>博客</a>
+                  </li> 
+                   <li id="phoneshowlogout">
+                  	<a id="logout" href='javaScript:void(0);'>退出</a>
+                  </li>  
+             
+                 </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /顶部导航 -->
+
+<!-- 头部动画 -->
+  <div class="crp-showcase m-indexf"> 
+  		<div class="container-fluid">
+        	<div class="row"> 
+            	<div class="col-sm-12"> 
+                	<h1 class="text-center animated fadeInDown" id="heatt">阳光下的数据流通平台</h1> 
+						<!-- <div id="dashboard" class="text-center actions animated fadeInDown delay2"> -->
+					<div id="dashboard" class="text-center actions">
+                         <div style="margin-top:45px;" class="container" id="seachHeader">                                                            
+                                <span class="search-span">
+                                    <input value="" autocomplete="off" maxlength="255" placeholder="请输入关键字搜索海量数据" class="search-input" name="wd" id="kw">
+                                    <input type="submit" class="btn search-btn" value="搜索" id="su">
+                                </span>                              
+                            </div>
+                      </div>
+                 </div>
+             </div>
+        </div>
+  		<div class="stopwatch">
+            <div class="number"><span id="stopwatch1">864</span>次流通记录</div>
+            <div class="number"><span id="stopwatch2">311</span>个数据项</div>
+            <div class="number"><span id="stopwatch3">578,694</span>个数据内容</div>
+          </div>           
+       <div class="small-label"> <small>数据截止到2016年07月29日</small> </div>
+  </div>
+<!-- /头部动画 -->         
+</div>
+ 
+ 
+<div class="container-fluid m-body">
+	
+        <div class="container-fluid" id="features">
+        	<div class="row"> 
+            	<div class="col-sm-12"> 
+            		<h1 id="fShuo">让天下数据便捷在线流通</h1>
+            		<h3 id="fShuoX" class="text-muted">去中心化  人工智能  开源协议  一键交付</h3>
+            	</div>
+        	</div>      	
+        </div>
+        <!-- change -->
+        <div id="changeH" class="container-fluid">
+        
+	        <div class="container-fluid m-changeCom" id='changeCom'>
+	        	<div class="row"> 
+	            	<div class="col-sm-12" style='text-align:center;'> 
+	            		<div class="container" id="fUls" >
+		            		<ul class="slick-tab" style="display: block;">
+		            			<li class="slick-active">
+		            				<button id="btn1" type="button" class='m-baaa' style='border-radius: 8px 0 0 8px;'>
+		            					&nbsp;&nbsp;数据需求方
+		            				</button>
+		            			</li>
+		            			<li class="">
+		            				<button id='btn2' type="button" class='m-bfff' style='border-radius: 0px 8px 8px 0px;'>
+		            					&nbsp;&nbsp;数据拥有方
+		            				</button>
+		            			</li>
+		            		</ul>
+	            		</div>
+	            	</div>
+	        	</div> 
+	      	     	
+	        </div>
+        
+	        <div class="container" style='margin-top:30px;padding:0px;' id='lun'>
+	        
+	        	<div id="lunCom">
+	        		<div id="xuF">
+			        	<div class="row">
+			             	<div class="col-md-3 col-sm-6 wobble-bottom xu1"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu2"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu3"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu4"> </div>
+			        	</div> 
+			        	
+			        	<div class="row">
+				            <div class="col-md-3 col-sm-6 wobble-bottom xu5"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu6"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu7"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu8"></div>
+			        	</div>
+			        </div>
+			        
+			        <div id="xuT">
+			        	<div class="row">
+			             	<div class="col-md-3 col-sm-6 wobble-bottom xu9"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu10"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu11"> </div>
+			            	<div class="col-md-3 col-sm-6 wobble-bottom xu12"> </div>
+			        	</div> 
+			        	
+			        	<div class="row">
+				            <div class="col-md-3 col-sm-6 wobble-bottom xu13"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu14"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu15"></div>
+				           	<div class="col-md-3 col-sm-6 wobble-bottom xu16"></div>
+			        	</div> 
+			        </div>
+	        	</div>
+	        	
+	        	
+	        </div>
+	        
+	    </div>
+		<!-- /change -->
+
+		<div class="container-fluid m-mostattention">
+			<div class='container' id='guanCom' >
+				<div class="row" style='margin:0px;'>
+						<h3 id='h3Guan'>最受关注数据</h3>
+						<div class="col-md-3 m-guanindex" id='guanindex'> 
+		           			<img src="img/index/guanU1.png" />
+		           		</div>
+		           		<a id="guanCom1" href='/mobile/itemDetailsPhone.html?repname=Internet_stats&itemname=Ecommerce_goods'>
+							<div class="col-md-3 col-sm-6  wobble-bottom-bd1 guanNum"> 
+								<div class="wobble-bottom guanDiv">
+				           			<img class="gdindex1" src="img/index/guan1.png"/>
+				           			<div class="feature-label" style='margin-top:20px;'>
+				           				电商商品库
+				           			</div>
+		           				</div>		
+			           		</div>
+		           		</a>
+		           		<a id="guanCom2" href='/mobile/itemDetailsPhone.html?repname=Transportation_of_beijing&itemname=Rail_transit_route'>
+		           		<div class="col-md-3 col-sm-6 wobble-bottom-bd2 guanNum"> 
+		           			<div class="wobble-bottom guanDiv">
+			           			<img class="gdindex2" src="img/index/guandx.png" />
+		           				<div class="feature-label" style='margin-top:20px;'>
+		           					交通服务信息
+		           				</div>
+	           				</div>
+		           		</div>
+		           		</a>
+		           		<a id="guanCom3" href='/mobile/itemDetailsPhone.html?repname=Meteorological&itemname=Synthetic_pollution_index'>
+		           		<div class="col-md-3 col-sm-6 wobble-bottom-bd3 guanNum">
+		           			<div class="wobble-bottom guanDiv">
+			           			<img class="gdindex3" src="img/index/guan3.png" />
+		           				<div class="feature-label"   style='margin-top:20px'>
+		           					空气质量数据
+		           				</div>
+	           				</div>
+		           		</div> 
+		           		</a>
+		           		<a id="guanCom4" href='/mobile/itemDetailsPhone.html?repname=Base_station_location&itemname=Base_station_location'>
+		           		<div class="col-md-3 col-sm-6 wobble-bottom-bd4 guanNum" >
+		           			<div class="wobble-bottom guanDiv">
+			           			<img class="gdindex4" src="img/index/guan4.png" />
+		           				<div class="feature-label"  style='margin-top:20px'>
+		           					全国基站信息
+		           				</div>
+	           				</div>
+		           		</div>
+		           		</a>
+		           		<a id="guanCom5" href='/mobile/itemDetailsPhone.html?repname=Financial_Statistics&itemname=Financial_Market_Statistics'>
+		           		<div class="col-md-3 col-sm-6 wobble-bottom-bd5 guanNum">
+		           			<div class="wobble-bottom guanDiv">
+			           			<img class="gdindex5" src="img/index/guan6.png" />
+		           				<div class="feature-label"  style='margin-top:20px'>
+		           					股票数据
+		           				</div>
+	           				</div>
+		           		</div>
+		           		</a>
+		           		<a id="guanCom6" href='/mobile/itemDetailsPhone.html?repname=Hot_searches&itemname=Hot_words'>
+		           		<div class="col-md-3 col-sm-6 wobble-bottom-bd6 guanNum" > 
+		           			<div class="wobble-bottom guanDiv">
+			           			<img class="gdindex6" src="img/index/guan5.png" />
+		           				<div class="feature-label"  style='margin-top:20px'>
+		           					搜索热词
+		           				</div>
+	           				</div>
+		           		</div>
+		           		</a>
 					</div>
 				</div>
 			</div>
-			<div id="gszx" style="float: left;display: none;width: 100%">
-				<div id="pull" style="float:left;width: 100%;padding-right: 10px">
-					<div id="pull-body">
-						<!--<div class="record" v-for="obj in datacon">-->
-							<!--<template v-if="$index<=4">-->
-								<!--<div class="head">-->
-									<!--<span class="icon"></span>-->
+			
 
-									<!--<span class="date" style="color: rgb(102, 102, 102);margin-bottom:-7px; font-size:14px; margin-left:10px;"><a href="/newsSelects/{{obj.sys.id}}" target="_blank">{{obj.fields.news_title |str}}</a></span>-->
-								<!--</div>-->
-								<!--<div class="body">-->
-									<!--<span class="date ">{{obj.fields.pub_date | time}}</span>-->
-								<!--</div>-->
-							<!--</template>-->
-						<!--</div>-->
-						<div class="record" v-for="obj in datacon">
-							<template v-if="$index<=5">
-
-								<div class="head" style="float: left">
-									<span class="icon"></span>
-
-									<span class="date" style="color: rgb(102, 102, 102);margin-bottom:-7px; font-size:14px; margin-left:10px;"><a href="/newsSelects/{{obj.sys.id}}" target="_blank">{{obj.fields.news_title |str}}</a></span>
-								</div>
-								<div style="float: right">
-									<span>{{obj.fields.pub_date | time}}</span>
-								</div>
-								<template v-if="$index==5">
-									<div class="body" style="padding-bottom: 0px">
-										<!--<span class="date ">{{obj.fields.pub_date | time}}</span>-->
-									</div>
-								</template>
-								<template v-else>
-									<div class="body" style="padding-bottom: 17px">
-										<!--<span class="date ">{{obj.fields.pub_date | time}}</span>-->
-									</div>
-								</template>
-							</template>
-						</div>
-					</div>
-				</div>
+	<div class="container-fluid m-industry">
+		<div class='container' id='jingCom' >
+			<div class="row" style='text-align: center; margin-bottom:30px'>
+				<h2>行业精选专题</h2>
+			</div>
+			<div class="row" style='margin:0px;'>
+					<a id="terminalhref" style="color:#29aae1;display: block;" href="/selects/terminal">
+						<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdc jingNum"> 
+		           			<img src="img/index/jing3.png" />
+		           			<div class="feature-labeljing">
+		           				终端专题
+		           			</div>
+		           		</div>
+	           		</a>
+	           		<a id="internethref" style="color:#29aae1;display: block;" href="/selects/internet">
+					<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdc jingNum"> 
+	           			<img src="img/index/jing2.png" />
+	           			<div class="feature-labeljing">
+	           				互联网专题
+	           			</div>
+	           		</div>
+	           		</a>
+	           		<a id="investigationhref" style="color:#29aae1;display: block;" href="/selects/credit">
+	           		<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdc jingNum"> 
+	           			<img src="img/index/jing4.png" />
+	           			<div class="feature-labeljing">
+	           				征信专题
+	           			</div>
+	           		</div>
+	           		</a>
+	           		<a id="operatorhref" style="color:#29aae1;display: block;" href="/selects/space">
+	           		<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdf jingNum"> 
+	           			<img src="img/index/jing1.png" />
+	           			<div class="feature-labeljing">
+	           				时空数据专题
+	           			</div>
+	           		</div>
+	           		</a>
 			</div>
 		</div>
-		<!--<div class="partner">-->
-			<!--<div style="float:left; width:10%;">-->
-				<!--<span>合作伙伴</span>-->
-				<!--<span style="margin:0px 5px 0px 5px;"> | </span>-->
-			<!--</div>-->
-			<!--&lt;!&ndash; <div style="float:left; width:90%;margin-bottom: 20px;">-->
-				<!--<img class="imgparnter" src="/img/gz/logo/asiainfopic.png" title="亚信数据"/><span style="margin-right:10px;"></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (2).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (3).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (4).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (5).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
+	</div>
+	
+	<div class="container-fluid m-parsphone">
+		<div id="jingCom" class="container" style="margin-top:30px;">
+			<div style="text-align: center; margin-bottom:30px" class="row">
+				<h2>合作伙伴</h2>
+			</div>
+			<div style="margin:0px;" class="row">
+					<a href="/selects/terminal" style="color:#29aae1;display: block;" id="terminalhref">
+						<div class="col-sm-12 float-shadow float-shadow-bdc jingNum"> 
+		           			<img src="img/index/images_03.png">
+		           		</div>
+	           		</a>
+	           		<a href="/selects/internet" style="color:#29aae1;display: block;" id="internethref">
+					<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdc jingNum"> 
+	           			<img src="img/index/jing2.png">
+	           		</div>
+	           		</a>
+	           		<a href="/selects/Credit" style="color:#29aae1;display: block;" id="investigationhref">
+	           		<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdc jingNum"> 
+	           			<img src="img/index/jing4.png">
+	           		</div>
+	           		</a>
+	           		<a href="/selects/business" style="color:#29aae1;display: block;" id="operatorhref">
+	           		<div class="col-md-3 col-sm-6 float-shadow float-shadow-bdf jingNum"> 
+	           			<img src="img/index/jing1.png">
+	           		</div>
+	           		</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid m-pars comPartner">
+		<!--<img src="img/index/hzhb.png"/>-->
+		<p style="margin-bottom: -20px">合作伙伴</p>
+		<!--<table style="margin: auto">-->
+			<!--<tr>-->
+				<!--<td><img src="img/company/databjdx.png"></td>-->
+				<!--<td><a href="http://www.cjbigdata.com" target="_blank"><img src="img/company/datacj.png"></a></td>-->
+				<!--<td><img src="img/company/datagt.png"></td>-->
+				<!--<td><a href="http://www.hrbdataex.com" target="_blank"><img src="img/company/dataheb.png"></a></td>-->
+			<!--</tr>-->
+			<!--<tr>-->
+				<!--<td><a href="http://www.weidata.cn" target="_blank"><img src="img/company/dataleix.png"></a></td>-->
+				<!--<td><a><img src="img/company/datalx.png"></a></td>-->
+				<!--<td><a href="http://www.meritdata.com.cn" target="_blank"><img src="img/company/datame.png"></a></td>-->
+				<!--<td><a href="http://www.pinglian.hk" target="_blank"><img src="img/company/datapl.png"></a></td>-->
+			<!--</tr>-->
+			<!--<tr>-->
+				<!--<td><img src="img/company/dataxt.png"></td>-->
+				<!--<td><img src="img/company/datazcrz.png"></td>-->
+				<!--<td><img src="img/company/datazjhl.png"></td>-->
+				<!--<td><img src="img/company/datazkyt.png"></td>-->
+			<!--</tr>-->
 
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (6).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (8).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img src="/img/gz/partner/p10.png" style="margin-top:30px;width: 60px;height: 60px;" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
+		<!--</table>-->
+		<div class="tu">
+			<div class="container" style="width: 875px;">
+				<ul>
+					<li style="float: left;width: 100%;margin-top: 40px;text-align: left;">
+						<a href="http://www.jiuqi.com.cn/" target="_blank"><img src="img/mark/01_32.png" onmouseover="this.src='img/mark/02_32.png'"
+							 onmouseout="this.src='img/mark/01_32.png'" /></a>
+						<a target="_blank" href="http://www.mapuni.com/"><img src="img/mark/01_30.png" onmouseover="this.src='img/mark/02_30.png'"
+							 onmouseout="this.src='img/mark/01_30.png'" /></a>
+						<a  href="http://www.neunn.com/" target="_blank"><img src="img/mark/01_35.png" onmouseover="this.src='img/mark/02_35.png'"
+							 onmouseout="this.src='img/mark/01_35.png'" /></a>
+						<a target="_blank" href="http://www.unidt.com/"><img src="img/mark/01_22.png" onmouseover="this.src='img/mark/02_22.png'"
+							 onmouseout="this.src='img/mark/01_22.png'" /></a>
+						<a href="http://www.baifendian.com/" target="_blank"><img src="img/mark/01_28.png" onmouseover="this.src='img/mark/02_28.png'"
+							 onmouseout="this.src='img/mark/01_28.png'"  style="margin-left: 10px;"/></a>
+						<a href="http://www.hrbdataex.com/" target="_blank"><img src="img/mark/01_44.png" onmouseover="this.src='img/mark/02_44.png'"
+							 onmouseout="this.src='img/mark/01_44.png'"  style="margin-left: 6px;"/></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tu">
+			<div class="container" style="width: 875px;">
+				<ul>
+					<li style="float: left;width: 100%;margin-top: 40px;text-align: left;">
+						<a  href="http://www.dituhui.com/" target="_blank"><img src="img/mark/01_25.png" onmouseover="this.src='img/mark/02_25.png'"
+							 onmouseout="this.src='img/mark/01_25.png'" /></a>
+						<a href="http://www.cjbigdata.com/" target="_blank"><img src="img/mark/01_47.png" onmouseover="this.src='img/mark/02_47.png'"
+							 onmouseout="this.src='img/mark/01_47.png'" /></a>
+						<a href="http://www.yonyou.com/" target="_blank"><img src="img/mark/01_49.png" onmouseover="this.src='img/mark/02_49.png'"
+							 onmouseout="this.src='img/mark/01_49.png'" /></a>
+						<a  href="http://www.chinawiserv.com/" target="_blank"><img src="img/mark/01_51.png" onmouseover="this.src='img/mark/02_51.png'"
+							 onmouseout="this.src='img/mark/01_51.png'" /></a>
+						<!--<a href="http://www.pinglian.hk/" target="_blank"><img src="img/mark/01_53.png" onmouseover="this.src='img/mark/02_53.png'"-->
+							 <!--onmouseout="this.src='img/mark/01_53.png'" /></a>-->
+						<a href="http://www.zhimatech.com/" target="_blank"><img src="img/mark/zm.png" onmouseover="this.src='img/mark/zmHover.png'"
+							onmouseout="this.src='img/mark/zm.png'" /></a>
+						<a  href="http://www.gzbdex.com/" target="_blank"><img src="img/mark/01_55.png" onmouseover="this.src='img/mark/02_55.png'"
+							 onmouseout="this.src='img/mark/01_55.png'" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
+</div>
 
-				<!--<img src="/img/gz//logo/cjLogo.png" title="长江大数据交易所" style="width: 30px; height: 27px; margin-right: 5px; vertical-align: text-bottom;"/><span>武汉长江大数据交易有限公司</span>-->
-
-			<!--</div>-->
-
-			<!--<div style=" float: left; width: 90%; padding-left: 117px;">-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (7).png" title="亚信数据" /><span style="margin-right:10px;" ></span>-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (100).gif" title="亚信数据" />-->
-				<!--<img class="imgparnter" src="/img/gz/partner/comlogo (9).png" title="亚信数据" />-->
-
-			<!--</div> &ndash;&gt;-->
-
-
-
-			<!--&lt;!&ndash; <div id="scroll" style="float:left; width:89.2%;height: 200px;margin-bottom: 20px;background-color: #fff">-->
-				<!--<div style="float:left; width:100%;margin: 20px;height:20px;">-->
-					<!--<img class="imgparnter" src="/img/gz/partner/1.png" title="广州大数据管理局"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/2.png" title="北京亚信数据有限公司"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/3.png" title="广州市信息安全测评中心"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/4.png" title="广州交易所集团"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/5.png" title="武汉长江大数据交易有限公司"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/6.png" title="哈尔滨数据交易中心"/><span style="margin-right:10px;"></span>-->
-				<!--</div>-->
-				<!--<div style="float:left; width:100%;margin: 20px;height:20px;">-->
-					<!--<img class="imgparnter" src="/img/gz/partner/7.png" title="中国移动"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/8.png" title="中国联通"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/9.png" title="中国电信"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/10.png" title="广州物流与供应链协会"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/11.png" title="广州电子商务行业协会"/><span style="margin-right:10px;"></span>-->
-					<!--<img class="imgparnter" src="/img/gz/partner/12.png" title="广州市跨境电商行业协会"/><span style="margin-right:10px;"></span>-->
-				<!--</div>-->
-				<!--<div style="float:left; width:100%;margin: 20px;height:20px;">-->
-					<!--<img class="imgparnter" src="/img/gz/partner/xm.png" title="广州市西美信息科技有限公司"/><span style="margin-right:10px;"></span>-->
-				<!--</div>-->
-			<!--</div> &ndash;&gt;-->
-
-
-		<!--<div id="scroll" style="float:left; width:90%;margin-bottom: 20px;background-color: #fff;padding:30px 0px;">-->
-			<!--<div class="bd">-->
-				<!--<div style="float:left;margin:20px;width:100%;">-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/1.png" title="广州大数据管理局"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="http://www.dataos.io/" target="_blank"><img class="imgparnter" src="/img/gz/partner/2.png" title="北京亚信数据有限公司"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/3.png" title="广州市信息安全测评中心"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/4.png" title="广州交易所集团"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="http://www.cjbigdata.com/" target="_blank"><img class="imgparnter" src="/img/gz/partner/5.png" title="武汉长江大数据交易有限公司"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="http://www.hrbdataex.com/" target="_blank"><img class="imgparnter" src="/img/gz/partner/6.png" title="哈尔滨数据交易中心"/><span style="margin-right:10px;"></span></a>-->
-				<!--</div>-->
-				<!--<div style="float:left;margin:20px;width:100%;">-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/7.png" title="中国移动"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/8.png" title="中国联通"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/9.png" title="中国电信"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/10.png" title="广州物流与供应链协会"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/11.png" title="广州电子商务行业协会"/><span style="margin-right:10px;"></span></a>-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/12.png" title="广州市跨境电商行业协会"/><span style="margin-right:10px;"></span></a>-->
-				<!--</div>-->
-				<!--<div style="float:left;margin:20px;width:100%;">-->
-					<!--<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/xmnew.png" title="广州市西美信息科技有限公司"/><span style="margin-right:10px;"></span></a>-->
-					<!--&lt;!&ndash; <a href='http://www.dataos.io'><img class="imgparnter" src="/img/gz/partner/DataHub_LOGO.png" title="DataHub"/><span style="margin-right:10px;"></span></a>-->
-				 <!--&ndash;&gt;</div>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<div class="clear"></div>-->
-	<!--</div>-->
-
-		<div style="width: 1200px;margin: 30px 0px 30px 0px;float: left">
-			<div class="table_partner">
-				<div style="float: left;width:1200px;background-color: #fff">
-					<div class="table_left_zong">合作伙伴
-						<!--<div class="table_title">合作伙伴</div>-->
+	<div class="container-fluid g-ftindex">	
+		<div class="container-fluid u-fCom">
+			<div class="row" id="fComR" style="">
+				<div class="row">
+				<div class="col-md-8">
+					<div class="row" style="padding-bottom:25px;">
+						<img src="img/index/asiainfopic.png" alt=""/><img src="img/index/zgcpic.png" class="zgcpic" alt="" style=""/>
 					</div>
-					<div class="table_partner_left" id="scroll">
-						<div class="bd">
-							<div style="float:left;margin:20px 60px;">
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/1.png" title="广州大数据管理局"/></a>
-								<a href="http://www.dataos.io/" target="_blank"><img class="imgparnter" src="/img/gz/partner/2.png" title="北京亚信数据有限公司"/></a>
-								<a href="javaScript:void(0);" ><img class="imgparnter" src="/img/gz/partner/3.png" title="广州市信息安全测评中心"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/4.png" title="广州交易所集团"/></a>
-								<a href="http://www.cjbigdata.com/" target="_blank"><img class="imgparnter" src="/img/gz/partner/5.png" title="武汉长江大数据交易有限公司"/></a>
-								<a href="http://www.hrbdataex.com/" target="_blank"><img class="imgparnter" src="/img/gz/partner/6.png" title="哈尔滨数据交易中心" style="margin-right: 0px"/></a>
-
+					<div class="row">
+						<div class="u-aboutus">
+							关于我们
+						</div>
+						<div id="f1">
+							<div class="footShuo1">
+								<a href="/aboutUS">关于我们</a>
 							</div>
-							<div style="float:left;margin:20px 60px;">
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/7.png" title="中国移动"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/8.png" title="中国联通"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/9.png" title="中国电信"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/10.png" title="广州物流与供应链协会"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/11.png" title="广州电子商务行业协会"/></a>
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/12.png" title="广州市跨境电商行业协会"style="margin-right: 0px"/></a>
+							<div class="footShuo1">						
+								<a href="/platform">平台介绍</a>
+								<!-- <a href="http://docs.hub.dataos.io/us">平台介绍</a> -->
 							</div>
-							<div style="float:left;margin:20px 60px;width:100%;">
-								<a href="javaScript:void(0);"><img class="imgparnter" src="/img/gz/partner/xmnew.png" title="广州市西美信息科技有限公司"/></a>
+							<!--<div class="footShuo1">				-->
+								<!--<a href="http://docs.hub.dataos.io/join">加入我们</a>-->
+								<!--&lt;!&ndash; <a href="http://docs.hub.dataos.io/join">加入我们</a> &ndash;&gt;-->
+							<!--</div>-->
+						</div>
+					</div>
+					<div class="row" style="margin-top:29px">
+						<div class="u-mesus">
+							联系我们
+						</div>
+						<div id="f2">
+							<div class="u-divs">
+								邮箱：datahub@asiainfo.com
+							</div>
+							<div class="u-divs">
+								地址：北京市海淀区中关村软件园二期西北旺东路10号院东区 亚信大厦
 							</div>
 						</div>
 					</div>
+					<div style="margin-top:29px" class="row">
+						<div style="float: left;font-size:12px;">
+							请使用IE10及以上内核浏览器，建议使用Chrome、Firefox、360最新版等。
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4" style="padding:0;">
 
+					
+					<div style='float: left;text-align: center;width: 100%' id="weiComs">
+						<div style='float:right;margin-left:18px'>
+							<img src="img/index/wei2.png" />
+			           		<div class="feature-labelf">扫描网站二维码</div>
+						</div>
+						<div class="f-fr">
+							<img src="img/index/wei1.png" />
+			           		<div class="feature-labelf">扫描微信公众号</div>
+						</div>
+					</div>
+					
+				</div>
+				</div>
+				<div class="row u-banftdiv">
+					<div class="u-banft">
+						© 2016 版权所有  北京亚信智慧数据科技有限公司  京ICP备11005544号-15 京公网安备110108007119号
+					</div>
 				</div>
 			</div>
+
+
+		
 		</div>
-		<!-- 模态框 -->
+		
+		
+	</div>
+	<!-- 模态框 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog" ID="origin">
 	        <div class="modal-content" style="padding:30px;font-size: 14px;">
@@ -1047,383 +574,29 @@
 	</div>
 	<!-- /模态框 -->
 
-
-</div>
-
-	    <!-- 页脚 -->
-		<div class="footer" style="float: left;">
-			<div class="clear"></div>
-			<p style="color:red;font-size: 14px;font-family: '微软雅黑';margin-top: 5px">请使用IE10及以上内核浏览器，建议使用Chrome、Firefox、360最新版等</p>
-			<p style="margin-top: 5px;font-family: '宋体'">© 2016 版权所有 广州数据交易服务有限公司 </p>
-		</div>
-
+</body>
 	<!-- build:js /js/full.js -->
 	<script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/plugin/jquery.cookie.js"></script>
     <script src="/js/vue.js"></script>
-
-	<script>
-		Vue.filter('str',function(val){
-			console.log(val);
-			var textLeng = 18;
-			if (val.length > textLeng) {
-				val = val.substring(0, textLeng) + "..."
-			}
-			return val;
-		});
-
-		Vue.filter('time',function(val){
-			var time="";
-
-			if(val!=undefined) {
-				if(val.indexOf("T")!="-1"){
-					var b=val.indexOf("T");
-					time=val.slice(0,b);
-				}else{
-					time=val;
-				}
-			}
-
-			return time;
-		});
-
-		new Vue({
-			el:'#hyxw',
-			data:{
-				datacon:"",
-				selectstitle:"行业新闻",
-				url:"",
-				dates:[]
-			},
-			ready:function(){
-				var datacon=this.datacon;
-				$.ajax({
-					url:"https://cdn.contentful.com/spaces/hwoyc1162pu2/entries?access_token=50482076566ce3d6253c9011d909f2d005ea1d6199d76dc93c2e77e148129554&content_type=industry_news&order=-fields.pub_date",
-					type: "get",
-					cache:true,
-					data:{},
-					async:false,
-					success:function(json){
-						datacon=json.items;
-					},
-					error:function(json){
-
-					}
-				});
-				this.datacon=datacon;
-			},
-			watch:{
-
-			},
-			methods:{
-				type:function(e){
-					var type="";
-					var datacon="";
-					this.datacon="";
-
-					$.ajax({
-						url:this.url,
-						type: "get",
-						cache:true,
-						data:{},
-						async:false,
-						beforeSend:function(){
-							$(".loading").show();
-						},
-						success:function(json){
-							$(".loading").hide();
-							datacon=json.items;
-						},
-						error:function(json){
-
-						}
-					});
-
-					this.datacon=datacon;
-				}
-			}
-		});
-		new Vue({
-			el:'#gszx',
-			data:{
-				datacon:"",
-				selectstitle:"公司资讯",
-				url:"",
-				dates:[]
-			},
-			ready:function(){
-				var datacon=this.datacon;
-				$.ajax({
-					url:"https://cdn.contentful.com/spaces/hwoyc1162pu2/entries?access_token=50482076566ce3d6253c9011d909f2d005ea1d6199d76dc93c2e77e148129554&content_type=company_news&order=-fields.pub_date",
-					type: "get",
-					cache:true,
-					data:{},
-					async:false,
-					success:function(json){
-						datacon=json.items;
-					},
-					error:function(json){
-
-					}
-				});
-				this.datacon=datacon;
-			},
-			watch:{
-
-			},
-			methods:{
-				type:function(e){
-					var type="";
-					var datacon="";
-					this.datacon="";
-
-					$.ajax({
-						url:this.url,
-						type: "get",
-						cache:true,
-						data:{},
-						async:false,
-						beforeSend:function(){
-							$(".loading").show();
-						},
-						success:function(json){
-							$(".loading").hide();
-							datacon=json.items;
-						},
-						error:function(json){
-
-						}
-					});
-
-					this.datacon=datacon;
-				}
-			}
-		});
-		
-		new Vue({
-			el:'#sjxq',
-			data:{
-				datacon:"",
-				selectstitle:"",
-				url:"",
-				dates:[],
-				test:true,
-				styleObject: {
-				    color: '#29abe2'
-				}
-			},
-			ready:function(){
-				var datacon=this.datacon;
-				$.ajax({
-					url:"https://cdn.contentful.com/spaces/hs67vd4fylc8/entries?access_token=d2bf0d154905ef9cbe3d5d9cb6f33244da039a5fff876717d9dfbcd8355f8dfe&content_type=data_demand&order=-fields.pub_date",
-					type: "get",
-					cache:true,
-					data:{},
-					async:false,
-					success:function(json){
-						datacon=json.items;
-					},
-					error:function(json){
-
-					}
-				});
-				this.datacon=datacon;
-			},
-			watch:{
-
-			},
-			methods:{
-				type:function(e){
-					var type="";
-					var datacon="";
-					this.datacon="";
-
-					$.ajax({
-						url:this.url,
-						type: "get",
-						cache:true,
-						data:{},
-						async:false,
-						beforeSend:function(){
-							$(".loading").show();
-						},
-						success:function(json){
-							$(".loading").hide();
-							datacon=json.items;
-						},
-						error:function(json){
-
-						}
-					});
-
-					this.datacon=datacon;
-				}
-			}
-		});
-
-		new Vue({
-			el:'#jsxq',
-			data:{
-				datacon:"",
-				selectstitle:"",
-				url:"",
-				dates:[],
-				test:true,
-				styleObject: {
-					color: '#29abe2'
-				}
-			},
-			ready:function(){
-				var datacon=this.datacon;
-				$.ajax({
-					url:"https://cdn.contentful.com/spaces/hs67vd4fylc8/entries?access_token=d2bf0d154905ef9cbe3d5d9cb6f33244da039a5fff876717d9dfbcd8355f8dfe&content_type=solution_demand&order=-fields.pub_date",
-					type: "get",
-					cache:true,
-					data:{},
-					async:false,
-					success:function(json){
-						datacon=json.items;
-					},
-					error:function(json){
-
-					}
-				});
-				this.datacon=datacon;
-			},
-			watch:{
-
-			},
-			methods:{
-				type:function(e){
-					var type="";
-					var datacon="";
-					this.datacon="";
-
-					$.ajax({
-						url:this.url,
-						type: "get",
-						cache:true,
-						data:{},
-						async:false,
-						beforeSend:function(){
-							$(".loading").show();
-						},
-						success:function(json){
-							$(".loading").hide();
-							datacon=json.items;
-						},
-						error:function(json){
-
-						}
-					});
-
-					this.datacon=datacon;
-				}
-			}
-		});
-		
-	</script>
-
     <script src="/plugin/base64.js"></script>
     <script src="/js/widget/footTops.js"></script>
 	<!-- endbuild -->
+	<script src="/js/bootstrap-hover-dropdown.js"></script>
+	<script src="/js/widget/bAnalysis.js"></script>
+    <script src="/js/widget/growAnalysis.js"></script>
+    <script src="/js/widget/daovoice.js"></script>
+	<script src="/plugin/jquery.stellar.js"></script>
     <script src="/js/widget/model.js"></script>
+	<script src="/plugin/countUp.min.js"></script>
 	<script src="/plugin/jquery.SuperSlide.2.1.1.js"></script>
-	<script src="plugin/bootstrap-hover-dropdown.js" type="text/javascript"></script>
 	<script src="/plugin/TouchSlide.1.1.js"></script>
 	<script src="/js/util/terminal.js"></script>
 	<script src="/js/pagescript/index.js"></script>
-	<script src="/js/widget/daovoice.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('.js-activated').dropdownHover().dropdown();
 		});
-
-		var _hmt = _hmt || [];
-
-		(function() {
-
-		  var hm = document.createElement("script");
-
-		  hm.src = "//hm.baidu.com/hm.js?9b7efec3c8a0bba9a33ec8d0659794b4";
-
-		  var s = document.getElementsByTagName("script")[0]; 
-
-		  s.parentNode.insertBefore(hm, s);
-
-		})();
-
-
-		var _vds = _vds || [];
-
-		      window._vds = _vds;
-
-		      (function(){
-
-		        _vds.push(['setAccountId', 'a1b924feb59e2592']);
-
-		        (function() {
-
-		          var vds = document.createElement('script');
-
-		          vds.type='text/javascript';
-
-		          vds.async = true;
-
-		          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-
-		          var s = document.getElementsByTagName('script')[0];
-
-		          s.parentNode.insertBefore(vds, s);
-
-		        })();
-
-		      })();
 	</script>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			jQuery("#scroll").slide({mainCell:".bd",autoPlay:true,effect:"topMarquee",vis:2,interTime:50});
-		});
-		$(document).ready(function(){
-			$(".sjxqselected").click(function(){
-				$(".jsxqselected").css("border","none");
-				$("#xqjump").attr("href","/rqselects/type/data_demand");
-				$(".sjxqselected").css("border-bottom","3px solid #24b4ee");
-				$("#jsxq").css("display","none");
-				$("#sjxq").css("display","block");
-			});
-			$(".jsxqselected").click(function(){
-//				$(this).toggleClass("click");
-				$(".sjxqselected").css("border","none");
-				$("#xqjump").attr("href","/rqselects/type/solution_demand");
-				$(".jsxqselected").css("border-bottom","3px solid #24b4ee");
-				$("#sjxq").css("display","none");
-				$("#jsxq").css("display","block");
-			})
-			$(".hyxwselected").click(function(){
-				$(".gszxselected").css("border","none");
-				$("#jump").attr("href","/newsSelects/type/industry_news");
-				$(".hyxwselected").css("border-bottom","3px solid #24b4ee");
-				$("#gszx").css("display","none");
-				$("#hyxw").css("display","block");
-			});
-			$(".gszxselected").click(function(){
-				$("#jump").attr("href","/newsSelects/type/company_news");
-//				$(this).toggleClass("click");
-				$(".hyxwselected").css("border","none");
-				$(".gszxselected").css("border-bottom","3px solid #24b4ee");
-				$("#hyxw").css("display","none");
-				$("#gszx").css("display","block");
-			})
-		});
-	</script>
-</body>
 </html>
-
-
-
-
-
-

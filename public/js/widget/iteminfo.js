@@ -86,14 +86,14 @@ function itemDetailsInfo(data){
     '<div class="client_downs">' +
         '<p>所属Repository</p>'+
         '<p class="repo2"><a target="_blank" href="/repodet/'+repoName+'">'+repoName+'</a></p>'+
-        '<a role="button" target="_blank" class="btn btn-primary btn-lg" href="/clientDownload">Client端 下载</a>' +
+        '<a role="button" target="_blank" class="btn btn-primary btn-lg" href="/clientToolDownload">Client端下载</a>' +
             '<p>本数据由</p>'+
             '<p class="company_name"><a target="_blank" href="/userdet/'+ nikename+'">'+username+'</a>提供</p>'+
     '</div>'+
     '<div class="hot"></div>');
 
     if(label!=null&&label!=""&&label!=undefined){
-        $(".span_label").append("<span>"+label+"</span>");
+        // $(".span_label").append("<span>"+label+"</span>");
         if(label_sys=="batch")
             $(".span_label").append($("<span style='border: 1px solid #8fc31f;'></span>").text("批量数据"));
         if(label_sys=="flow")

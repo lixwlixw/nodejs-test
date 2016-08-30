@@ -1,11 +1,13 @@
 #wrap{
     float: left;
-    margin-bottom: 100px;
+    /*margin-bottom: 100px;*/
+    margin-bottom: 0px;
 }
 #main{
     margin-top: 50px;
     float: left;
-    margin-bottom: 100px;
+    /*margin-bottom: 100px;*/
+    margin-bottom: 0px;
 }
 #main-left {
     float: left;
@@ -107,17 +109,24 @@ word-break: break-all;*/
     border: 5px solid #e5e5e5;
     color: #666;
     font-size: 14px;
-    height: 86px;
-    width: 180px;
     text-align: center;
-    left:268px;
+    /*left:268px;*/
     bottom: -80px;
+    left: 706px;
+    width: 184px;
+    height: 78px;
+    top: 23px;
 }
 #LT_left_icon .alert_login p{
     position: absolute;
     left: 0;
     bottom: 25px;
     width: 170px;
+    vertical-align: middle;
+    line-height: 70px;
+    display: inherit;
+    top: 0;
+    height: 70px;
 }
 #LT_left_icon .alert_login p a{
     color:#29abe2;
@@ -196,6 +205,7 @@ word-break: break-all;*/
 #LT-right{
     width: 200px;
     float: right;
+    position: relative;
     /*float:left;*/
 }
 #LT-right div select{
@@ -251,37 +261,37 @@ word-break: break-all;*/
     display: none;
 }
 #cance_alert{
-    position: absolute;
+    background-image: url("/img/images02_125.png");
+    background-repeat: no-repeat;
+    color: #3bcb6e;
+    display: none;
     font-size: 16px;
     font-weight: bold;
-    top: 230px;
-    left: 830px;
-    color:#3bcb6e;
-    background-image: url('/img/images02_125.png');
-    background-repeat: no-repeat;
     height: 18px;
-    display: none;
-    width: 150px;
+    left: 55px;
+    position: absolute;
     text-align: center;
+    top: 125px;
+    width: 170px;
 }
 #myself_alert{
-    position: absolute;
+    color: #ea0c1d;
+    display: none;
     font-size: 16px;
     font-weight: bold;
-    top: 230px;
-    left: 818px;
-    color:#ea0c1d;
     height: 18px;
-    display: none ;
-    width: 180px;
+    left: 42px;
+    position: absolute;
     text-align: center;
+    top: 118px;
+    width: 180px;
 }
 #limit_buy_alert{
     position: absolute;
     font-size: 12px;
     font-weight: bold;
     top: 216px;
-    left: 816px;
+    left: 895px;
     color:#333333;
     height: 18px;
     display: none;
@@ -297,16 +307,18 @@ word-break: break-all;*/
 }
 #upcoming_release{
     margin-top: 0px;
-    color: #333333;
+    color: #fff;
     font-size: 16px;
-    float: right;
-    width: 225px;
+    float: left;
+    width: 120px;
     font-weight: bold;
-    border: 1px solid #333333;
+    border-radius:6px;
     height: 41px;
     text-align: center;
     line-height: 41px;
     display: none;
+    background-color: #29abe2;
+
 }
 #button_buy>p{
     margin-top: 30px;
@@ -395,11 +407,11 @@ word-break: break-all;*/
     display: none;
 }
 /*#left_exam>p:first-child{*/
-    /*padding:15px 0px 15px 15px;*/
-    /*border-bottom: 1px solid #666666;*/
-    /*font-size: 20px;*/
-    /*font-weight: 700;*/
-    /*color: #666666;*/
+/*padding:15px 0px 15px 15px;*/
+/*border-bottom: 1px solid #666666;*/
+/*font-size: 20px;*/
+/*font-weight: 700;*/
+/*color: #666666;*/
 /*}*/
 #left_exam>p{
     padding:15px 0px 15px 15px;
@@ -934,7 +946,7 @@ word-break: break-all;*/
     float: right;
 }
 /*#qrcodeBox{*/
-    /*position:relative;*/
+/*position:relative;*/
 /*}*/
 #small-qrcode>span{
     margin-right: 5px;
@@ -984,11 +996,11 @@ word-break: break-all;*/
     -moz-appearance:none;
     -webkit-appearance:none;
     /*在选择框的最右侧中间显示小箭头图片*/
-   /* background: url("/img/arrow.png") no-repeat scroll right center transparent  !important;
-    background-position: 1px 1px;*/
+    /* background: url("/img/arrow.png") no-repeat scroll right center transparent  !important;
+     background-position: 1px 1px;*/
     background-image:url("/img/arrow.png");
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: 200px center;
     background-attachment: scroll;
     /*为下拉小箭头留出一点位置，避免被文字覆盖*/
     padding-right: 14px;
@@ -1019,3 +1031,9 @@ select::-ms-expand { display: none; !important; }
     font-size: 14px;
     font-weight: bold;
 }*/
+
+.left_content_con table tr td{
+    max-width:300px;
+    text-align: center;
+    height: 25px;
+}

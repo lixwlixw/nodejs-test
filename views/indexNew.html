@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="DataHub,批量数据,API数据,流式数据,数据流动,数据交易,运营商数据,空气质量数据,免费数据调用,数据版权保护,大数据,电商大数据,物流大数据,交通大数据,企业大数据,政府大数据,科研大数据,征信大数据,竞赛数据,数据竞赛,用户画像,画像数据,个人数据,物联网数据,数据资产,数据资源,数据商品,大数据交换标准委员会,去中心化(P2P),数据市场,数据中介,数据集市,数据银行,数据交易所,一站式数据,数据咖啡馆,数据共享,数据交换,跨领域数据,跨域数据,多源数据,数据链接,数据权利,数据权属,数据隐私,数据许可,数据审计,数据使用,数据拥有,数据安全,数据定价,数据估值,数据质量,数据溯源,数据脱敏,数据流通,数据采购,数据合作,数据开放,区块链(Blockchain),数字网络(Digital Mesh),万物互联(Internet of Everything,IoE),PDS(Personal Data Store, OpenPDS),机器学习(Machine Learning),深度学习(Deep Learning),增强学习(Reinforcement Learning),监督学习(Supervised Learning),非监督学习(Unsupervised Learning),人工智能(Artificial Intelligence,AI),智能增强(Intelligence Augmentation,IA),数据开放平台,开放式创新,社会化分析,数据服务,数据价值链,价值链共享交换,数据经济,信息经济,数据即服务(Data as a service,DaaS),数据思维,数据驱动,数据科学,数字化生存(Being Digital),数据生态,数据互联网,数据骨干网,大数据应用" />
+    <meta name="description" content="DataHub是国内首个去中心化、P2P大数据流通平台，通过将DataHub协议开源，致力于与全社会一起共建一套数据流通协议，打造数据互联网，让数据流通在阳光下流通。" />
+    <title>DataHub.阳光下的数据流通平台</title>
+    <!-- build:css /css/full.css -->
+    <link rel="stylesheet" href="/css/include/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/module/loader.css">
+    <link rel="stylesheet" href="/css/include/animate.css">
+    <link rel="stylesheet" href="/css/include/function.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="/css/include/command.css">
+    <link rel="stylesheet" href="/css/module/indexNew.css">
+    <link rel="stylesheet" href="/css/include/switchSlide.css">
+
+
+</head>
+
+<body>
+
+<!-- load开始 -->
+<div class="be-loader" style="display: block;">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+ <!--/load结束 -->
+
+<div class="container index-box">
+    <div class="header-out">
+        <div class="header-in">
+            <div class="layout-box">
+            <div class="logo"><img src="img/indexNew/logo-octopus.png"/></div>
+            <div class="nav-search">
+                <div class="search">
+                    <div class="search_label" style="display: block;">
+                        <a target="_blank" href="">终端</a>
+                        <a target="_blank" href="">位置</a>
+                        <a target="_blank" href="">征信</a>
+                    </div>
+                    <input type="text" name="search-text" id="search-text" placeholder="请输入关键词" class="form-control" />
+                    <input type="button" name="search-btn" id="search-btn"   />
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a class="nav-name nav-active" href="/" title='首页' target="_blank">首页</a></li>
+                        <li><a class="nav-name" href="/selects" title='数据精选' target="_blank">数据精选</a></li>
+                        <li><a class="nav-name" href="/clientToolDownload" title='工具' target="_blank">工具</a></li>
+                        <li>
+                            <div id="help-menu-box">
+                                <a href="javaScript:void(0);" title='帮助' class="dropdown-toggle nav-name js-activated">帮助</a>
+                                <ul class="dropdown-menu menu-style">
+                                    <li><a href="http://docs.hub.dataos.io/member.html" target="_blank">用户注册</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/certification.html" target="_blank">会员认证</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/upgrade.html" target="_blank">会员升级</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/demander.html" target="_blank">下载数据</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/supplier.html" target="_blank">发布数据</a></li>
+                                    <li><a href="http://docs.hub.dataos.io/client.html" target="_blank">Client端命令</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="sign-in-out sign-nologin" style="display: none">
+                <div><model m-text="登录" m-title="登录" m-href="login" m-width="300"></model></div>
+                <div><a href="/reg" target="_blank">注册</a></div>
+            </div>
+            <div class="sign-in-out sign-login" style="display: none">
+                <li class="inLoginfLiF">
+                    <div id="sign-menu-box">
+                        <a id="sign-gj" target="_blank" href='javaScript:void(0);' title='会员中心' class="dropdown-toggle js-activated">
+                        <img src="/img/indexNew/member.png" alt="">
+                        <!--<span class="badgeHeader" style="display: inline;">&nbsp;</span>-->
+                        <div class="sign-member">
+                            <span id="innames">chengkj</span>
+                            <span class="bg-icon"></span>
+                        </div>
+
+                    </a>
+
+                        <ul class="dropdown-menu member-menu">
+                            <!--<li><a id="innames" href="javaScript:void(0);" style="cursor: default;"></a></li>-->
+                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/my/member">会员升级</a></li>
+                            <li><a href="/my/pwd">修改密码</a></li>
+                            <li><a href="/my/basicInfovue">基本信息</a></li>
+                            <!--<li class="divider"></li>-->
+                            <li><a href="/monitor">监控中心</a></li>
+                            <!--<li class="dropdown-header">监控中心</li>-->
+                            <li><a href="/my/myaccount">财务中心</a></li>
+                            <li><a href="/my/msgreq">消息中心</a></li>
+                            <li><a href="/my/ca">认证中心</a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a id="logout" href="javaScript:void(0);">退出</a></li>
+                        </ul></div>
+
+                </li>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="nav-switch">
+            <nav class="body-nav">
+                <ul>
+                    <!--<li><a href="/selects" target="_blank">数据分类</a></li>-->
+                    <li><a href="javascript:void(0)" target="_blank">数据分类</a></li>
+                    <li class="body-nav-left"><img src="/img/indexNew/sel-nav/images_43.png" alt=""><a href="/selects/terminal" target="_blank">终端数据</a></li>
+                    <li class="body-nav-left"><img src="/img/indexNew/sel-nav/images_45.png" alt=""><a href="/selects/baseStation" target="_blank">基站数据</a></li>
+                    <li class="body-nav-left"><img src="/img/indexNew/sel-nav/images_47.png" alt=""><a href="/selects/credit" target="_blank">征信数据</a></li>
+                    <li class="body-nav-left"><img src="/img/indexNew/sel-nav/images_49.png" alt=""><a href="/selects/space" target="_blank">时空数据</a></li>
+                    <li class="body-nav-left"><img src="/img/indexNew/sel-nav/images_51.png" alt=""><a href="/selects/finance" target="_blank">金融理财</a></li>
+                    <li><a href="/selects" target="_blank">更多》</a></li>
+                </ul>
+            </nav>
+            <div class="body-switch-photo">
+                <div id="jquery-script-menu"> </div>
+                <div class="slider">
+                    <div class="slider-container">
+                        <div class="slider-wrapper">
+                            <div class="slide"> <img src="/img/indexNew/img/slide1.png" alt=""> </div>
+                            <div class="slide"> <img src="/img/indexNew/img/slide2.png" alt=""> </div>
+                            <div class="slide" style="position: relative;">
+                                <img src="/img/indexNew/img/slide3.png" alt="">
+                                <div class="broadcast"><img src="/img/indexNew/img/slide3_inner.png" alt="" style=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="data-map data-map-one">
+            <ul  class="img-map-new">
+                <li>
+                    <img src="/img/indexNew/dataMap/image-14.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_new.png" class="img-lable" alt="">
+                    <p>三网手机实名制认真验真</p>
+                   
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-15.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_new.png" class="img-lable" alt="">
+                    <p>银行卡四要素验真</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-16.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_new.png" class="img-lable" alt="">
+                    <p>ID mapping</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-17.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_new.png" class="img-lable" alt="">
+                    <p>时空数据</p>
+                </li>
+            </ul>
+        </div>
+        <div class="data-map data-map-two">
+            <ul class="img-map-hot">
+                <li>
+                    <img src="/img/indexNew/dataMap/image-18.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>高精多维用户画像</p>
+
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-14.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>三网手机实名制认真验证</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-22.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>行业深度洞察</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-20.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>手机号码状态查询</p>
+                </li>
+            </ul>
+        </div>
+        <div class="data-map data-map-three">
+            <ul class="img-map-hot">
+                <li>
+                    <img src="/img/indexNew/dataMap/image-15.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>银行卡四要素验真</p>
+
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-17.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>时空数据</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-19.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>北京、上海、广州空气质量数据</p>
+                </li>
+                <li>
+                    <img src="/img/indexNew/dataMap/image-21.png" class="img-map">
+                    <img src="/img/indexNew/dataMap/data_hot.png" class="img-lable" alt="">
+                    <p>移动端搜索数据</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="business-card">
+        <div>
+            <img src="/img/indexNew/mixdata.png" alt="">
+            <p class="mix-data">亚信品联</p>
+            <p class="member"><span>钻石会员</span></p>
+            <p class="mix-data-info">亚信品联以国内先进的大数据管理平台为依托，以产业互联为目标，将数据变现普惠每一个客户。</p>
+            <div class="mix-data-label">
+                <span>DMP</span>
+                <span>ID Mapping</span>
+                <span>用户画像</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="topic">
+        <div>
+            <div class="news">
+                <table>
+                    <tr>
+                        <th>
+                            <span>新闻</span>
+                            <span class="more">更多>></span>
+                        </th>
+                    </tr>
+                    <tr>
+                       <td>
+                           <span>2016.9.20</span>
+                           <span>哈尔滨空气质量数据</span>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="activity">
+                <table>
+                    <tr>
+                        <th>
+                            <span>活动</span>
+                            <span class="more">更多>></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>2016.9.20</span>
+                            <span>哈尔滨空气质量数据</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="partner-link">
+        <div class="comPartner">
+            <p>DataHub 合作伙伴</p>
+            <!--<table style="margin: auto">-->
+            <!--<tr>-->
+            <!--<td><img src="img/company/databjdx.png"></td>-->
+            <!--<td><a href="http://www.cjbigdata.com" target="_blank"><img src="img/company/datacj.png"></a></td>-->
+            <!--<td><img src="img/company/datagt.png"></td>-->
+            <!--<td><a href="http://www.hrbdataex.com" target="_blank"><img src="img/company/dataheb.png"></a></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><a href="http://www.weidata.cn" target="_blank"><img src="img/company/dataleix.png"></a></td>-->
+            <!--<td><a><img src="img/company/datalx.png"></a></td>-->
+            <!--<td><a href="http://www.meritdata.com.cn" target="_blank"><img src="img/company/datame.png"></a></td>-->
+            <!--<td><a href="http://www.pinglian.hk" target="_blank"><img src="img/company/datapl.png"></a></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><img src="img/company/dataxt.png"></td>-->
+            <!--<td><img src="img/company/datazcrz.png"></td>-->
+            <!--<td><img src="img/company/datazjhl.png"></td>-->
+            <!--<td><img src="img/company/datazkyt.png"></td>-->
+            <!--</tr>-->
+
+            <!--</table>-->
+            <div class="tu">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <a href="http://www.jiuqi.com.cn/" target="_blank"><img src="img/mark/01_32.png" onmouseover="this.src='img/mark/02_32.png'"
+                                                                                    onmouseout="this.src='img/mark/01_32.png'" /></a>
+                            <a target="_blank" href="http://www.mapuni.com/"><img src="img/mark/01_30.png" onmouseover="this.src='img/mark/02_30.png'"
+                                                                                  onmouseout="this.src='img/mark/01_30.png'" /></a>
+                            <a  href="http://www.neunn.com/" target="_blank"><img src="img/mark/01_35.png" onmouseover="this.src='img/mark/02_35.png'"
+                                                                                  onmouseout="this.src='img/mark/01_35.png'" /></a>
+                            <a target="_blank" href="http://www.unidt.com/"><img src="img/mark/01_22.png" onmouseover="this.src='img/mark/02_22.png'"
+                                                                                 onmouseout="this.src='img/mark/01_22.png'" /></a>
+                            <a href="http://www.baifendian.com/" target="_blank"><img src="img/mark/01_28.png" onmouseover="this.src='img/mark/02_28.png'"
+                                                                                      onmouseout="this.src='img/mark/01_28.png'"  style="margin-left: 30px;"/></a>
+                            <a href="http://www.hrbdataex.com/" target="_blank"><img src="img/mark/01_44.png" onmouseover="this.src='img/mark/02_44.png'"
+                                                                                     onmouseout="this.src='img/mark/01_44.png'"  style="margin-left: -13px;"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tu">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <a  href="http://www.dituhui.com/" target="_blank"><img src="img/mark/01_25.png" onmouseover="this.src='img/mark/02_25.png'"
+                                                                                    onmouseout="this.src='img/mark/01_25.png'" /></a>
+                            <a href="http://www.cjbigdata.com/" target="_blank"><img src="img/mark/01_47.png" onmouseover="this.src='img/mark/02_47.png'"
+                                                                                     onmouseout="this.src='img/mark/01_47.png'" /></a>
+                            <a href="http://www.yonyou.com/" target="_blank"><img src="img/mark/01_49.png" onmouseover="this.src='img/mark/02_49.png'"
+                                                                                  onmouseout="this.src='img/mark/01_49.png'" /></a>
+                            <a  href="http://www.chinawiserv.com/" target="_blank"><img src="img/mark/01_51.png" onmouseover="this.src='img/mark/02_51.png'"
+                                                                                        onmouseout="this.src='img/mark/01_51.png'" /></a>
+                            <!--<a href="http://www.pinglian.hk/" target="_blank"><img src="img/mark/01_53.png" onmouseover="this.src='img/mark/02_53.png'"-->
+                            <!--onmouseout="this.src='img/mark/01_53.png'" /></a>-->
+                            <a href="http://www.zhimatech.com/" target="_blank"><img src="img/mark/zm.png" onmouseover="this.src='img/mark/zmHover.png'"
+                                                                                     onmouseout="this.src='img/mark/zm.png'" /></a>
+                            <a  href="http://www.gzbdex.com/" target="_blank"><img src="img/mark/01_55.png" onmouseover="this.src='img/mark/02_55.png'"
+                                                                                   onmouseout="this.src='img/mark/01_55.png'" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <div class="footer-logo">
+                <img src="/img/indexNew/yaxin-logo.png" alt="">
+                <img src="/img/indexNew/zparkIndustryAlliance.png" >
+            </div>
+            <div class="company-info-group">
+                <div class="company-info">
+                    <h3>关于我们</h3>
+                    <p>联盟介绍</p>
+                    <p><a href="/platform">平台介绍</a></p>
+                </div>
+                <div class="company-info">
+                    <div class="help">
+                        <h3>帮助</h3>
+                        <p><a href="/reg">注册</a></p>
+                        <p>数据发布</p>
+                        <p>数据获取</p>
+                    </div>
+                    <div class="help">
+                        <p>Client端下载</p>
+                        <p>Client端命令介绍</p>
+                    </div>
+                </div>
+                <div class="company-info">
+                    <div class="QR-code">
+                        <img src="/img/indexNew/DH-chat.jpg" alt="">
+                        <p>
+                            <img src="/img/indexNew/chat.png" alt="">
+                            <span>关注官方微信</span>
+                        </p>
+                    </div>
+                    <div class="QR-code">
+                        <img src="/img/indexNew/DH-web.png" alt="">
+                        <p>
+                            <img src="/img/indexNew/web.png" alt="">
+                            <span>hub.dataos.io</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact" style="clear: both;padding-top: 50px;">
+                <div class="phone" style="display: inline-block;width: 236px; height: 35px;">
+                    <img src="/img/indexNew/phone.png" style="padding-bottom: 4px;margin-right: 12px">
+                    <span style="color: #acb4d3; font-size: 18px; height: 35px; line-height: 35px;display: inline-block;">0451-51975699</span>
+                </div>
+                <div class="email" style="display: inline-block;width: 250px;height: 35px;">
+                    <img src="/img/indexNew/email.png" style="padding-bottom: 4px;margin-right: 12px">
+                    <span style="color: #acb4d3; font-size: 18px; height: 35px; line-height: 35px;display: inline-block;">datahub@asiainfo.com</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="advise">
+            <p>请使用IE10及以上内核浏览器，建议使用Chrome、Firefox、360最新版等。</p>
+            <p>
+                <span>北京市海淀区中关村软件园二期西北旺东路10号院 亚信大厦 (100193)   </span>&nbsp;&nbsp;&nbsp;
+                © 2016 版权所有 北京亚信智慧数据科技有限公司 京ICP备11005544号-15 京公网安备110108007119号
+            </p>
+        </div>
+        
+        
+    </div>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" ID="origin">
+        <div class="modal-content" style="padding:30px;font-size: 14px;">
+            <div class="modal-header" style="border-bottom:1px solid #cacaca;padding: 0px 0px 10px 0px;">
+                <button style='float: right;margin-top: 5px;' type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" id="myModalLabel1" style="font-size: 20px;color: #333;"></h4>
+            </div>
+            <div class="modal-body" style="padding: 0px;" ></div>
+        </div>
+    </div>
+</div>
+<!-- /模态框 -->
+
+</body>
+<!-- build:js /js/full.js -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/plugin/jquery.cookie.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/plugin/base64.js"></script>
+<script src="/js/widget/footTops.js"></script>
+<!-- endbuild -->
+<script src="/js/bootstrap-hover-dropdown.js"></script>
+<script src="/js/widget/bAnalysis.js"></script>
+<script src="/js/widget/growAnalysis.js"></script>
+<script src="/js/widget/daovoice.js"></script>
+<script src="/plugin/jquery.stellar.js"></script>
+<script src="/js/widget/model.js"></script>
+<script src="/plugin/countUp.min.js"></script>
+<script src="/plugin/jquery.SuperSlide.2.1.1.js"></script>
+<script src="/plugin/TouchSlide.1.1.js"></script>
+<script src="/js/util/terminal.js"></script>
+
+<script src="/plugin/slider.js"></script>
+<script src="/js/pagescript/indexNew.js"></script>
+<script>
+
+
+</script>
+
+</html>

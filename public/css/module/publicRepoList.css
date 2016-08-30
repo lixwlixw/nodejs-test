@@ -3,7 +3,8 @@
     overflow: hidden;
     border-bottom: 1px solid #c8c8c8;
     border-top: 1px solid #c8c8c8;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
+    margin-bottom: 50px;
     padding: 0px 30px;
 }
 .listBox:hover {
@@ -58,6 +59,7 @@
 }
 .listlable{
     float: left;
+    height: 23px;
 }
 .listlable span {
     border-radius: 3px;

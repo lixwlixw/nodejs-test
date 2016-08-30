@@ -26,6 +26,7 @@ $(function(){
 //		    },
 		  methods: {
 			    login: function() {
+
 			    	var exampleInputEmail1 = this.user.email;
 			    	var mdpass = $.md5(this.user.pwd);
 			    	var reme= this.user.reme;				      

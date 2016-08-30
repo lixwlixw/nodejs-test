@@ -5,7 +5,6 @@
 $(document).ready(function(){
     $(document).on("click",".u-hSearchBtn",function(){
         var vals=$("#u-header-notLogin").val();
-        vals=encodeURIComponent(vals);
         if(vals==""){
             location.href="/search";
         }else{
@@ -17,7 +16,6 @@ $(document).ready(function(){
     $(document).on('keydown',"#u-header-notLogin",function (e) {
   	  if (e.keyCode == 13) {
   		  var vals=$(this).val();
-  		  vals=encodeURIComponent(vals);
 	  		if(vals==""){
 	            location.href="/search";
 	        }else{
@@ -30,7 +28,7 @@ $(document).ready(function(){
     if($.cookie("token")!=null&&$.cookie("tname")!=null&&$.cookie("tname")!="null"&&$.cookie("tname")!="null"){
 		$('.g-iLoginb').hide();
 		$(".g-iLoginf").show();
-		$("#innames").text($.cookie("tname").slice($.cookie("tname").indexOf("+")+1));
+		$("#innames").text($.cookie("tname"));
 	}else{
 		$('.g-iLoginb').show();
 		$(".g-iLoginf").hide();
@@ -48,9 +46,10 @@ $(document).ready(function(){
 		 location.href="/";
  	});
     
-	$(window).load(function(){
+	$(document).ready(function(){
 		$(".be-loader").fadeOut("slow");
 	});
+
 	
  	$(".g-iLoginb").find("li a span").addClass("m-loginbtnshow");
  	

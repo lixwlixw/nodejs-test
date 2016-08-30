@@ -15,9 +15,9 @@
 <% block('js').append('<script src="/plugin/marked.js"></script>') %>
 <% block('js').append('<script src="/js/replyTo.js"></script>') %>
 <% block('js').append('<script src="/js/util/modelcen.js"></script>') %>
+<% block('js').append('<script src="/plugin/ZeroClipboard2.min.js"></script>') %>
 <% block('js').append('<script src="/js/widget/iteminfo.js"></script>') %>
 <% block('js').append('<script src="/js/pagescript/itemdetails.js"></script>') %>
-<% block('js').append('<script src="/plugin/ZeroClipboard.min.js"></script>') %>
 
 <div class="container">
     <div id="wrap">
@@ -26,12 +26,12 @@
                 <div id="left_title">
                     <div id="LT_left">
                         <div id="LT_left_title">
-                                <div id="titleName">
-                                    <a><span class="reponame"></span></a>
-                                    <span>/</span>
-                                    <span class="itemname"></span>
-                                </div>
-                                <span class="line"></span>
+                            <div id="titleName">
+                                <a><span class="reponame"></span></a>
+                                <span>/</span>
+                                <span class="itemname"></span>
+                            </div>
+                            <span class="line"></span>
                         </div>
                         <!--在线或离线-->
                         <div id="LT_left_icon">
@@ -66,7 +66,7 @@
                             <button id="hurry_buy" href="javascript:void(0)" class="btn btn-primary btn-lg" role="button">立刻订购</button>
                             <button id="apply_buy" href="javascript:void(0)" class="btn btn-primary btn-lg" role="button">申请订购</button>
                             <button id="cancel_buy" href="javascript:void(0)" class="btn btn-primary btn-lg" role="button">取消订购</button>
-                            <div id="upcoming_release">该数据即将发布</div>
+                            <div id="upcoming_release" style="cursor: pointer;">联系客服</div>
                         </div>
                         <p id="cance_alert">您已取消成功！</p>
                         <p id="myself_alert">您不能订购自己的数据。</p>
@@ -116,18 +116,18 @@
                     <div id="left_comment" class="">
                         <!-- 评论-------------------------------------------------------------------------------------->
                         <!--<div class="commentwrop">-->
-                            <!--<textarea name="" id="commentcon"></textarea>-->
-                            <!--<div class="conmentbt">-->
-                                <!--<div class="commentnums">还可以输入<span class="surplusnum">210</span>字，已超出<span class="exceednum">0</span>字</div>-->
-                                <!--<div class="publish_btn" id="pushcon_btn">评论</div>-->
-                            <!--</div>-->
+                        <!--<textarea name="" id="commentcon"></textarea>-->
+                        <!--<div class="conmentbt">-->
+                        <!--<div class="commentnums">还可以输入<span class="surplusnum">210</span>字，已超出<span class="exceednum">0</span>字</div>-->
+                        <!--<div class="publish_btn" id="pushcon_btn">评论</div>-->
+                        <!--</div>-->
                         <!--</div>-->
                         <!--<div class="commentList">-->
 
                         <!--</div>-->
                         <!--<div class="conmentpages"></div>-->
                         <!-- 评论-------------------------------------------------------------------------------------->
-                    <div id="repoactive"></div>
+                        <div id="repoactive"></div>
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
                     </div>
                     <div class="body" style="padding: 0px 20px 10px; width: 370px;">
                         <span class="statictext">请发送邮件至</span>
-                        <span class="email">service@gzbdex.com</span>
+                        <span class="email">datahub@asiainfo.com</span>
                     </div>
                     <div class="btn-group">
                         <div role="group" class="btn-group btn-group-02" style="margin-bottom: 0px; margin-top: 15px; width: 220px;">

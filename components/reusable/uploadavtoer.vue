@@ -113,7 +113,7 @@
                 dataType: "json",
                 success: function (data) {
                     headPic=data.data.headPic;
-                    if(headPic!=""){
+                    if(headPic!=""&&headPic!=null){
                         $.ajax({
                             url: '/api/certification/download?picId='+headPic,
                             type: "get",

@@ -1107,9 +1107,9 @@ a:hover{
 .navbar-nav > li > a{
 	padding-top: 25px;
 }
-/*.nav > li > a:hover{
-	background-color:rgba(31,154,218,0.55);
-}*/
+.nav > li > a:hover{
+	background-color:rgba(31,154,218,0.55); 
+}	
 .navbar-fixed-top{
 	border-bottom: 0px;
 }
@@ -1175,6 +1175,26 @@ a:hover{
 .u-banftdiv{
 	margin-top:25px;border-top: 1px solid #aaa;
 }
+.comPartner{
+    text-align:center;
+    background-color:#f8f8f8;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    padding:50px 0;
+}
+.comPartner>p{
+    line-height: 50px;
+    color: #29aae1;
+    font-size: 25px;
+    font-weight:bold;
+    margin-bottom: 20px;
+}
+.comPartner table tr td{
+    border:1px  solid #aaa;
+}
 
 
-
+.tu ul>li>a{margin-right: 31px;padding-top: 30px;width: 90px;}
+.tu ul>li>a:nth-last-child(1){
+    margin-right: 0px;
+}

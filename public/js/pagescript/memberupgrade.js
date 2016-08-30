@@ -25,7 +25,7 @@ var member=new Vue({
     methods: {
         dataReady: function () {
             $.ajax({
-                url: "/api" + "/vip/" + $.cookie("tname")+"?sregion=GZ",
+                url: "/api" + "/vip/" + $.cookie("tname")+"?sregion=datahub",
                 type: "get",
                 cache: false,
                 async: false,

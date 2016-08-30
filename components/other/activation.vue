@@ -1,4 +1,4 @@
-<style lang="sass">
+<style>
 	.created{
 		margin-top: 40px;
 		border-top:5px solid #c8c8c8;
@@ -66,13 +66,13 @@
 		<div>
 			<div ID="created" class="created">
 				<div ID="successed">
-					<p>注册广州数据交易服务平台账号</p>
+					<p>注册DataHub账号</p>
 				</div>
 				<div ID="info" style="margin-top:70px">
 					<p style="font:16px;">恭喜您，账号<a></a>已注册成功，开始寻找海量数据吧！</p>
 				</div>
 				<div class="btn m-btnlogin" id="signs" style="width: 300px;float:left;margin-left:230px;">			
-					<model m-text="马上登录" m-title="登录" m-href="login" m-width="300"></model>
+					<model m-text="马上登陆" m-title="登录" m-href="login" m-width="300"></model>
 				</div>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 	<div class="container" style="margin-top:50px; margin-bottom:100px; width:740px;" v-else>
 		<div class="created" id="created" v-if="shown">
 			<div id="successed">
-				<p>注册广州数据交易服务平台账号</p>
+				<p>注册DataHub账号</p>
 			</div>
 			<div style="margin-top:70px" id="info">
 					<p style="font:16px;">您的激活链接已超过24小时有效期，无法激活。</p>

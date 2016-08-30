@@ -16,7 +16,7 @@ Vue.component('account',{
         '</div>'+
         '<div class="window">'+
         '<p>请发送您的充值需求到</p>'+
-        '<p class="p2">service@gzbdex.com</p>'+
+        '<p class="p2">datahub@asiainfo.com</p>'+
         '<p>我们会在三个工作日内回复您</p>'+
         '</div>'+
         '<div class="usable_balance">'+
@@ -31,7 +31,7 @@ Vue.component('account',{
         '</div>'+
         '<div class="window1">'+
         '<p>请发送您的提现需求到</p>'+
-        '<p class="p3">service@gzbdex.com</p>'+
+        '<p class="p3">datahub@asiainfo.com</p>'+
         '<p>我们会在三个工作日内回复您</p>'+
         '</div>'+
         '</div>'+

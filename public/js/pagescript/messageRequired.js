@@ -26,6 +26,7 @@ $(document).on("mouseenter mouseleave",'.info',function(event){
         $(this).css("transition","background 0.3s ease 0s").css("background-color","#f2fafe").css("border","1px solid #f2fafe");
         $(this).addClass("info-other");
         $(this).parent().siblings().children().eq(0).css("background-image","url('/img/images3_136.png')");
+        $(this).removeClass('infoBorderRed');
     }
     if(event.type == "mouseleave"){
         $(this).css("background-color","#fff").css("border","1px solid #bfbfbf");
@@ -120,7 +121,7 @@ function newnums(){
         headers:headerToken,
         dataType:'json',
         success:function(json){
-            console.log(json.data);
+
             if(json.data!=null){
                 $(".zongReqNums").hide();
                 $(".zongOtherNums").hide();
@@ -224,6 +225,7 @@ function addHtml(level,page,levelnum){
             var typeItem="";
             var typeTag="";
             var typeText="";
+            var infoBorderRed="";
             var s="";
 
             if(len!=0){
@@ -249,6 +251,16 @@ function addHtml(level,page,levelnum){
                         var phase=json.data.results[i].data.phase; //订单状态
                         var supply_style=json.data.results[i].data.supply_style; //item状态
 
+                        infoBorderRed=json.data.results[i].status; //阅读状态
+
+                        if(infoBorderRed==0){
+                            infoBorderRed='infoBorderRed';
+                        }else{
+                            infoBorderRed='';
+                        }
+
+
+
                         var planType="";
                         if(supply_style=="flow"){
                             planType="天";
@@ -265,7 +277,7 @@ function addHtml(level,page,levelnum){
                                 "<span class='date'>"+tTime+"</span>"+
                                 "</div>"+
                                 "<div class='body'>"+
-                                "<div class='info'>"+
+                                "<div class='info "+infoBorderRed+"'>"+
                                 "<div class='box'>"+
                                 "<p ID='title' style='font-size:16px; color: #000000;padding-top:20px;'>"+typeText+"</p>"+
                                 "<p ID='description' style='font:12px; color: #666666;padding-top:15px; padding-bottom:15px'>"+s+"</p>"+
@@ -286,7 +298,7 @@ function addHtml(level,page,levelnum){
                                 "<span class='date'>"+tTime+"</span>"+
                                 "</div>"+
                                 "<div class='body'>"+
-                                "<div class='info'>"+
+                                "<div class='info "+infoBorderRed+"'>"+
                                 "<div class='box'>"+
                                 "<p ID='title' style='font-size:16px; color: #000000;padding-top:20px;'>"+typeText+"</p>"+
                                 "<p ID='description' style='font:12px; color: #666666;padding-top:15px; padding-bottom:15px'>"+s+"</p>"+
@@ -307,7 +319,7 @@ function addHtml(level,page,levelnum){
                                 "<span class='date'>"+tTime+"</span>"+
                                 "</div>"+
                                 "<div class='body'>"+
-                                "<div class='info'>"+
+                                "<div class='info "+infoBorderRed+"'>"+
                                 "<div class='box'>"+
                                 "<p ID='title' style='font-size:16px; color: #000000;padding-top:20px;'>"+typeText+"</p>"+
                                 "<p ID='description' style='font:12px; color: #666666;padding-top:15px; padding-bottom:15px'>"+s+"</p>"+
@@ -357,7 +369,7 @@ function addHtml(level,page,levelnum){
                              s="管理员：您订购的<a class='acomRe' target='_blank' href='itemDetails.html?repname="+typeRep+"&itemname="+typeItem+"'>"+typeRep+"/"+typeItem+"</a>删除一个tag："+typeTag+"。时间为："+typeTime;
                              } */
                             if(typeEvent=="item_deleted"){
-                                s="管理员：您订购的"+typeRep+"/"+typeItem+"被删除。您本次定购的费用将在本月返还给您。用户可点击<a target='_blank' class='acomRe' href='/my/myaccount'>billing中心</a>查看。";
+                                s="管理员：您订购的"+typeRep+"/"+typeItem+"被删除。您本次定购的费用将在本月返还给您。用户可点击<a target='_blank' class='acomRe' href='/my/myaccount'>账务中心</a>查看。";
                             }
                             /* if(typeEvent=="repo_deleted"){
                              s="管理员：您订购的"+typeRep+"被删除。";
@@ -440,7 +452,7 @@ function addHtml(level,page,levelnum){
                             "<span class='date'>"+tTime+"</span>"+
                             "</div>"+
                             "<div class='body'>"+
-                            "<div class='info'>"+
+                            "<div class='info "+infoBorderRed+"'>"+
                             "<div class='box'>"+
                             "<p ID='title' style='font-size:16px; color: #000000;padding-top:20px;'>"+typeText+"</p>"+
                             "<p ID='description' style='font:12px; color: #666666;padding-top:15px; padding-bottom:15px'>"+s+"</p>"+
@@ -460,7 +472,7 @@ function addHtml(level,page,levelnum){
                             "<span class='date'>"+tTime+"</span>"+
                             "</div>"+
                             "<div class='body'>"+
-                            "<div class='info'>"+
+                            "<div class='info "+infoBorderRed+"'>"+
                             "<div class='box'>"+
                             "<p ID='title' style='font-size:16px; color: #000000;padding-top:20px;'>"+typeText+"</p>"+
                             "<p ID='description' style='font:12px; color: #666666;padding-top:15px; padding-bottom:15px'>"+s+"</p>"+
@@ -470,7 +482,6 @@ function addHtml(level,page,levelnum){
                             "</div>"
                         );
                     }
-
 
                 }
 
@@ -483,6 +494,7 @@ function addHtml(level,page,levelnum){
             		$('#terminal-content-body').append("<div class='container'><p class='text-center'>暂无消息通知</p></div>");                   
             	}
             }
+
         }
     });
     return allrepnum;

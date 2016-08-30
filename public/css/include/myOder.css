@@ -81,7 +81,8 @@
 .mypushcomment{
     width: 100%;
     overflow: hidden;
-    margin-bottom: 100px;
+    /*margin-bottom: 100px;*/
+    margin-bottom: 0px;
 }
 .mypushcomment li{
     width: 100%;

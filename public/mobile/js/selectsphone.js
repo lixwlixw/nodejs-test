@@ -35,6 +35,7 @@ var paegeitems;
 var paegeitems2;
 
 $(document).ready(function(){
+
     var pages = 1;
     var thisvalue = '';
     $.ajax({
@@ -45,6 +46,7 @@ $(document).ready(function(){
         headers:headerToken,
         success:function(json){
             var bgarr = [];
+            console.log('json.data',json.data)
             if(json.data.length!=0){
                 var fornum=json.data.length;
                 bgarr = json.data;

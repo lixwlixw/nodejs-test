@@ -1,63 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var http = require('http'); 
+var http = require('http');
 
 router.get('/', function(req, res, next) {
  	res.render('index');
 });
-
-//需求列表
-router.get('/rqselects', function(req, res, next) {
-	var type="";
-	res.render('rqselects',{type:type,title:'需求列表_广数交'});
-});
-
-//需求详情
-router.get('/rqselects/:gid', function(req, res, next) {
-	var gid=req.params.gid;
-	res.render('rqdetails',{gid:gid,title:'需求详情_广数交'});
-});
-
-//单个需求详情
-router.get('/singlerqselects/:gid', function(req, res, next) {
-	var gid=req.params.gid;
-	res.render('singlerqdetails',{gid:gid,title:'需求详情_广数交'});
-});
-//需求类型跳转
-router.get('/rqselects/type/:type', function(req, res, next) {
-	var type=req.params.type;
-	res.render('rqselects',{type:type,title:'需求_长江大数据'});
-});
-
-
-
-//新闻资讯列表
-router.get('/newsSelects', function(req, res, next) {
-	var type="";
-	res.render('newsSelects',{type:type,title:'新闻资讯列表_广数交'});
-});
-
-//新闻资讯详情
-router.get('/newsSelects/:gid', function(req, res, next) {
-	var gid=req.params.gid;
-	res.render('newsDetails',{gid:gid,title:'新闻资讯详情_广数交'});
-});
-
-//新闻资讯类型跳转
-router.get('/newsSelects/type/:type', function(req, res, next) {
-	var type=req.params.type;
-	res.render('newsSelects',{type:type,title:'新闻资讯列表_广数交'});
-});
-
-//广州数据精选
-router.get('/gzselects', function(req, res, next) {
-	var type="";
-	res.render('gzselects',{type:type,title:'数据精选_广数交'});
-});
-//广州数据精选
-router.get('/gzselects/:gid', function(req, res, next) {
-	var gid=req.params.gid;
-	res.render('gzdetails',{gid:gid,title:'精选分类详情_广数交'});
+router.get('/indexNew', function(req, res, next) {
+	res.render('indexNew');
 });
 
 //激活邮件
@@ -67,30 +16,18 @@ router.get('/regmessage/:loginname/:vid', function(req, res, next) {
 	res.render('regmessage',{loginname:loginname,vid:vid,title:'regmessage.datahub'});
 });
 
-//关于我们
-router.get('/abouts', function(req, res, next) {
-	res.render('abouts', {title: '关于我们_广数交' });
-});
-//活动1
-router.get('/activity1', function(req, res, next) {
-	res.render('activity1', {title: '大数据论坛和活动_广数交' });
-});
-//联系我们
-router.get('/contact', function(req, res, next) {
-	res.render('contact', {title: '联系我们_广数交' });
-});
-//帮助中心
-router.get('/help', function(req, res, next) {
-	res.render('help', {title: '帮助_广数交' });
-});
-
 //数据精选
 router.get('/selects', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('mobile/selectsPhone.html');
 	}else{
-		res.render('selects', {selectsType:'' ,title: '数据精选_广数交' });
+		res.render('selects', {selectsType:'' ,title: 'select.datahub' });
 	}
+});
+
+//数据精选
+router.get('/selectsNew', function(req, res, next) {
+		res.render('selectsNew', {selectsType:'' ,title: 'select.datahub' });
 });
 //数据精选
 router.get('/selects/:selectsType', function(req, res, next) {
@@ -140,10 +77,13 @@ router.get('/selects/:selectsType', function(req, res, next) {
 			//11
 			selectsType=encodeURIComponent("竞赛数据");
 		}
-
+		if(selectsType=="api"){
+			//11
+			selectsType=encodeURIComponent("API");
+		}
 		res.redirect('/mobile/selectsPhone.html?type='+selectsType);
 	}else{
-		res.render('selects', { selectsType:selectsType,title: '数据精选_广数交' });
+		res.render('selects', { selectsType:selectsType,title: 'select.datahub' });
 	}
 });
 //数据精选左侧导航
@@ -162,7 +102,7 @@ router.get('/itemdet/:reponame/:itemname', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('/mobile/itemDetailsPhone.html?repname='+reponame+'&itemname='+itemname);
 	}else{
-		res.render('itemdetails',{reponame:reponame,itemname:itemname,discuss:'',title:reponame+"/"+itemname+'_广数交'});
+		res.render('itemdetails',{reponame:reponame,itemname:itemname,discuss:'',title:reponame+"/"+itemname+'.datahub'});
 	}	
 });
 //item详情
@@ -173,16 +113,25 @@ router.get('/itemdet/:reponame/:itemname/:discuss', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('/mobile/itemDetailsPhone.html?repname='+reponame+'&itemname='+itemname+"&discuss="+discuss);
 	}else{
-		res.render('itemdetails',{reponame:reponame,itemname:itemname,discuss:discuss,title:reponame+"/"+itemname+'_广数交'});
+		res.render('itemdetails',{reponame:reponame,itemname:itemname,discuss:discuss,title:reponame+"/"+itemname+'.datahub'});
 	}	
 });
 //repo详情
-router.get('/repodet/:thisReponame', function(req, res, next) {	
+router.get('/repodetNew/:thisReponame', function(req, res, next) {
+	var thisReponame=req.params.thisReponame;
+	if(agent(req)){
+		res.redirect('/mobile/repDetailsPhone.html?repname='+thisReponame);
+	}else{
+		res.render('repodetailsNew',{ thisReponame:thisReponame,title:thisReponame+'.datahub' });
+	}
+});
+//repo详情
+router.get('/repodet/:thisReponame', function(req, res, next) {
 	var thisReponame=req.params.thisReponame;
 	if(agent(req)){
 		res.redirect('/mobile/repDetailsPhone.html?repname='+thisReponame);		
 	}else{
-		res.render('repodetails',{ thisReponame:thisReponame,title:thisReponame+'_广数交' });
+		res.render('repodetails',{ thisReponame:thisReponame,title:thisReponame+'.datahub' });
 	}
 });
 //拥有方详情
@@ -191,7 +140,7 @@ router.get('/userdet/:snames', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('/mobile/dataOfDetailsPhone.html?username='+snames+"&type=type");		
 	}else{
-		res.render('userdetails', { sname:snames,title:snames+'_广数交' });
+		res.render('userdetails', { sname:snames,title:snames+'.datahub' });
 	}
 });
 //搜索结果
@@ -199,7 +148,7 @@ router.get('/search', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('/mobile/searchPhone.html');
 	}else{
-		res.render('search', { sname:"",title:'搜索结果_广数交' });
+		res.render('search', { sname:"",title:'search.DataHub' });
 	}	
 });
 //搜索结果
@@ -210,23 +159,28 @@ router.get('/search/:snames', function(req, res, next) {
 	if(agent(req)){
 		res.redirect('/mobile/searchPhone.html?rtext='+snames);
 	}else{
-		res.render('search', { sname:snames,title:'搜索结果_广数交' });
+		res.render('search', { sname:snames,title:'search.DataHub' });
 	}
 });
 //监控中心
 router.get('/monitor', function(req, res, next) {
-	res.render('monitor',{ title:'监控中心_广数交' });
+	res.render('monitor',{ title:'monitor.DataHub' });
 });
 //忘记密码
 router.get('/forgetpw/:tname/:resetId', function(req, res, next) {
 	var tname=req.params.tname;
 	var resetId=req.params.resetId;
-	res.render('forgetpw',{tname:tname,resetId:resetId,title:'忘记密码_广数交'});
+	res.render('forgetpw',{tname:tname,resetId:resetId,title:'forgetpw.DataHub'});
+});
+//测试
+router.get('/copyTest', function(req, res, next) {
+ 	res.render('copyTest',{title:'DataHub'});
 });
 //测试
 router.get('/test', function(req, res, next) {
- 	res.render('test',{title:'GZBDEX'});
+	res.render('test',{title:'DataHub'});
 });
+//D:\localrepo\datahub_web_new\views\copyTest.html
 //测试
 router.get('/test1', function(req, res, next) {
 	res.render('publicRepoList');
@@ -241,10 +195,20 @@ router.get('/model/:names/:rnames', function(req, res, next) {
 });
 //工具页面
 router.get('/clientDownload', function(req, res, next) {
-	res.render('clientDownload',{title:'clientDownload.GZBDEX' });
+	res.render('clientDownload',{title:'clientDownload.DataHub' });
 });
+
 router.get('/clientToolDownload', function(req, res, next) {
-	res.render('clientToolDownload',{title:'工具_广数交' });
+	res.render('clientToolDownload',{title:'clientToolDownload.DataHub' });
+});
+
+//平台介绍
+router.get('/platform', function(req, res, next) {
+	res.render('platform',{title:'DataHub'});
+});
+//关于我们
+router.get('/aboutUS', function(req, res, next) {
+	res.render('aboutUS',{title:'DataHub'});
 });
 
 
@@ -258,104 +222,113 @@ router.get('/my/*',function(req,res,next){
 });
 //个人中心--会员升级
 router.get('/my/member', function(req, res, next) {
-	res.render('memberupgrade',{title:'会员升级_广数交' });
+	res.render('memberupgrade',{title:'member.DataHub' });
 });
 //个人中心--修改密码
 router.get('/my/pwd',function(req,res,next){
-	res.render('pwd',{title:'修改密码_广数交' });
+	res.render('pwd',{title:'pwd.DataHub' });
 });
 //个人中心--基本信息
+//router.get('/my/basicInfo',function(req,res,next){
+//	res.render('basicInfo',{title:'basicInfo.DataHub' });
+//});
 router.get('/my/basicInfovue',function(req,res,next){
-	res.render('basicInfovue',{title:'基本信息_广数交' });
+	res.render('basicInfovue',{title:'basicInfo.DataHub' });
 });
 //个人中心--账务中心
 router.get('/my/myaccount', function(req, res, next) {
-	res.render('myaccount', {title:'账务中心_广数交' });
+	res.render('myaccount', {title:'myaccount.DataHub' });
 });
 // 我的发布Item列表
 router.get('/my/items/:snames', function(req, res, next) {
 	var snames=req.params.snames;
-	res.render('myItems', { sname:snames,title:'我的发布_广数交' });
+	res.render('myItems', { sname:snames,title:'myItems.DataHub' });
 });
 //pull记录、账务中心、我的订单组件模板
 router.get('/my/queriesList', function(req, res, next) {
-	res.render('queriesList', {title:'我的订单_广数交' });
+	res.render('queriesList', {title:'queriesList.DataHub' });
 });
 
 //我的发布
 router.get('/my/publish', function(req, res, next) {
-	res.render('mypublish',{myOrder:'',title:'我的发布_广数交' });
+	res.render('mypublish',{myOrder:'',title:'pub.DataHub' });
 });
 //我的发布
 router.get('/my/publish/:myOrder', function(req, res, next) {
 	var myOrder=req.params.myOrder;
-	res.render('mypublish',{myOrder:myOrder,title:'我的发布_广数交' });
+	res.render('mypublish',{myOrder:myOrder,title:'pub.DataHub' });
 });
-//我的订购
+//我的发布
 router.get('/my/mysub', function(req, res, next) {
-	res.render('mysubscribe',{title:'我的订购_广数交' });
+	res.render('mysubscribe',{title:'pub.DataHub' });
 });
-
 //我的发布item
 router.get('/my/itemDetails/:repnames/:itemnames', function(req, res, next) {
 	var repnames=req.params.repnames;
 	var itemnames=req.params.itemnames;
-	res.render('myitemDetails',{repnames:repnames,itemnames:itemnames,title:'我的发布_广数交' });
+	res.render('myitemDetails',{repnames:repnames,itemnames:itemnames,title:'pub.DataHub' });
 });
 //markdown编辑
 router.get('/my/mark/:rep/:item/:type', function(req, res, next) {
 	var rep=req.params.rep;
 	var item=req.params.item;
 	var type=req.params.type;
-	res.render('mymark',{rep:rep,item:item,type:type,title:'mark.GZBDEX' });
+	res.render('mymark',{rep:rep,item:item,type:type,title:'mark.DataHub' });
 });
 //消息中心
 router.get('/my/msgreq', function(req, res, next) {
-	res.render('mymsgreq',{title:'消息中心_广数交' });
+	res.render('mymsgreq',{title:'message.DataHub' });
 });
-//认证
-//router.get('/my/ca', function(req, res, next) {
-//	res.render('certificateCenter',{title:'certificateCenter.GZBDEX' });
-//});
-//router.get('/my/comCertify', function(req, res, next) {
-//	res.render('companycertify',{title:'companycertify.GZBDEX' });
-//});
 
 //认证中心
 router.get('/my/ca', function(req, res, next) {
-	res.render('certificateCenter',{title:'认证中心_广数交' });
+	res.render('certificateCenter',{title:'certificateCenter.DataHub' });
 });
 //企业认证
 router.get('/my/comCertify', function(req, res, next) {
-	res.render('companycertify',{title:'企业认证_广数交' });
+	res.render('companycertify',{title:'companycertify.DataHub' });
 });
 //企业认证new
 router.get('/my/comCertifyNew', function(req, res, next) {
-	res.render('companycertifynew',{title:'企业认证_广数交' });
+	res.render('companycertifynew',{title:'companycertify.DataHub' });
 });
 //个人认证
 router.get('/my/personCertify', function(req, res, next) {
-	res.render('personcertify',{title:'个人认证_广数交' });
+	res.render('personcertify',{title:'personcertify.DataHub' });
 });
-
-
 //注册
 router.get('/reg', function(req, res, next) {
-//	var sregion = process.env.REGION || "" ;
-//	
-//	console.log("test-----"+sregion+"-----test");
-	var sregion="GZ";
-	if(sregion==""){
-		res.render('reg',{title:'注册_广数交',sregion:"" });
-	}else{
-		res.render('reg',{title:'注册_广数交',sregion:sregion });
-	}
 
+	var sregion = process.env.REGION || "" ;
+	if(sregion==""){
+		res.render('register',{title:'register.DataHub',sregion:"" });
+	}else{
+		res.render('register',{title:'register.DataHub',sregion:sregion });
+	}
 });
+//激活邮件
+router.get('/regmessage/:loginname/:vid', function(req, res, next) {
+	var loginname=req.params.loginname;
+	var vid=req.params.vid;
+	res.render('regmessage',{loginname:loginname,vid:vid,title:'regmessage.datahub'});
+});
+
+//激活邮件
+router.get('/sendemail', function(req, res, next) {
+	var loginname=req.params.loginname;
+	var vid=req.params.vid;
+	res.render('sendEMail',{title:'sendEMail.datahub'});
+});
+
 
 router.get('*', function (req, res) {
 	res.render('error', { title: '，请重新输入地址' });
 });
+
+
+
+
+
 
 
 var agent=function(req){
