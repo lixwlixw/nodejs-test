@@ -1,0 +1,99 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/module/companyCertify.css" />') %>
+<% block('js').append('<script src="/js/pagescript/companyCertify.js"></script>') %>
+
+<!--D:\localrepo\datahub_web_new\views\companyCertify.html-->
+<div class="companyCertify">
+    <div class="cc_title">
+        <p>认证中心</p>
+        <p>便于您能快速发布数据数据资源、数据需求等</p>
+    </div>
+    <div class="cc_content">
+        <div class="cc_content">
+            <ul class="nav nav-tabs">
+                <li @click="liEvent" class="li_one selected">
+                    1 填写企业信息
+                </li>
+                <li @click="liEvent" class="li_two">
+                    2 填写法人信息
+                </li>
+                <li @click="liEvent" class="li_three">
+                    3 填写联系人信息
+                </li>
+                <li @click="liEvent" class="li_four">
+                    4 填写银行账号信息
+                </li>
+                <li @click="liEvent" class="li_five" style="width: 94px;">
+                    5 等待审核
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <component :data="list" :datas="lists" :is="currentView" transition="fade" transition-mode="out-in" keep-alive></component>
+                </div>
+            </div>
+        </div>
+       <!-- <div class="loading">
+            <p>
+                加载中...
+            </p>
+        </div>-->
+    </div>
+</div>
+<template id="view1">
+
+    <div class="view1">
+        <p class="view1_title">企业基本信息</p>
+        <div class="form-group">
+            <label for="comName">公司名称<span>*</span></label>
+            <input  type="email" v-model="" class="form-control " id="comName" placeholder="">
+
+            <label for="comAddress">公司地址<span>*</span></label>
+            <input  type="email" v-model="" class="form-control " id="comAddress" placeholder="">
+
+            <label for="regNumber">营业执照注册号<span>*</span></label>
+            <input  type="email" v-model="" class="form-control " id="regNumber" placeholder="">
+            <div class="part-group">
+                <label>营业执照扫描件<span>*</span></label>
+                <div class="col-lg-6" style="padding: 0;width: 600px; float: none;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" style="width: 500px;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" style="width:100px;">选择文件</button>
+                        </span>
+                    </div>
+                    <span>图片大小1M以内，支持PNG/JPG格式</span>
+                </div>
+            </div>
+            <div>
+                <label for="orgCode">组织机构代码</label>
+                <input  type="email" v-model="" class="form-control " id="orgCode" placeholder="">
+            </div>
+            <div class="part-group">
+                <label>组织机构代码扫描件<span>*</span></label>
+                <div class="col-lg-6" style="padding: 0;width: 600px; float: none;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" style="width: 500px;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" style="width:100px;">选择文件</button>
+                        </span>
+                    </div>
+                    <span>图片大小1M以内，支持PNG/JPG格式</span>
+                </div>
+            </div>
+        </div>
+        <div class="nextStepBtn">下一步</div>
+    </div>
+</template>
+<template id="view2">
+    <span></span>
+</template>
+<template id="view3">
+    <span></span>
+</template>
+<template id="view4">
+    <span></span>
+</template>
+<template id="view5">
+    <span></span>
+</template>

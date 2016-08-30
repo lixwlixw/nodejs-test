@@ -1,0 +1,10 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/include/nav.css" />') %>
+<% block('js').append('<script src="/js/widget/nav.js"></script>') %>
+
+<div class="m-navselect">
+    <ul>
+        <!--<li v-for="name in obj" class="li{{$index}}"><img src="{{name.icon}}"/><span v-text="name.labelname"></span></li>-->
+        <li v-for="name in obj" class="li0{{$index}}"><span v-text="name.labelname"></span></li>
+    </ul>
+</div>

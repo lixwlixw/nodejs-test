@@ -1,0 +1,61 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/module/mysubscribe.css"/>') %>
+<% block('css').append('<link rel="stylesheet" href="/public/plugin/pagination/pagination.css"/>') %>
+<% block('js').append('<script src="/plugin/pagination/jquery.pagination.js"></script>')%>
+<% block('js').append('<script src="/js/clipboard.min.js"></script>') %>
+<% block('js').append('<script src="/plugin/md5.js"></script>') %>
+<% block('js').append('<script src="/plugin/base64.js"></script>') %>
+<% block('js').append('<script src="/js/pagescript/apiKey.js"></script>') %>
+<% block('js').append('<script src="/js/pagescript/mysubscribe.js"></script>') %>
+
+<div class="container" style="padding:0px; margin-top:40px; margin-bottom:0px;">
+    <div class="top_nav">
+        <div class="topanvcon cur">
+            我的订购
+        </div>
+        <div class="topanvcon">下载记录</div>
+    </div>
+    <div class="dataitem">
+        <p>订购量:<span id="itemnum"></span></p>
+    </div>
+    <ul class="mypushcomment">
+        <li>
+
+            <div id="terminal-content-body" style="float:left; width: 100%;"></div>
+            <div class="pages"></div>
+        </li>
+        <li>
+            <div id="pull-head">下载量:<b></b></div>
+            <div id="pull-title">
+                <span>时间</span>
+                <span>Tag名称</span>
+                <span>数据类型</span>
+                <span>DataItem名称</span>
+                <span>Repository名称</span>
+            </div>
+            <div id="pull-body">
+
+            </div>
+            <div class="pullpages"></div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="modal fade getKey">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <p class="modal-title">获取apitoken</p>
+            </div>
+            <div class="modal-body">
+                <p>apitoken</p>
+                <input type="text" class="form-control apiKeyInfo" readonly="readonly" id="keyContent">
+                <div class="apiKeyCopy">
+                    <input id="copyKey" type="button" data-clipboard-action="copy" data-clipboard-target="#keyContent" value="复制">
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

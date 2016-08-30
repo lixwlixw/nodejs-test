@@ -1,0 +1,114 @@
+<% layout('tpl/layout.html') -%>
+<% block('js').append('<script src="/js/widget/testcom.js"></script>')%>
+<% block('js').append('<script src="/js/widget/test.js"></script>')%>
+<!-- <div class="123">
+	<test></test>
+</div> -->
+
+<!-- <div id="app">
+  {{ message }}
+  <t1 a={{msg.a}}></t1>
+  {{msg}}
+  <t1 a={{msg.s1}}></t1>
+  <t2></t2>
+</div>
+
+
+<t1></t1>
+<t2></t2>
+<t3></t3> 
+
+<div class="table-content">
+            <div class="table-row" v-for="item in tableContent  | filterBy filterKey in 'a' | orderBy 'a' soryKey">
+                <div class="table-cell">{{item.a}}</div>
+                <div class="table-cell">{{item.b}}</div>
+                <div class="table-cell">{{item.c}}</div>
+                <div class="table-cell">{{item.d}}</div>
+            </div>
+        </div>
+-->
+
+
+<div id="t">
+	<t2></t2>
+</div>
+
+
+
+
+
+ <div id="example">
+        <form id="search">
+            Search <input name="query" v-model="searchQuery"/>
+        </form>
+        
+        <demo-grid :table-header=gridHeader :test1=test1 ></demo-grid>
+    </div>
+    
+    <script type="text/x-template" id="grid-template">
+        <ul class="table-header">
+            <li class="table-cell" v-for="item in tableHeader">{{item}}</li>
+			{{test1.a}}
+			{{test1.b}}
+        </ul>
+        
+    </script>
+
+ <script type="text/x-template" id="t2">
+        <span>t2t2t2</span>
+ </script>
+ 
+ <div id="s1">
+ 	{{msg}}
+ 	
+ 	<button id="insert" @click="insert">添加</button>
+<!-- 	<div v-for="item in items">
+		<template v-if="item[1]=='1'">
+			<input value='测试'></input>
+		</template>
+		<template v-else>
+			<span>测试</span>
+		</template>
+		
+		<button @click="del" mark= {{$index}}>删除</button>
+		<button @click="haha">哈哈</button>
+		<button @click="update" mark={{$index}}>变</button>
+	</div> -->
+	<div v-for="item in ttt.data">
+		<template v-if="ss[$index][1]=='1'">
+			<input value='{{item.labelname}}'></input>
+		</template>
+		<template v-else>
+			<span v-text=item.labelname></span>
+		</template>
+		<button @click="del" mark={{$index}}>删除</button>
+		<button @click="haha">哈哈</button>
+		<button @click="update" mark={{$index}}>变</button>
+	</div>
+	
+	  
+ </div>
+ 
+
+ 
+
+
+
+<!-- <div id="demo">
+<p>Child says: {{msg}}</p>
+<child-component send-message="{{onChildMsg}}"></child-component>
+</div> -->
+
+
+
+<div id="demo">
+			<the-parent></the-parent>
+			<!--<first-child></first-child>
+			<second-child :childmsg = "parentMsg"></second-child>-->
+		</div>
+
+
+
+
+
+

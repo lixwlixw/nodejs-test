@@ -1,0 +1,35 @@
+.g-selects-wrap{
+    margin-top: 45px;
+    float: right;
+    width:900px;
+}
+.g-selects-box{
+    /*float: left;*/
+}
+.sel-page{
+    float: right;
+}
+.u-selects-title{
+    color: #666666;
+    font-size: 27px;
+    margin-bottom: 30px;
+}
+/*分页样式*/
+.g-selects-wrap .sel-page a,.g-selects-wrap .sel-page span{
+    border-radius: 3px;
+    color:#666;
+    min-width: 1em;
+    border: 1px solid #e5e5e5;
+    padding: 0.5em 1em;
+}
+.pagination span.current{
+    color:#FFFFFF;
+    border: hidden;
+}
+
+/*鼠标点击样式*/
+.g-click{
+    color:#43609f !important;
+    font-weight: bold;
+    cursor:pointer;
+}

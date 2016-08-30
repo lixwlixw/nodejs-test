@@ -1,0 +1,85 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/module/rqdetails.css" />') %>
+<% block('js').append('<script src="/js/pagescript/singlerqdetails.js"></script>') %>
+<script>
+    var gid='<%=gid%>';
+</script>
+
+<div style="width: 940px;margin: 0px auto">
+    <div class="m-container">
+        <div class="m-one">
+            <!--<div class="m-one-left">-->
+                <!--<img :src='imgurltitle' style="width: 80px;height: 80px;float: left;margin: 20px;"/>-->
+            <!--</div>-->
+            <div class="m-one-right">
+                <div style="float: left;">
+                    <div class="m-title" style="float: left">{{datacon.demand_title}}</div>
+                    <div class="m-period" style="border: 1px solid darkgreen;color: darkgreen">{{datacon.demand_type}}</div>
+                </div>
+
+                <div class="m-hr"></div>
+                <div style="height: 60px;margin-top: 10px">
+                    <div class="m-kong">
+                        <img src="/img/newpic004.png" style="float: left;margin-top: 12px;margin-right: 10px"/>
+                        <span>{{datacon.pub_date | time}}</span>
+                    </div>
+                    <div class="m-kong">
+                        <template v-if="datacon.label1!=null">
+                            <div class="m-periodlabel" style="margin-left: 0px">{{datacon.label1}}</div>
+                        </template>
+                        <template v-if="datacon.label2!=null">
+                            <div class="m-periodlabel" style="border: 1px solid brown">{{datacon.label2}}</div>
+                        </template>
+                        <template v-if="datacon.label3!=null">
+                            <div class="m-periodlabel" style="border: 1px solid brown">{{datacon.label3}}</div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="m-two">
+            <div class="m-two-container">
+                <div class="m-two-row">
+                    <div class="m-two-row-left">数据交付方式</div>
+                    <div class="m-two-row-right">{{{datacon.delivery_mode}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">数据范围</div>
+                    <div class="m-two-row-right">{{{datacon.data_range}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">数据时效范围</div>
+                    <div class="m-two-row-right">{{{datacon.age_range}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">期望价格</div>
+                    <div class="m-two-row-right">{{{datacon.price}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">期望交付时间</div>
+                    <div class="m-two-row-right">{{{datacon.expected_time | time}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">需求描述</div>
+                    <div class="m-two-row-right">{{{datacon.demand_desc}}}</div>
+                </div>
+                <div class="m-two-row">
+                    <div class="m-two-row-left">应用场景</div>
+                    <div class="m-two-row-right">{{{datacon.app_scene}}}</div>
+                </div>
+                <div>
+                    <div class="m-two-row-left">合作洽谈</div>
+                    <div class="m-two-row-right">如需进一步了解与订购洽谈，请联系：
+                        <a href="mailto:service-cj@cjbigdata.com" style="color: blue;text-decoration: underline">service-cj@cjbigdata.com</a>
+                        <div style="line-height: 24px">联系人:{{datacon.bdex_contact}}</div>
+                        <div style="line-height: 24px">联系电话:{{datacon.contact_phone}}</div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
+    </div>
+</div>

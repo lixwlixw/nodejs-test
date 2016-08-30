@@ -1,0 +1,81 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/plugin/pagination/pagination.css"/>')%>
+<% block('js').append('<script src="/plugin/pagination/jquery.pagination.js"></script>') %>
+<% block('css').append('<link rel="stylesheet" href="/css/module/newsSelects.css">')%>
+<% block('js').append('<script src="/js/pagescript/newsSelects.js"></script>')%>
+
+
+<script>
+    var type='<%=type%>';
+</script>
+
+
+
+
+<div id="newsSelects" style="margin-top: 0px;padding: 0px" class="container">
+
+    <div class="m-navselect">
+        <ul>
+            <!--<li @click="type('all')"><span>全部分类</span></li>-->
+            <li @click="type('pro')"><span>行业新闻</span></li>
+            <li @click="type('sol')"><span>公司资讯</span></li>
+        </ul>
+    </div>
+
+    <div class="g-selects-wrap" style="position: relative;">
+        <div class="u-selects-title">{{selectstitle}}</div>
+        <div class="g-selects-box">
+
+            <div class="listBox" v-for="obj in datacon">
+
+                <div class="listLeftBox">
+                    <div class="listNameTitle">
+                        <a href="/newsSelects/{{obj.sys.id}}" title="" target="_blank">{{obj.fields.news_title | str_str}}</a>
+                        <div class="listlable">
+                            <span class="period">{{obj.fields.news_type}}</span>
+                        </div>
+                    </div>
+                        <template v-if="obj.fields.news_content1!=null">
+                            <div class="listComment"> {{obj.fields.news_content1 | str}}</div>
+                        </template>
+                        <template v-if="obj.fields.news_content1==null && obj.fields.news_content2!=null">
+                            <div class="listComment">{{obj.fields.news_content2 | str}}</div>
+                        </template>
+                    <div class="listbtIconWrop">
+                        <div class="listCursers">发布方:{{obj.fields.pub_media}}</div>
+                        <div class="listbtIcon">
+                            <img data-original-title="更新时间" class="tagsIcon"
+                                 src="/img/newpic004.png" data-toggle="tooltip"
+                                 datapalecement="top" title="">
+							<span class="listCursers"
+                                    data-original-title="2016-04-14 10:37:17" data-toggle="tooltip"
+                                    datapalecement="top" title="">发布时间:{{obj.fields.pub_date | time}}</span>
+                        </div>
+                        <div style="float: right;margin-right: 90px;">
+                            <template v-if="obj.fields.label1!=null">
+                                <span class="period1">{{obj.fields.label1}}</span>
+                            </template>
+                            <template v-if="obj.fields.label2!=null">
+                                <span class="period2">{{obj.fields.label2}}</span>
+                            </template>
+                            <template v-if="obj.fields.label3!=null">
+                                <span class="period3">{{obj.fields.label3}}</span>
+                            </template>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- loading -->
+        <div class="loading"></div>
+    </div>
+
+    <div class="page"></div>
+
+
+</div>
+
+

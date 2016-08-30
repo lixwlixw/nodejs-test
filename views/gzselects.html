@@ -1,0 +1,67 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/plugin/pagination/pagination.css"/>')%>
+<% block('js').append('<script src="/plugin/pagination/jquery.pagination.js"></script>') %>
+<% block('css').append('<link rel="stylesheet" href="/css/module/gzselects.css">')%>
+<% block('js').append('<script src="/js/pagescript/gzselects.js"></script>')%>
+<script>
+	var type='<%=type%>';
+</script>
+<div id="gzselects" style="margin-top: 0px">
+
+<div class="m-navselect">
+    <ul>
+        <!--<li @click="type('all')"><span>全部分类</span></li>-->
+        <li @click="type('pro')"><span>产品</span></li>
+        <li @click="type('sol')"><span>解决方案</span></li>
+    </ul>
+</div>
+	
+		<div class="g-selects-wrap" style="position: relative;">
+		<div class="u-selects-title">{{selectstitle}}</div>
+		<div class="g-selects-box">
+			
+			<div class="listBox" v-for="obj in datacon">
+
+				<div class="listLeftBox">
+					<div class="listNameTitle">
+						<a href="/gzselects/{{obj.sys.id}}" title="" target="_blank">{{obj.fields.solname}}</a>
+						<div class="listlable">
+							<span class="period">{{obj.fields.type}}</span>
+						</div>
+					</div>	
+					<div class="listComment">{{{obj.fields.soldesc}}}</div>
+					<div class="listbtIconWrop">
+						<div class="listCursers">发布方:{{obj.fields.comname}}</div>
+						<div class="listbtIcon">
+							<img data-original-title="更新时间" class="tagsIcon"
+								src="/img/newpic004.png" data-toggle="tooltip"
+								datapalecement="top" title="">
+							<span
+								data-original-title="2016-04-14 10:37:17" data-toggle="tooltip"
+								datapalecement="top" title="">{{obj.fields.pubdate | time}}</span>
+						</div>
+						<div style="float: right;margin-right: 90px;">
+							<template v-if="obj.fields.label1!=null && obj.fields.label1!=''">
+							  <span class="period1">{{obj.fields.label1}}</span>
+							</template>
+							<template v-if="obj.fields.label2!=null && obj.fields.label2!=''">
+							  <span class="period2">{{obj.fields.label2}}</span>
+							</template>
+							<template v-if="obj.fields.label3!=null && obj.fields.label3!=''">
+							  <span class="period3">{{obj.fields.label3}}</span>
+							</template>
+						</div>
+					</div>
+
+				</div>				
+				
+			</div>
+		
+		</div>
+		<!-- loading -->
+		<div class="loading"></div>
+	</div>
+	<div class="page"></div>
+
+</div>
+

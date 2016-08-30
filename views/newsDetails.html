@@ -1,0 +1,68 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/module/newsDetails.css" />') %>
+<% block('css').append('<link rel="stylesheet" href="/css/include/editormd.css" />') %>
+<% block('js').append('<script src="/plugin/marked.js"></script>') %>
+<% block('js').append('<script src="/js/pagescript/newsDetails.js"></script>') %>
+<script>
+    var gid='<%=gid%>';
+</script>
+
+<!--<div class="nav_two">-->
+    <!--<div class="nav_two_container">-->
+        <!--<div class="nav_two_container_title">-->
+            <!--<ul>-->
+                <!--<li class="nav_edge">产品&方案</li>-->
+                <!--<li class="nav_edge">项目信息</li>-->
+                <!--<li class="nav_edge">数据资源</li>-->
+                <!--<li>数据需求</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="nav_two_container_title">-->
+            <!--<div style="float: right;margin: 10px 0px 10px 50px;">-->
+                <!--<div class="nav_btn_if">搜索条件 <div class="arrow-down"></div></div>-->
+                <!--<input type="text" class="nav_input"/>-->
+                <!--<div class="nav_btn_search">搜索</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<div style="width: 940px;margin: 0px auto">
+    <div class="m-container">
+        <div style="float: left;">
+            <div class="m-title" style="float: left">{{datacon.news_title}}</div>
+            <div class="m-period" style="border: 1px solid darkgreen;color: darkgreen">{{datacon.news_type}}</div>
+        </div>
+        <div class="m-kong">
+            <span>发布时间:{{datacon.pub_date | time}}</span>
+            <span>发布媒体:{{datacon.pub_media}}</span>
+            <span>记者:{{datacon.reporter}}</span>
+        </div>
+        <div class="m-content">
+            <template v-if="datacon.news_content1!=null">
+                <div class="m-content-text">{{{datacon.news_content1}}}</div>
+            </template>
+            <template v-if="datacon.news_pic1!=null">
+                <div class="m-kuang"><img :src='imgurlpic1' style="max-width: 85%;margin:0px auto;"/></div>
+            </template>
+            <template v-if="datacon.news_content2!=null">
+                <div class="m-content-text">{{{datacon.news_content2}}}</div>
+            </template>
+            <template v-if="datacon.news_pic2!=null">
+                <div class="m-kuang"><img :src='imgurlpic2' style="max-width: 85%;margin:0px auto;"/></div>
+            </template>
+            <template v-if="datacon.news_content3!=null">
+                <div class="m-content-text">{{{datacon.news_content3}}}</div>
+            </template>
+            <template v-if="datacon.news_pic3!=null">
+                <div class="m-kuang"><img :src='imgurlpic3' style="max-width: 85%;margin:0px auto;"/></div>
+            </template>
+            <template v-if="datacon.news_content4!=null">
+                <div class="m-content-text">{{{datacon.news_content4}}}</div>
+            </template>
+        </div>
+        <div style="float: left;width: 100%">新闻来源:{{datacon.news_source}}</div>
+        <div class="m-edit">责任编辑:{{datacon.news_editor}}</div>
+    </div>
+</div>

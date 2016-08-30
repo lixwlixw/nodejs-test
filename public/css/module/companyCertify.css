@@ -1,0 +1,104 @@
+body{
+    background-color: #f5f5f5;
+}
+.companyCertify{
+    margin: auto;
+    width:690px;
+    height:100%;
+    vertical-align: middle;
+    background-color: #ffffff;
+    margin-top: 100px;
+    padding: 30px 45px;
+    border-radius: 8px;
+}
+.cc_title{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #39589a;
+    margin-left: -15px;
+    width: 630px;
+}
+.cc_title > p:nth-child(1){
+    font-size: 20px;
+}
+.cc_title > p:nth-child(2){
+    font-size: 12px;
+}
+.cc_content .nav-tabs{
+    border-bottom: 1px solid #39589a;
+    width: 630px;
+    margin-left: -15px;
+}
+.nav-tabs li{
+    text-align: center;
+    height:45px;
+    line-height: 45px;
+    padding:0 10px;
+}
+.nav-tabs li:hover{
+    cursor: pointer;
+}
+.selected{
+    border-bottom: 4px solid #39589a;
+    font-weight: bold;
+    color:#39589a;
+}
+/*view1*/
+.view1_title{
+    font-size: 14px;
+    height: 40px;
+    line-height:40px;
+    font-weight: bold;
+    color:#666666;
+    border-bottom: 1px solid #c7c7c7;
+    margin:0px 0px 0px -15px;
+    width: 630px;
+    padding-left: 15px;
+}
+.form-group input{
+    height:40px;
+    background-color:#f9f9f9;
+}
+.form-group .part-group input{
+    width:500px;
+    display: inline-block;
+}
+.form-group .part-group button{
+    width:70px;
+    height: 40px;
+    vertical-align: middle;
+}
+.form-group label{
+    font-size:14px;
+    color: #333333;
+    /*font-weight: 300;*/
+    margin-top: 25px;
+    display: block;
+}
+.form-group label span{
+    color:#ea0c1d;
+    margin-left: 3px;
+    font-size: 13px;
+}
+.form-group span{
+    font-size:12px;
+    color: #333333;
+}
+.nextStepBtn{
+    background-color:#e3e3e3;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size:18px;
+    line-height: 40px;
+    color:#ffffff;
+    margin-top: 30px;
+}
+.nextStepBtnReady{
+    background-color:#29abe2 !important;
+}
+.nextStepBtnReady:hover{
+    background-color:#1998ce !important;
+
+
+}

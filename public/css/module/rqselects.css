@@ -1,0 +1,354 @@
+
+.nav_two{
+    width: 100%;
+    height: 45px;
+    background-color: #f1f1f1;
+}
+.nav_two_container{
+    width: 970px;
+    margin: 0px auto;
+}
+.nav_two_container_title{
+    float: left;
+    width: 470px;
+    height: 45px;
+}
+.nav_two_container_title ul{
+    /*width: 350px;*/
+    float: left;
+    line-height: 3px;
+    margin: 15px 0 15px 100px;
+
+}
+.nav_two_container_title ul li{
+    float: left;
+    font-family: '宋体';
+    font-size: 12px;
+    padding: 9px 12px;
+
+}
+.nav_edge{
+    border-right: 1px solid #000;
+    height: 5px;
+}
+.nav_btn_if{
+    width: 84px;
+    float: left;
+    text-align: center;
+    padding: 5px;
+    background-color: #eaeaea;
+    border: none;
+    font-family: '宋体';
+    font-size: 12px;
+}
+.nav_input{
+    width: 250px;
+    height: 26px;
+    float: left;
+    border: none
+}
+.nav_btn_search{
+    width: 80px;
+    float: left;
+    text-align: center;
+    padding: 5px;
+    background-color: #dfdfdf;
+    border: none;
+    font-family: '宋体';
+    font-size: 12px;
+}
+
+.g-selects-wrap {
+    float: left;
+    margin-left: 40px;
+    margin-top: 45px;
+    width: 870px;
+}
+.g-selects-box{
+    /*float: left;*/
+}
+.sel-page{
+    float: right;
+}
+.u-selects-title{
+    color: #666666;
+    font-size: 27px;
+    margin-bottom: 30px;
+}
+/*分页样式*/
+.g-selects-wrap .sel-page a,.g-selects-wrap .sel-page span{
+    border-radius: 3px;
+    color:#666;
+    min-width: 1em;
+    border: 1px solid #e5e5e5;
+    padding: 0.5em 1em;
+}
+.pagination span.current{
+    color:#FFFFFF;
+    border: hidden;
+}
+
+/*鼠标点击样式*/
+.g-click{
+    color:#43609f !important;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+
+.listBox{
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #c8c8c8;
+    border-top: 1px solid #c8c8c8;
+    margin-bottom: 60px;
+    padding: 0px 30px;
+}
+.listBox:hover {
+    background-color: #f4fbfe;
+    border-color: #f4fbfe;
+}
+.listLeftBox,.listRightBox{
+
+    overflow: hidden;
+}
+.listLeftBox{
+    width: 844px;
+    float: left;
+}
+.listRightBox{
+    width: 20%;
+}
+.listNameTitle{
+    overflow: hidden;
+    width: 100%;
+    color: #43609f;
+    padding-bottom: 25px;
+    padding-top: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listNameTitle a:link,.listNameTitle a:visited{
+    color: #43609f;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listComment{
+    width: 760px;
+    overflow: hidden;
+    color: #333333;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+.listbtIconWrop{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.listlable,.listbtIcon{
+    display:inline;
+}
+.listlable{
+    float: left;
+    width: 300px;
+    margin-top: 4px;
+}
+.listlable span {
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 5px;
+    padding: 3px 10px;
+}
+.listbtIcon{
+    float:left;
+    /*margin-left:8%;*/
+    width: 280px;
+    margin-right: 0px;
+}
+
+.listCursers{
+    float: left;
+    width: 240px;
+    color: #666666;
+    font-size: 12px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+.listCursers a:link,.listCursers a:visited{
+    color: #43609f;
+    font-size: 12px;
+}
+.listRightBox{
+    width: 20%;
+    overflow: hidden;
+    float: right;
+}
+.listPrice{
+
+    margin-bottom: 29px;
+    margin-top: 30px;
+}
+.listPrice span{
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+.freetype {
+    border: 2px solid #f49f12;
+    color: #f49f12;
+}
+.chargetype {
+    border: 2px solid #e5004f;
+    color: #e5004f;
+}
+.limitedfreetype {
+    border: 2px solid #e60012;
+    color: #e60012;
+}
+.iconGroup{
+    border-top: 1px solid #c8c8c8;
+    color: #b5b5b5;
+    float: left;
+    font-size: 12px;
+    width: 100%;
+}
+.like {
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+}
+.cart {
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+}
+.download {
+    float: left;
+    padding-top: 15px;
+    width: 50%;
+}
+.comment {
+    float: right;
+    padding-top: 15px;
+    width: 50%;
+}
+.like span, .cart span, .download span, .comment span {
+    margin-left: 20px;
+}
+.noborder{
+    border: none;
+}
+.tagsIcon {
+    /*margin-left: 60px;*/
+    margin-right: 5px;
+    float: left;
+}
+.period{
+    border: 1px solid #183884;
+    margin-left: 20px;
+}
+.period1 {
+    border-radius: 3px;
+    border: 1px solid #8fc31f;
+    font-size: 12px;
+    padding:3px 10px;
+}
+.period2 {
+    border-radius: 3px;
+    border: 1px solid #eb6877;
+    font-size: 12px;
+    padding:3px 10px;
+}
+.period3 {
+    border-radius: 3px;
+    border: 1px solid #f8b551;
+    font-size: 12px;
+    padding:3px 10px;
+}
+.thislabels {
+    border: 1px solid #666666;
+}
+.api {
+    border: 1px solid #eb6877;
+}
+.flotData {
+    border: 1px solid #f8b551;
+}
+.activeBOX{
+    width: 100%;
+    overflow: hidden;
+}
+.pagination a, .pagination span {
+    padding: 0.5em 1em;
+}
+.pagination a {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #666;
+}
+.pagination span.current {
+    background: #29abe2 none repeat scroll 0 0;
+    border-radius: 3px;
+}
+.pagination {
+    text-align: right;
+    width: 100%;
+}
+.pagination a, .pagination span {
+    display: inline;
+    float: none;
+}
+.repodetailsWrop{
+    width: 870px;
+    float: left;
+    overflow: hidden;
+}
+.dataOwnerListIcon{
+    margin-left:0px;
+}
+.dataOwnerIcon{
+    margin-left:0px;
+}
+
+.m-navselect{
+    width:180px;
+    margin: 45px 0px 45px 40px;
+    float: left
+}
+.m-navselect>ul{
+    border-top: 1px solid #748ab8;
+    padding: 0;
+}
+.m-navselect>ul>li{
+    border-bottom: 1px solid #748ab8;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+    color:#29abe2;
+    list-style-type:none;
+    padding-left: 20px;
+}
+.m-navselect>ul>li>span{
+    margin-left: 10px;
+}
+
+.loading{
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;height:100%;background-color: #fff; opacity:0.8;
+}
+
+.m-navselect ul li:hover{
+    cursor: pointer;
+    color: #43609f
+}

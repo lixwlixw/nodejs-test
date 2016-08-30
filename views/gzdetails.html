@@ -1,0 +1,131 @@
+<% layout('tpl/layout.html') -%>
+<% block('css').append('<link rel="stylesheet" href="/css/module/gzdetails.css" />') %>
+<% block('css').append('<link rel="stylesheet" href="/css/include/editormd.css" />') %>
+<% block('js').append('<script src="/plugin/marked.js"></script>') %>
+<% block('js').append('<script src="/js/pagescript/gzdetails.js"></script>') %>
+<script>
+    var gid='<%=gid%>';
+</script>
+<div class="m-container">
+    <div class="m-one">
+        <div class="m-one-left">
+        	<img :src='imgurltitle' style="width: 80px;height: 80px;float: left;margin: 20px;"/> 
+        </div>
+        <div class="m-one-right">
+            <div style="float: left;">
+                <div class="m-title" style="float: left">{{datacon.solname}}</div>
+                <div class="m-period" style="border: 1px solid darkgreen;color: darkgreen">{{datacon.type}}</div>
+            </div>
+
+                <div class="m-hr"></div>
+                <div style="height: 60px;margin-top: 10px">
+                    <div class="m-kong">
+                        <img src="/img/newpic004.png" />
+                        <!-- <span>{{datacon.pubdate | time}}</span> -->
+                        <span>{{time}}</span>
+                    </div>
+                    <div class="m-kong">
+                        <!--<span class="m-period" style="margin-left: 0px">数据清洗</span>-->
+                        <!--<span class="m-period" style="border: 1px solid brown">大数据</span>-->
+                        <template v-if="datacon.label1!=null && datacon.label1!=''">
+                        	<div class="m-periodlabel" style="margin-left: 0px">{{datacon.label1}}</div>
+                        </template>
+                        <template v-if="datacon.label2!=null && datacon.label2!=''">
+                        	<div class="m-periodlabel" style="border: 1px solid brown">{{datacon.label2}}</div>
+                        </template>
+                        <template v-if="datacon.label3!=null && datacon.label3!=''">
+                        	<div class="m-periodlabel" style="border: 1px solid brown">{{datacon.label3}}</div>
+                        </template>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="m-two">
+        <div class="m-title">介绍</div>
+        <div class="m-two-container">
+            <div class="m-two-row">
+                <div class="m-two-row-left">功能介绍</div>
+                <div class="m-two-row-right">{{{soldesc}}}</div>
+            </div>
+            <div class="m-two-row">
+                <div class="m-two-row-left">特点</div>
+                <div class="m-two-row-right">{{{feature}}}</div>
+            </div>
+            <div class="m-two-row">
+                <div class="m-two-row-left">适用范围</div>
+                <div class="m-two-row-right">{{{range}}}</div>
+            </div>
+            <div class="m-two-rows">
+                <div class="m-two-rows-left">应用场景或案例</div>
+                <div class="m-two-rows-right">
+                    <template v-if="datacon.case1!=null">
+                    	<template v-if="imgurlpic1!=null">
+							<div style="float: left;">
+		                    	<div class="m-two-rows-right-div-list">{{namechange}}</div>
+		                    	<div class="m-two-rows-right-div-list" style="margin-top: 0px;">{{{case1}}}</div>
+		                    	<div class="m-two-rows-right-div-kuang">
+		                    		<div class="miao">
+		                    			<img :src='imgurlpic1'/> 
+		                    		</div>	               	
+		                    	</div>
+		                    </div>
+	                    </template>
+	                    <template v-if="imgurlpic1two!=null">
+							<div style="float: left;">
+		                    	<div class="m-two-rows-right-div-kuang">
+		                    		<div class="miao">
+		                    			<img :src='imgurlpic1two'/> 
+		                    		</div>	               	
+		                    	</div>
+		                    </div>
+	                    </template>
+					</template>
+                    <template v-if="datacon.case2!=null">
+                    	<template v-if="imgurlpic2!=null">
+	                    	<div style="border-top: 1px solid #cacaca;float: left;">
+								<div class="m-two-rows-right-div-list">案例二</div>
+			                    <div class="m-two-rows-right-div-list">{{{case2}}}</div>
+			                    <div class="m-two-rows-right-div-kuang">
+		                    		<div class="miao">
+		                    			<img :src='imgurlpic2'/>  
+		                    		</div>	               	
+		                    	</div>
+			                    <div class="m-two-rows-right-div-kuang"></div>
+		                    </div>
+	                    </template>
+	                    <template v-if="imgurlpic2two!=null">
+	                    	<div style="float: left;">
+		                    	<div class="m-two-rows-right-div-kuang">
+		                    		<div class="miao">
+		                    			<img :src='imgurlpic2two'/> 
+		                    		</div>	               	
+		                    	</div>
+		                    </div>
+	                    </template>
+					</template>                 
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-three">
+        <div class="m-title" style="border-bottom: 1px solid #1d75b3;width: 100%;padding-bottom: 20px">公司简介</div>
+        <div class="m-three-container">
+            <div class="m-three-div" style="margin-top: 30px">{{{comdesc}}}</div>
+      		<template v-if="datacon.comdescpic!=null">
+	            <div class="m-three-kuang">
+	            	<div class="miao">
+		            	<img :src='imgurlcompic'/> 
+		            </div>	
+	            </div>
+			</template>
+            
+        </div>
+    </div>
+    <div class="m-four">
+        <div class="m-title"  style="border-bottom: 1px solid #1d75b3;width: 100%;padding-bottom: 20px;margin-bottom:0px;">合作洽谈</div>
+        <div class="m-four-container">
+            <div class="m-four-div">如需进一步了解与订购洽谈，请联系：<a href='mailto:{{datacon.busi}}' style="color: #183884">{{datacon.busi}}</a></div>
+        </div>
+    </div>
+</div>
